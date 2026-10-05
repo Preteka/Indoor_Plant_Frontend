@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article | GreenSpace Rentals Journal</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description"
+    content="Read expert insights on office plant care, biophilic architectural design, and commercial greenery subscriptions.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              bg: '#F5F9F6',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Core Design System CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased transition-colors duration-300">
+
+  <!-- ==================== MOBILE SLIDE-IN NAVIGATION DRAWER ==================== -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer p-6 overflow-y-auto" aria-label="Mobile Navigation">
+    <div class="flex items-center justify-between pb-6 border-b border-emerald-900/10 dark:border-white/10">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <span class="font-heading font-bold text-lg text-[#17352D] dark:text-white">GreenSpace</span>
+      </div>
+      <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-[#17352D] dark:text-white focus:outline-none" aria-label="Close Navigation Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <nav class="py-6 flex flex-col gap-2">
+      <a href="index.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40">Home 1</a>
+      <a href="home-2.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40">Home 2</a>
+      <a href="about.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40">About Us</a>
+      <a href="services.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40">Services</a>
+      <a href="pricing.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40">Pricing</a>
+      <a href="blog.html" class="mobile-nav-link text-base font-semibold text-emerald-600 dark:text-emerald-400 py-2 px-3 rounded-lg bg-emerald-50 dark:bg-emerald-950/60">Blog</a>
+      <a href="contact.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40">Contact</a>
+      <a href="login.html" class="mobile-nav-link text-base font-semibold text-[#17352D] dark:text-white py-2 px-3 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 flex items-center gap-2">
+        <i data-lucide="user" class="w-4 h-4"></i>
+        <span>Login</span>
+      </a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-emerald-900/10 dark:border-white/10 flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-gray-500">Appearance</span>
+        <button class="theme-toggle-btn px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="moon" class="w-3.5 h-3.5 theme-toggle-icon"></i>
+          <span class="theme-toggle-text">Dark Mode</span>
+        </button>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-gray-500">Direction</span>
+        <button class="rtl-toggle-btn px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="align-right" class="w-3.5 h-3.5 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text">RTL</span>
+        </button>
+      </div>
+      <a href="contact.html" class="btn-primary w-full justify-center text-center mt-3">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <!-- ==================== HEADER & TOP NAV ==================== -->
+  <header class="relative bg-emerald-950 text-white overflow-hidden pt-6 pb-12">
+    <!-- Ambient Pattern Overlay -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+    <!-- Floating Pill Navigation (Matching Master Design) -->
+    <nav class="relative z-30 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Minimal Premium Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 text-white no-underline group focus:outline-none">
+        <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group-hover:scale-105 group-hover:border-emerald-400 transition-all shadow-lg overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-xl tracking-tight text-white flex items-center">
+            GreenSpace <span class="text-emerald-400 font-light ml-1.5 text-xs tracking-widest uppercase bg-white/10 px-2 py-0.5 rounded-full border border-white/20">Rentals</span>
+          </span>
+          <span class="text-[10px] text-emerald-200/80 tracking-widest uppercase font-medium">Offices & Events</span>
+        </div>
+      </a>
+
+      <!-- Center Pill Menu -->
+      <div class="hidden lg:flex items-center gap-1 bg-white/15 dark:bg-black/40 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-full px-5 py-2 shadow-2xl">
+        <a href="index.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 1</a>
+        <a href="home-2.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 2</a>
+        <a href="about.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">About Us</a>
+        <a href="services.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Services</a>
+        <a href="pricing.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Pricing</a>
+        <a href="blog.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white bg-white/25 shadow-sm">Blog</a>
+        <a href="contact.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Contact</a>
+      </div>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 z-30">
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle RTL/LTR" aria-label="Toggle Direction">
+          <i data-lucide="align-right" class="w-4 h-4 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text hidden sm:inline font-semibold">RTL</span>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button class="theme-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 theme-toggle-icon"></i>
+          <span class="theme-toggle-text hidden sm:inline font-medium text-xs">Dark</span>
+        </button>
+
+        <!-- Login / Profile -->
+        <a href="login.html" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-white text-[#17352D] font-bold text-xs hover:bg-emerald-50 transition-all shadow-xl">
+          <i data-lucide="user" class="w-3.5 h-3.5"></i>
+          <span>Login</span>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobileMenuToggle" class="lg:hidden p-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all focus:outline-none" aria-label="Open Navigation Menu" aria-expanded="false">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== BREADCRUMB STRIP ==================== -->
+  <div class="bg-[var(--surface)] border-b border-[var(--border)] py-3 px-4 sm:px-8">
+    <div class="site-container max-w-6xl mx-auto flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+      <a href="index.html" class="hover:text-emerald-600 transition-colors">Home</a>
+      <span>/</span>
+      <a href="blog.html" class="hover:text-emerald-600 transition-colors">Journal</a>
+      <span>/</span>
+      <span class="text-[#17352D] dark:text-white font-medium truncate max-w-xs sm:max-w-md">Article</span>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN DYNAMIC ARTICLE WRAPPER ==================== -->
+  <main id="articleMainContainer" class="py-12 sm:py-16">
+    <div class="site-container max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- 1. Dynamic Article Header Area -->
+      <header id="articleHeader" class="max-w-4xl mx-auto mb-8">
+        <!-- Injected via js/blog-details.js -->
+      </header>
+
+      <!-- 2. Dynamic Large Cover Image -->
+      <div id="articleCoverContainer" class="max-w-5xl mx-auto mb-12 sm:mb-16">
+        <!-- Injected via js/blog-details.js -->
+      </div>
+
+      <!-- 3. Desktop 70% / 30% Two-Zone Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        
+        <!-- Left: Long-Form Rich Article Content (Approx 70%) -->
+        <div class="lg:col-span-8">
+          <!-- Article HTML Body -->
+          <article id="articleBodyContent" class="prose prose-emerald max-w-none text-[#17352D] dark:text-[#F0F7F2]">
+            <!-- Injected via js/blog-details.js -->
+          </article>
+
+          <!-- Author Card at End of Article -->
+          <div id="articleAuthorCard" class="mt-14 pt-8 border-t border-[var(--border)]">
+            <!-- Injected via js/blog-details.js -->
+          </div>
+
+          <!-- Bottom Navigation Link back to Blog -->
+          <div class="mt-10 flex items-center justify-between">
+            <a href="blog.html" class="btn-glass text-xs sm:text-sm py-2.5 px-6 inline-flex items-center gap-2">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              <span>Back to All Articles</span>
+            </a>
+            <a href="contact.html" class="btn-primary text-xs sm:text-sm py-2.5 px-6 inline-flex items-center gap-2">
+              <span>Book Plant Consultation</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Sticky Editorial Sidebar (Approx 30%) -->
+        <aside class="lg:col-span-4 space-y-8 lg:sticky lg:top-24">
+          
+          <!-- Category List Card -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-md">
+            <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white mb-4 flex items-center gap-2 pb-3 border-b border-[var(--border)]">
+              <i data-lucide="folder" class="w-4 h-4 text-emerald-500"></i>
+              <span>Article Topics</span>
+            </h3>
+            <ul class="space-y-2 text-xs sm:text-sm">
+              <li>
+                <a href="blog.html" class="flex items-center justify-between p-2 rounded-xl text-[#4B5B47] dark:text-[#B6CEBE] hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 transition-colors">
+                  <span>Office Plants</span>
+                  <span class="text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog.html" class="flex items-center justify-between p-2 rounded-xl text-[#4B5B47] dark:text-[#B6CEBE] hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 transition-colors">
+                  <span>Plant Care</span>
+                  <span class="text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog.html" class="flex items-center justify-between p-2 rounded-xl text-[#4B5B47] dark:text-[#B6CEBE] hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 transition-colors">
+                  <span>Workplace Wellness</span>
+                  <span class="text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold">1</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog.html" class="flex items-center justify-between p-2 rounded-xl text-[#4B5B47] dark:text-[#B6CEBE] hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 transition-colors">
+                  <span>Events & Decor</span>
+                  <span class="text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold">1</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog.html" class="flex items-center justify-between p-2 rounded-xl text-[#4B5B47] dark:text-[#B6CEBE] hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 transition-colors">
+                  <span>Sustainability</span>
+                  <span class="text-xs bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold">1</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Recent Posts Card -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-md">
+            <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white mb-4 flex items-center gap-2 pb-3 border-b border-[var(--border)]">
+              <i data-lucide="sparkles" class="w-4 h-4 text-emerald-500"></i>
+              <span>Recent Articles</span>
+            </h3>
+            <div id="sidebarRecentPosts" class="space-y-2">
+              <!-- Injected via js/blog-details.js -->
+            </div>
+          </div>
+
+          <!-- Workplace Rental Quick Action Card -->
+          <div class="p-8 rounded-3xl bg-gradient-to-br from-emerald-800 to-[#07241C] text-white shadow-xl border border-emerald-500/30 text-center relative overflow-hidden">
+            <div class="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mx-auto mb-4 text-emerald-300">
+              <i data-lucide="sprout" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xl mb-2">Need Plants for Your Workplace?</h4>
+            <p class="text-xs sm:text-sm text-emerald-100/90 leading-relaxed mb-6">
+              Get an on-site biophilic consultation and customized plant rental quote in 24 hours.
+            </p>
+            <a href="contact.html" class="btn-primary text-xs sm:text-sm py-3 px-6 w-full justify-center bg-emerald-400 text-[#071B15] font-extrabold hover:bg-emerald-300 shadow-xl">
+              <span>Get a Free Quote</span>
+            </a>
+          </div>
+
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Invalid Article Fallback Container (Hidden by default) -->
+  <div id="articleNotFound" class="hidden"></div>
+
+  <!-- ==================== RELATED POSTS SECTION ==================== -->
+  <section class="py-20 sm:py-24 bg-white/60 dark:bg-[#0E1E19]/80 border-t border-[var(--border)]">
+    <div class="site-container max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex items-center justify-between mb-10 pb-4 border-b border-[var(--border)]">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">More Insights</div>
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-[#17352D] dark:text-white">
+            Related Articles
+          </h2>
+        </div>
+        <a href="blog.html" class="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 inline-flex items-center gap-1.5">
+          <span>View All Articles</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 3 Related Cards Grid -->
+      <div id="relatedPostsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Injected via js/blog-details.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA (EXACT HOME 1 CTA WITH FLOWER BLOOMING ANIMATION) ==================== -->
+  <section id="finalCtaSection" class="section-cta py-28 relative overflow-hidden text-white">
+    <!-- Ambient Sparkle Pattern -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#10B981_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+
+    <!-- LEFT BOTANICAL CLUSTER -->
+    <div class="cta-botanical-cluster cta-cluster-left pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-botanical-svg">
+        <defs>
+          <!-- Bioluminescent Stem Gradients -->
+          <linearGradient id="leftStemGrad1" x1="0%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#04261C"/>
+            <stop offset="45%" stop-color="#10B981"/>
+            <stop offset="90%" stop-color="#00D4AA"/>
+            <stop offset="100%" stop-color="#A7F3D0"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad2" x1="0%" y1="100%" x2="60%" y2="0%">
+            <stop offset="0%" stop-color="#073527"/>
+            <stop offset="55%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#6EE7B7"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad3" x1="0%" y1="100%" x2="40%" y2="0%">
+            <stop offset="0%" stop-color="#071B15"/>
+            <stop offset="60%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+
+          <!-- Flower Radial Ambient Glow Gradients -->
+          <radialGradient id="leftGlowMajor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5B84A" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#10B981" stop-opacity="0.45"/>
+            <stop offset="80%" stop-color="#00D4AA" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="leftGlowMinor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFEBA3" stop-opacity="0.75"/>
+            <stop offset="50%" stop-color="#34D399" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Leaf Fill Gradients -->
+          <linearGradient id="leftLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#073527"/>
+          </linearGradient>
+          <linearGradient id="leftLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#0B261E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- === STEM 1: Tall Graceful Primary Arch === -->
+        <path d="M 50 500 C 60 360, 40 200, 150 70" stroke="url(#leftStemGrad1)" stroke-width="4.5" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 0ms;"/>
+        
+        <!-- Stem 1 Leaves -->
+        <path d="M 52 380 C 15 360, 5 385, 20 400 C 45 405, 52 385, 52 380 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 300ms;"/>
+        <path d="M 50 310 C 85 290, 110 310, 95 328 C 70 335, 50 315, 50 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 450ms;"/>
+        <path d="M 48 230 C 10 210, 2 235, 18 250 C 42 255, 48 235, 48 230 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 75 160 C 115 140, 135 165, 120 180 C 95 185, 75 165, 75 160 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+        <path d="M 115 110 C 100 80, 75 90, 85 112 C 98 122, 115 115, 115 110 Z" fill="#6EE7B7" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 1 Primary Blossom Head at (150, 70) -->
+        <circle cx="150" cy="70" r="55" fill="url(#leftGlowMajor)" class="cta-bloom-glow" style="transition-delay: 850ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 150px 70px; transition-delay: 800ms;">
+          <!-- Outer Petals -->
+          <g class="cta-petal-outer" style="transition-delay: 920ms;">
+            <ellipse cx="150" cy="38" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="150" cy="102" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="118" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="182" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+          </g>
+          <!-- Middle Petals (Rotated 45deg) -->
+          <g class="cta-petal-middle" style="transition-delay: 1100ms;">
+            <ellipse cx="128" cy="48" rx="13" ry="22" transform="rotate(-45 128 48)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="48" rx="13" ry="22" transform="rotate(45 172 48)" fill="#FFF3B0"/>
+            <ellipse cx="128" cy="92" rx="13" ry="22" transform="rotate(45 128 92)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="92" rx="13" ry="22" transform="rotate(-45 172 92)" fill="#FFF3B0"/>
+          </g>
+          <!-- Inner Petals -->
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="150" cy="54" r="11" fill="#F5A623"/>
+            <circle cx="134" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="166" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="150" cy="86" r="11" fill="#F5A623"/>
+          </g>
+          <!-- Golden Bioluminescent Core -->
+          <circle cx="150" cy="70" r="12" fill="#FFF9D8" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="150" cy="70" r="7" fill="#F5B84A"/>
+          <circle cx="150" cy="70" r="3" fill="#FFFFFF"/>
+        </g>
+
+        <!-- === STEM 2: Mid Outward Sweeping Stem === -->
+        <path d="M 80 500 C 120 390, 190 310, 260 180" stroke="url(#leftStemGrad2)" stroke-width="3.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 200ms;"/>
+        
+        <!-- Stem 2 Leaves -->
+        <path d="M 125 390 C 160 370, 180 395, 165 410 C 140 415, 125 395, 125 390 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 500ms;"/>
+        <path d="M 160 310 C 130 290, 115 315, 128 328 C 150 332, 160 315, 160 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 650ms;"/>
+        <path d="M 215 235 C 255 215, 275 240, 260 252 C 235 258, 215 240, 215 235 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+
+        <!-- Stem 2 Blossom Head at (260, 180) -->
+        <circle cx="260" cy="180" r="44" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1050ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 260px 180px; transition-delay: 980ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1100ms;">
+            <circle cx="260" cy="154" r="14" fill="#F7F5E8"/>
+            <circle cx="234" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="286" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="260" cy="206" r="14" fill="#F7F5E8"/>
+          </g>
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="260" cy="166" r="10" fill="#FFEBA3"/>
+            <circle cx="246" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="274" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="260" cy="194" r="10" fill="#FFEBA3"/>
+          </g>
+          <circle cx="260" cy="180" r="10" fill="#F5A623" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="260" cy="180" r="5" fill="#FFFDF5"/>
+        </g>
+
+        <!-- === STEM 3: Lower Arching Branch === -->
+        <path d="M 30 500 C 40 430, 90 390, 130 300" stroke="url(#leftStemGrad3)" stroke-width="3.2" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 350ms;"/>
+        <path d="M 65 435 C 35 415, 20 438, 32 450 C 55 455, 65 440, 65 435 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 105 350 C 140 332, 155 355, 142 365 C 120 370, 105 355, 105 350 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+
+        <!-- Stem 3 Blossom at (130, 300) -->
+        <circle cx="130" cy="300" r="32" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1200ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 130px 300px; transition-delay: 1120ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1220ms;">
+            <ellipse cx="130" cy="284" rx="9" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="114" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="146" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="130" cy="316" rx="9" ry="14" fill="#FFFDF5"/>
+          </g>
+          <circle cx="130" cy="300" r="7" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1350ms;"/>
+        </g>
+
+        <!-- === STEM 4: Slender High Vine === -->
+        <path d="M 110 500 C 110 420, 30 300, 75 170" stroke="url(#leftStemGrad1)" stroke-width="2.6" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 450ms;"/>
+        <path d="M 70 330 C 40 315, 30 335, 42 345 C 62 350, 70 335, 70 330 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 700ms;"/>
+        <path d="M 52 240 C 22 225, 12 248, 25 258 C 45 262, 52 245, 52 240 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 4 Bud at (75, 170) -->
+        <circle cx="75" cy="170" r="24" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1250ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 75px 170px; transition-delay: 1200ms;">
+          <ellipse cx="75" cy="162" rx="7" ry="12" fill="#E8F3E8"/>
+          <ellipse cx="68" cy="174" rx="7" ry="10" transform="rotate(-30 68 174)" fill="#FFF3B0"/>
+          <ellipse cx="82" cy="174" rx="7" ry="10" transform="rotate(30 82 174)" fill="#FFF3B0"/>
+          <circle cx="75" cy="170" r="5" fill="#F5A623"/>
+        </g>
+
+        <!-- === STEM 5: Foreground Sprout Accent === -->
+        <path d="M 140 500 C 175 460, 215 410, 230 360" stroke="url(#leftStemGrad2)" stroke-width="2.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 550ms;"/>
+        <path d="M 175 440 C 205 425, 220 445, 208 455 C 190 460, 175 445, 175 440 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+        <circle cx="230" cy="360" r="6" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+
+        <!-- Bioluminescent Floating Spores / Pollen -->
+        <circle cx="140" cy="45" r="3.5" fill="#FFF9D8" class="cta-sparkle-dot" style="animation-delay: 1.2s;"/>
+        <circle cx="165" cy="30" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.7s;"/>
+        <circle cx="250" cy="150" r="3" fill="#FFE599" class="cta-sparkle-dot" style="animation-delay: 2.2s;"/>
+        <circle cx="280" cy="165" r="2" fill="#6EE7B7" class="cta-sparkle-dot" style="animation-delay: 2.8s;"/>
+        <circle cx="120" cy="275" r="2.5" fill="#FFFDF5" class="cta-sparkle-dot" style="animation-delay: 3.3s;"/>
+        <circle cx="65" cy="145" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.9s;"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT BOTANICAL CLUSTER -->
+    <div class="cta-botanical-cluster cta-cluster-right pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-botanical-svg">
+        <defs>
+          <!-- Bioluminescent Stem Gradients -->
+          <linearGradient id="leftStemGrad1" x1="0%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#04261C"/>
+            <stop offset="45%" stop-color="#10B981"/>
+            <stop offset="90%" stop-color="#00D4AA"/>
+            <stop offset="100%" stop-color="#A7F3D0"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad2" x1="0%" y1="100%" x2="60%" y2="0%">
+            <stop offset="0%" stop-color="#073527"/>
+            <stop offset="55%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#6EE7B7"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad3" x1="0%" y1="100%" x2="40%" y2="0%">
+            <stop offset="0%" stop-color="#071B15"/>
+            <stop offset="60%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+
+          <!-- Flower Radial Ambient Glow Gradients -->
+          <radialGradient id="leftGlowMajor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5B84A" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#10B981" stop-opacity="0.45"/>
+            <stop offset="80%" stop-color="#00D4AA" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="leftGlowMinor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFEBA3" stop-opacity="0.75"/>
+            <stop offset="50%" stop-color="#34D399" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Leaf Fill Gradients -->
+          <linearGradient id="leftLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#073527"/>
+          </linearGradient>
+          <linearGradient id="leftLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#0B261E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- === STEM 1: Tall Graceful Primary Arch === -->
+        <path d="M 50 500 C 60 360, 40 200, 150 70" stroke="url(#leftStemGrad1)" stroke-width="4.5" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 0ms;"/>
+        
+        <!-- Stem 1 Leaves -->
+        <path d="M 52 380 C 15 360, 5 385, 20 400 C 45 405, 52 385, 52 380 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 300ms;"/>
+        <path d="M 50 310 C 85 290, 110 310, 95 328 C 70 335, 50 315, 50 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 450ms;"/>
+        <path d="M 48 230 C 10 210, 2 235, 18 250 C 42 255, 48 235, 48 230 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 75 160 C 115 140, 135 165, 120 180 C 95 185, 75 165, 75 160 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+        <path d="M 115 110 C 100 80, 75 90, 85 112 C 98 122, 115 115, 115 110 Z" fill="#6EE7B7" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 1 Primary Blossom Head at (150, 70) -->
+        <circle cx="150" cy="70" r="55" fill="url(#leftGlowMajor)" class="cta-bloom-glow" style="transition-delay: 850ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 150px 70px; transition-delay: 800ms;">
+          <!-- Outer Petals -->
+          <g class="cta-petal-outer" style="transition-delay: 920ms;">
+            <ellipse cx="150" cy="38" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="150" cy="102" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="118" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="182" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+          </g>
+          <!-- Middle Petals (Rotated 45deg) -->
+          <g class="cta-petal-middle" style="transition-delay: 1100ms;">
+            <ellipse cx="128" cy="48" rx="13" ry="22" transform="rotate(-45 128 48)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="48" rx="13" ry="22" transform="rotate(45 172 48)" fill="#FFF3B0"/>
+            <ellipse cx="128" cy="92" rx="13" ry="22" transform="rotate(45 128 92)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="92" rx="13" ry="22" transform="rotate(-45 172 92)" fill="#FFF3B0"/>
+          </g>
+          <!-- Inner Petals -->
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="150" cy="54" r="11" fill="#F5A623"/>
+            <circle cx="134" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="166" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="150" cy="86" r="11" fill="#F5A623"/>
+          </g>
+          <!-- Golden Bioluminescent Core -->
+          <circle cx="150" cy="70" r="12" fill="#FFF9D8" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="150" cy="70" r="7" fill="#F5B84A"/>
+          <circle cx="150" cy="70" r="3" fill="#FFFFFF"/>
+        </g>
+
+        <!-- === STEM 2: Mid Outward Sweeping Stem === -->
+        <path d="M 80 500 C 120 390, 190 310, 260 180" stroke="url(#leftStemGrad2)" stroke-width="3.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 200ms;"/>
+        
+        <!-- Stem 2 Leaves -->
+        <path d="M 125 390 C 160 370, 180 395, 165 410 C 140 415, 125 395, 125 390 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 500ms;"/>
+        <path d="M 160 310 C 130 290, 115 315, 128 328 C 150 332, 160 315, 160 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 650ms;"/>
+        <path d="M 215 235 C 255 215, 275 240, 260 252 C 235 258, 215 240, 215 235 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+
+        <!-- Stem 2 Blossom Head at (260, 180) -->
+        <circle cx="260" cy="180" r="44" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1050ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 260px 180px; transition-delay: 980ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1100ms;">
+            <circle cx="260" cy="154" r="14" fill="#F7F5E8"/>
+            <circle cx="234" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="286" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="260" cy="206" r="14" fill="#F7F5E8"/>
+          </g>
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="260" cy="166" r="10" fill="#FFEBA3"/>
+            <circle cx="246" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="274" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="260" cy="194" r="10" fill="#FFEBA3"/>
+          </g>
+          <circle cx="260" cy="180" r="10" fill="#F5A623" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="260" cy="180" r="5" fill="#FFFDF5"/>
+        </g>
+
+        <!-- === STEM 3: Lower Arching Branch === -->
+        <path d="M 30 500 C 40 430, 90 390, 130 300" stroke="url(#leftStemGrad3)" stroke-width="3.2" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 350ms;"/>
+        <path d="M 65 435 C 35 415, 20 438, 32 450 C 55 455, 65 440, 65 435 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 105 350 C 140 332, 155 355, 142 365 C 120 370, 105 355, 105 350 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+
+        <!-- Stem 3 Blossom at (130, 300) -->
+        <circle cx="130" cy="300" r="32" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1200ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 130px 300px; transition-delay: 1120ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1220ms;">
+            <ellipse cx="130" cy="284" rx="9" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="114" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="146" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="130" cy="316" rx="9" ry="14" fill="#FFFDF5"/>
+          </g>
+          <circle cx="130" cy="300" r="7" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1350ms;"/>
+        </g>
+
+        <!-- === STEM 4: Slender High Vine === -->
+        <path d="M 110 500 C 110 420, 30 300, 75 170" stroke="url(#leftStemGrad1)" stroke-width="2.6" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 450ms;"/>
+        <path d="M 70 330 C 40 315, 30 335, 42 345 C 62 350, 70 335, 70 330 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 700ms;"/>
+        <path d="M 52 240 C 22 225, 12 248, 25 258 C 45 262, 52 245, 52 240 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 4 Bud at (75, 170) -->
+        <circle cx="75" cy="170" r="24" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1250ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 75px 170px; transition-delay: 1200ms;">
+          <ellipse cx="75" cy="162" rx="7" ry="12" fill="#E8F3E8"/>
+          <ellipse cx="68" cy="174" rx="7" ry="10" transform="rotate(-30 68 174)" fill="#FFF3B0"/>
+          <ellipse cx="82" cy="174" rx="7" ry="10" transform="rotate(30 82 174)" fill="#FFF3B0"/>
+          <circle cx="75" cy="170" r="5" fill="#F5A623"/>
+        </g>
+
+        <!-- === STEM 5: Foreground Sprout Accent === -->
+        <path d="M 140 500 C 175 460, 215 410, 230 360" stroke="url(#leftStemGrad2)" stroke-width="2.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 550ms;"/>
+        <path d="M 175 440 C 205 425, 220 445, 208 455 C 190 460, 175 445, 175 440 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+        <circle cx="230" cy="360" r="6" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+
+        <!-- Bioluminescent Floating Spores / Pollen -->
+        <circle cx="140" cy="45" r="3.5" fill="#FFF9D8" class="cta-sparkle-dot" style="animation-delay: 1.2s;"/>
+        <circle cx="165" cy="30" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.7s;"/>
+        <circle cx="250" cy="150" r="3" fill="#FFE599" class="cta-sparkle-dot" style="animation-delay: 2.2s;"/>
+        <circle cx="280" cy="165" r="2" fill="#6EE7B7" class="cta-sparkle-dot" style="animation-delay: 2.8s;"/>
+        <circle cx="120" cy="275" r="2.5" fill="#FFFDF5" class="cta-sparkle-dot" style="animation-delay: 3.3s;"/>
+        <circle cx="65" cy="145" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.9s;"/>
+      </svg>
+    </div>
+
+    <!-- CTA Content -->
+    <div class="site-container relative z-10 text-center max-w-3xl mx-auto px-4">
+      <div class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mx-auto mb-6 shadow-2xl animate-float p-2.5 overflow-hidden"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight mb-4 drop-shadow-md">
+        Ready to Grow a Greener Space?
+      </h2>
+      <p class="text-base sm:text-lg text-emerald-100/90 leading-relaxed mb-10 max-w-xl mx-auto drop-shadow">
+        Tell us about your workplace or event and let's create something beautiful together.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 relative z-20">
+        <a href="contact.html" class="btn-primary text-base py-3.5 px-9 bg-emerald-400 hover:bg-emerald-300 text-[#071B15] font-extrabold shadow-2xl">
+          <span>Get a Free Quote</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="contact.html" class="btn-glass text-base py-3.5 px-9 text-white border-white/40">
+          <span>Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER (EXACT HOME 1 MASTER FOOTER) ==================== -->
+  <footer class="bg-[#04100C] text-white pt-20 pb-12 border-t border-white/10 relative overflow-hidden">
+    <div class="site-container px-4 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+            <span class="font-heading font-bold text-xl tracking-tight text-white">
+              GreenSpace <span class="text-emerald-400 font-light text-sm tracking-widest uppercase">Rentals</span>
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 max-w-sm leading-relaxed">
+            Leading indoor plant rental and maintenance service for offices, venues, and events. Beautiful plants without the ownership hassle.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="font-heading font-bold text-sm text-white tracking-wider uppercase mb-4">Pages</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-emerald-400 transition-colors">Home 1</a></li>
+            <li><a href="home-2.html" class="hover:text-emerald-400 transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-emerald-400 transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-emerald-400 transition-colors">Pricing</a></li>
+            <li><a href="blog.html" class="text-emerald-400 font-semibold">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-emerald-400 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <h4 class="font-heading font-bold text-sm text-white tracking-wider uppercase mb-4">Plant Solutions</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Office Subscriptions</a></li>
+            <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Event Greenery</a></li>
+            <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Living Green Walls</a></li>
+            <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Biophilic Design</a></li>
+            <li><a href="services.html" class="hover:text-emerald-400 transition-colors">Plant Health Swaps</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact info -->
+        <div>
+          <h4 class="font-heading font-bold text-sm text-white tracking-wider uppercase mb-4">Contact Info</h4>
+          <ul class="space-y-3 text-xs sm:text-sm text-gray-400">
+            <li class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>100 Botanical Way, Suite 400</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>hello@greenspacerentals.com</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>+1 (800) 555-PLANT</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>
+          &copy; 2026 GreenSpace Rentals. All rights reserved. Choose your plants. We handle the rest.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-400">Terms of Service</a>
+          <a href="login.html" class="text-emerald-400 hover:text-emerald-300 font-medium">Portal Sign In</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog-data.js"></script>
+  <script src="js/blog-details.js"></script>
+</body>
+</html>

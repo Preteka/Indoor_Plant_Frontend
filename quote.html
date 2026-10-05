@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Free Quote | GreenSpace Rentals - Workplace & Event Plant Hire</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description" content="Request a personalized custom quote for office plant rentals, event greenery, installations, and ongoing care. Zero commitment until you approve.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              forest: '#071B15',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              cream: '#F7F2E8',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="antialiased transition-colors duration-300 bg-[var(--bg-primary)]">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
+
+  <!-- ==================== MOBILE SLIDE-IN NAVIGATION DRAWER ==================== -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-6 border-b border-[var(--border)]">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <span class="font-heading font-bold text-lg text-[var(--text-primary)]">GreenSpace</span>
+      </div>
+      <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-[var(--brand-soft)] text-[var(--text-primary)] focus:outline-none" aria-label="Close Navigation Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <nav class="py-6 flex flex-col gap-3">
+      <a href="index.html" class="mobile-nav-link text-base font-semibold text-emerald-600 dark:text-emerald-400 py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 1 – General</a>
+      <a href="home-2.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 2 – Niche-Specific</a>
+      <a href="about.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">About Us</a>
+      <a href="services.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Services</a>
+      <a href="pricing.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Pricing</a>
+      <a href="blog.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Blog</a>
+      <a href="contact.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Contact</a>
+      <a href="login.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)] flex items-center gap-2">
+        <i data-lucide="user" class="w-4 h-4"></i>
+        <span>Profile / Login</span>
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-[var(--text-muted)]">Appearance</span>
+        <button class="theme-toggle-btn px-3 py-1.5 rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="moon" class="w-3.5 h-3.5 theme-toggle-icon"></i>
+          <span class="theme-toggle-text">Dark Mode</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-[var(--text-muted)]">Direction</span>
+        <button class="rtl-toggle-btn px-3 py-1.5 rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="align-right" class="w-3.5 h-3.5 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text">RTL</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== TOP NAVIGATION ==================== -->
+  <header class="bg-[#071B15] text-white pt-6 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+    <!-- Floating Pill Navigation (Home 1 Master Reference) -->
+    <nav class="relative z-30 pt-6 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Minimal Premium Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 text-white no-underline group focus:outline-none">
+        <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group-hover:scale-105 group-hover:border-emerald-400 transition-all shadow-lg overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-xl tracking-tight text-white flex items-center">
+            GreenSpace <span class="text-emerald-400 font-light ml-1.5 text-xs tracking-widest uppercase bg-white/10 px-2 py-0.5 rounded-full border border-white/20">Rentals</span>
+          </span>
+          <span class="text-[10px] text-emerald-200/80 tracking-widest uppercase font-medium">Offices &amp; Events</span>
+        </div>
+      </a>
+
+      <!-- Center Pill Menu -->
+      <div class="hidden lg:flex items-center gap-1 bg-white/15 dark:bg-black/40 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-full px-5 py-2 shadow-2xl">
+        <a href="index.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 1</a>
+        <a href="home-2.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 2</a>
+        <a href="about.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">About Us</a>
+        <a href="services.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Services</a>
+        <a href="pricing.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Pricing</a>
+        <a href="blog.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Blog</a>
+        <a href="contact.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Contact</a>
+      </div>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 z-30">
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle RTL/LTR" aria-label="Toggle Direction">
+          <i data-lucide="align-right" class="w-4 h-4 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text hidden sm:inline font-semibold">RTL</span>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button class="theme-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 theme-toggle-icon"></i>
+          <span class="theme-toggle-text hidden sm:inline font-medium text-xs">Dark</span>
+        </button>
+
+        <!-- Login / Profile -->
+        <a href="login.html" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-white text-[#17352D] font-bold text-xs hover:bg-emerald-50 transition-all shadow-xl">
+          <i data-lucide="user" class="w-3.5 h-3.5"></i>
+          <span>Login</span>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobileMenuToggle" class="lg:hidden p-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all focus:outline-none" aria-label="Open Navigation Menu" aria-expanded="false">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="site-container relative z-20 text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
+        <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+        <span>BESPOKE GREENERY PROPOSAL</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-heading font-extrabold text-white tracking-tight mb-4">
+        Get a Free Quote & Consultation
+      </h1>
+      <p class="text-base sm:text-lg text-emerald-50/90 leading-relaxed max-w-2xl mx-auto">
+        Tell us about your workplace or event. We review your requirements and prepare a custom quotation with zero upfront payment required.
+      </p>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN QUOTE & BOOKING WORKFLOW ==================== -->
+  <main class="py-12 sm:py-20 -mt-10 relative z-30">
+    <div class="site-container max-w-4xl mx-auto">
+      
+      <!-- VIEW 1: REQUIREMENT FORM -->
+      <div id="quoteFormView" class="quote-form-card p-6 sm:p-10 md:p-12">
+        <div class="mb-8 pb-6 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2 text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase mb-2">
+            <i data-lucide="file-edit" class="w-4 h-4"></i>
+            <span>STEP 1 OF 3</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-[var(--text-primary)]">
+            Tell Us About Your Requirement
+          </h2>
+          <p class="text-sm text-[var(--text-secondary)] mt-1">
+            Fill in your contact and space details. You will review everything before final submission.
+          </p>
+        </div>
+
+        <form id="requirementForm" class="space-y-8" novalidate>
+          
+          <!-- Section A: Contact Details -->
+          <div>
+            <h3 class="text-base font-bold font-heading text-[var(--text-primary)] mb-4 flex items-center gap-2">
+              <i data-lucide="user-check" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+              <span>1. Contact Information</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="formCustName" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Full Name <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="formCustName" required placeholder="e.g. Preteka" class="custom-input">
+              </div>
+
+              <div>
+                <label for="formCustCompany" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Company / Organization
+                </label>
+                <input type="text" id="formCustCompany" placeholder="e.g. ABC Technologies" class="custom-input">
+              </div>
+
+              <div>
+                <label for="formCustEmail" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Email Address <span class="text-rose-500">*</span>
+                </label>
+                <input type="email" id="formCustEmail" required placeholder="customer@email.com" class="custom-input">
+              </div>
+
+              <div>
+                <label for="formCustPhone" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Phone Number <span class="text-rose-500">*</span>
+                </label>
+                <input type="tel" id="formCustPhone" required placeholder="+91 98765 43210" class="custom-input">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section B: Service Selection -->
+          <div class="pt-6 border-t border-[var(--border)]">
+            <h3 class="text-base font-bold font-heading text-[var(--text-primary)] mb-4 flex items-center gap-2">
+              <i data-lucide="sprout" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+              <span>2. Select Service</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <label class="quote-service-option selected flex items-start gap-3 p-4 rounded-2xl border border-[var(--border)] cursor-pointer" data-service="office-rental">
+                <input type="radio" name="selectedService" value="office-rental" checked class="mt-1">
+                <div>
+                  <h4 class="text-sm font-bold font-heading text-[var(--text-primary)]">Office Plant Rentals</h4>
+                  <p class="text-xs text-[var(--text-secondary)]">Workplace plants, designer planters & scheduled maintenance.</p>
+                </div>
+              </label>
+
+              <label class="quote-service-option flex items-start gap-3 p-4 rounded-2xl border border-[var(--border)] cursor-pointer" data-service="event-rental">
+                <input type="radio" name="selectedService" value="event-rental" class="mt-1">
+                <div>
+                  <h4 class="text-sm font-bold font-heading text-[var(--text-primary)]">Event Plant Rentals</h4>
+                  <p class="text-xs text-[var(--text-secondary)]">Short-term statement palms & backdrop staging for occasions.</p>
+                </div>
+              </label>
+
+              <label class="quote-service-option flex items-start gap-3 p-4 rounded-2xl border border-[var(--border)] cursor-pointer" data-service="installation">
+                <input type="radio" name="selectedService" value="installation" class="mt-1">
+                <div>
+                  <h4 class="text-sm font-bold font-heading text-[var(--text-primary)]">Plant Installation</h4>
+                  <p class="text-xs text-[var(--text-secondary)]">White-glove positioning, architectural anchoring & sub-irrigation.</p>
+                </div>
+              </label>
+
+              <label class="quote-service-option flex items-start gap-3 p-4 rounded-2xl border border-[var(--border)] cursor-pointer" data-service="maintenance">
+                <input type="radio" name="selectedService" value="maintenance" class="mt-1">
+                <div>
+                  <h4 class="text-sm font-bold font-heading text-[var(--text-primary)]">Plant Maintenance</h4>
+                  <p class="text-xs text-[var(--text-secondary)]">Scheduled watering, leaf polishing, health auditing & pruning.</p>
+                </div>
+              </label>
+
+              <label class="quote-service-option flex items-start gap-3 p-4 rounded-2xl border border-[var(--border)] cursor-pointer" data-service="health-check">
+                <input type="radio" name="selectedService" value="health-check" class="mt-1">
+                <div>
+                  <h4 class="text-sm font-bold font-heading text-[var(--text-primary)]">Plant Health Checks</h4>
+                  <p class="text-xs text-[var(--text-secondary)]">Pest diagnostics, soil testing & climate assessments.</p>
+                </div>
+              </label>
+
+              <label class="quote-service-option flex items-start gap-3 p-4 rounded-2xl border border-[var(--border)] cursor-pointer" data-service="replacement">
+                <input type="radio" name="selectedService" value="replacement" class="mt-1">
+                <div>
+                  <h4 class="text-sm font-bold font-heading text-[var(--text-primary)]">Plant Replacement</h4>
+                  <p class="text-xs text-[var(--text-secondary)]">Hassle-free swap-out for fresh nursery-grown specimen foliage.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Section C: Space & Requirement Details -->
+          <div class="pt-6 border-t border-[var(--border)]">
+            <h3 class="text-base font-bold font-heading text-[var(--text-primary)] mb-4 flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+              <span>3. Location & Space Specifications</span>
+            </h3>
+
+            <!-- Office Specific Fields -->
+            <div id="officeFieldsBlock" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="sm:col-span-2">
+                <label for="formLocation" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Workplace Location / City <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="formLocation" required placeholder="e.g. Coimbatore" value="Coimbatore" class="custom-input">
+              </div>
+
+              <div>
+                <label for="formSpaceType" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Space Type
+                </label>
+                <select id="formSpaceType" class="custom-select">
+                  <option value="Corporate Office">Corporate Office / Workspace</option>
+                  <option value="Executive Boardroom & Suites">Executive Boardroom & Suites</option>
+                  <option value="Lobby & Reception">Lobby & Reception Area</option>
+                  <option value="Co-Working Space">Co-Working Space</option>
+                  <option value="Hospitality / Restaurant">Hospitality / Restaurant</option>
+                  <option value="Medical / Wellness Clinic">Medical / Wellness Clinic</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="formEstimatedPlants" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Estimated Number of Plants
+                </label>
+                <input type="text" id="formEstimatedPlants" placeholder="e.g. 25" value="25" class="custom-input">
+              </div>
+
+              <div>
+                <label for="formPreferredDate" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Preferred Target Date
+                </label>
+                <input type="text" id="formPreferredDate" placeholder="e.g. 20 October 2026" value="20 October 2026" class="custom-input">
+              </div>
+
+              <div>
+                <label for="formSpaceSize" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                  Approx. Space Size
+                </label>
+                <input type="text" id="formSpaceSize" placeholder="e.g. 3,500 sq ft" value="3,500 sq ft" class="custom-input">
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <label for="formRequirements" class="block text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] mb-2">
+                Requirements & Notes
+              </label>
+              <textarea id="formRequirements" rows="3" placeholder="Describe the areas needing plants (e.g. Office reception, meeting rooms and workspaces)..." class="custom-textarea">Office reception, meeting rooms and workspaces.</textarea>
+            </div>
+          </div>
+
+          <!-- Submit Button -> Proceed to Auth / Review -->
+          <div class="pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-[var(--text-muted)]">
+              <i data-lucide="lock" class="w-3.5 h-3.5 inline text-emerald-500 mr-1"></i>
+              No payment required. You will review everything first.
+            </p>
+            <button type="submit" id="btnContinueToReview" class="btn-primary text-sm sm:text-base py-3 px-8 shadow-xl w-full sm:w-auto">
+              <span>Continue to Review</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- VIEW 2: AUTH MODAL / STEP (WHEN NOT LOGGED IN) -->
+      <div id="authPromptModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/75 backdrop-blur-md p-4 transition-all duration-300">
+        <div class="relative w-full max-w-md bg-[var(--surface)] border border-[var(--border)] rounded-3xl p-8 sm:p-10 shadow-2xl">
+          
+          <div class="text-center mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="user-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-heading font-bold text-2xl text-[var(--text-primary)]" id="modalAuthTitle">Sign In to Continue</h3>
+            <p class="text-xs text-[var(--text-secondary)] mt-1">Create an account or sign in to review and submit your request</p>
+          </div>
+
+          <!-- Tab Switcher -->
+          <div class="flex rounded-2xl bg-[var(--surface-muted)] p-1.5 mb-6 border border-[var(--border)]">
+            <button type="button" id="modalTabSignIn" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-[var(--surface)] text-[var(--text-primary)] shadow-sm">
+              Sign In
+            </button>
+            <button type="button" id="modalTabSignUp" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+              Create Account
+            </button>
+          </div>
+
+          <!-- Modal Sign In -->
+          <form id="modalSignInForm" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1.5">Email Address</label>
+              <input type="email" id="modalLoginEmail" required value="preteka@abctech.com" placeholder="name@company.com" class="custom-input">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1.5">Password</label>
+              <input type="password" id="modalLoginPassword" required value="••••••••" placeholder="••••••••" class="custom-input">
+            </div>
+            <button type="submit" class="btn-primary w-full py-3 text-sm font-bold justify-center shadow-lg mt-3">
+              <span>Sign In & Continue to Review</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </form>
+
+          <!-- Modal Sign Up -->
+          <form id="modalSignUpForm" class="space-y-3.5 hidden">
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1">Full Name</label>
+              <input type="text" id="modalSignupName" required placeholder="Preteka" class="custom-input">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1">Email Address</label>
+              <input type="email" id="modalSignupEmail" required placeholder="customer@email.com" class="custom-input">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1">Phone Number</label>
+              <input type="tel" id="modalSignupPhone" required placeholder="+91 98765 43210" class="custom-input">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1">Password</label>
+              <input type="password" id="modalSignupPassword" required placeholder="••••••••" class="custom-input">
+            </div>
+            <button type="submit" class="btn-primary w-full py-3 text-sm font-bold justify-center shadow-lg mt-2">
+              <span>Create Account & Review</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </form>
+
+          <button id="modalCloseBtn" class="absolute top-4 right-4 p-2 rounded-full hover:bg-[var(--brand-soft)] text-[var(--text-muted)] focus:outline-none">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- VIEW 3: REVIEW YOUR REQUEST STEP -->
+      <div id="quoteReviewView" class="quote-form-card p-6 sm:p-10 md:p-12 hidden">
+        <div class="mb-8 pb-6 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2 text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase mb-2">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>STEP 2 OF 3</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-[var(--text-primary)]">
+            Review Your Request
+          </h2>
+          <p class="text-sm text-[var(--text-secondary)] mt-1">
+            Please verify your details below. Once confirmed, click "Submit Request" to send it to our team.
+          </p>
+        </div>
+
+        <!-- Review Summary Table / Grid -->
+        <div class="bg-[var(--surface-elevated)] border border-[var(--border)] rounded-3xl p-6 sm:p-8 mb-8 space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-6 border-b border-[var(--border)]">
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">SERVICE</span>
+              <div id="revService" class="text-base sm:text-lg font-bold text-emerald-600 dark:text-emerald-400 font-heading">
+                Office Plant Rental
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">CUSTOMER</span>
+              <div id="revCustomer" class="text-base sm:text-lg font-bold text-[var(--text-primary)] font-heading">
+                Preteka
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-6 border-b border-[var(--border)]">
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">COMPANY</span>
+              <div id="revCompany" class="text-sm font-semibold text-[var(--text-primary)]">
+                ABC Technologies
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">EMAIL</span>
+              <div id="revEmail" class="text-sm font-semibold text-[var(--text-primary)]">
+                customer@email.com
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">PHONE</span>
+              <div id="revPhone" class="text-sm font-semibold text-[var(--text-primary)]">
+                +91 98765 43210
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pb-6 border-b border-[var(--border)]">
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">LOCATION</span>
+              <div id="revLocation" class="text-sm font-semibold text-[var(--text-primary)]">
+                Coimbatore
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">ESTIMATED PLANTS</span>
+              <div id="revPlants" class="text-sm font-semibold text-[var(--text-primary)]">
+                25 Plants
+              </div>
+            </div>
+
+            <div>
+              <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">PREFERRED DATE</span>
+              <div id="revDate" class="text-sm font-semibold text-[var(--text-primary)]">
+                20 October 2026
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-1">REQUIREMENTS & NOTES</span>
+            <p id="revRequirements" class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              Office reception, meeting rooms and workspaces.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Buttons: Edit Details vs Submit Request -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button type="button" id="btnEditDetails" class="btn-outline text-sm py-3 px-6 w-full sm:w-auto">
+            <i data-lucide="edit-3" class="w-4 h-4"></i>
+            <span>Edit Details</span>
+          </button>
+
+          <button type="button" id="btnFinalSubmitRequest" class="btn-primary text-base py-3.5 px-9 shadow-2xl w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 font-extrabold">
+            <span>Submit Request</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- VIEW 4: CORRECT SUCCESS PAGE (REQUEST RECEIVED) -->
+      <div id="quoteSuccessView" class="quote-form-card p-8 sm:p-12 md:p-14 text-center max-w-3xl mx-auto hidden">
+        
+        <div class="w-20 h-20 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-5 shadow-xl">
+          <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+        </div>
+
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 mb-4">
+          REQUEST RECEIVED
+        </span>
+
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-[var(--text-primary)] mb-3">
+          Thank You, <span id="successCustName">Preteka</span>!
+        </h2>
+
+        <p class="text-base text-[var(--text-secondary)] leading-relaxed mb-6 max-w-xl mx-auto">
+          Your GreenSpace request has been submitted successfully. Our team has logged your requirements.
+        </p>
+
+        <!-- Reference Code & Status Card -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto p-4 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] mb-10 text-left">
+          <div>
+            <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block">Reference Code:</span>
+            <span id="successRefCode" class="text-lg font-mono font-black text-emerald-600 dark:text-emerald-400">GS-REQ-6602</span>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block">Current Status:</span>
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+              <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+              UNDER REVIEW
+            </span>
+          </div>
+        </div>
+
+        <!-- WHAT HAPPENS NEXT (7-STEP BUSINESS FLOW) -->
+        <div class="text-left bg-[var(--surface-elevated)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] mb-10">
+          <h3 class="text-base font-bold font-heading text-[var(--text-primary)] uppercase tracking-wider mb-6 flex items-center gap-2">
+            <i data-lucide="list-ordered" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
+            <span>WHAT HAPPENS NEXT</span>
+          </h3>
+
+          <div class="space-y-4">
+            
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">01</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Team Review</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">Our team reviews your requirements, location, plant quantity, and service details.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">02</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Consultation / Site Visit</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">If required, our team will contact you to arrange a consultation or site visit.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">03</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Custom Quote</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">We prepare a detailed quotation based on your actual requirements.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">04</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Quote Approval</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">You can review the quotation and approve it from your account.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">05</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Payment</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">After you approve the quotation, you can complete the required payment.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">06</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Installation</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">Once payment and scheduling are confirmed, our team delivers and installs the plants.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+              <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">07</div>
+              <div>
+                <strong class="text-sm text-[var(--text-primary)] block font-heading">Ongoing Care</strong>
+                <p class="text-xs sm:text-sm text-[var(--text-secondary)]">Your agreed maintenance and plant health service begins according to the rental plan.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="profile.html?section=requests" class="btn-primary text-sm sm:text-base py-3.5 px-8 shadow-2xl inline-flex items-center gap-2">
+            <span>View in My GreenSpace</span>
+            <i data-lucide="user" class="w-4 h-4"></i>
+          </a>
+          <a href="services.html" class="btn-outline text-sm sm:text-base py-3.5 px-8">
+            <span>Return to Services</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#04100C] text-white pt-20 pb-12 border-t border-white/10 relative overflow-hidden">
+    <div class="site-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+            <span class="font-heading font-bold text-xl tracking-tight text-white">
+              GreenSpace <span class="text-emerald-400 font-light text-sm tracking-widest uppercase">Rentals</span>
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 max-w-sm leading-relaxed">
+            Leading indoor plant rental and maintenance service for offices, venues, and events. Beautiful plants without the ownership hassle.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Pages</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-emerald-300 transition-colors">Home 1</a></li>
+            <li><a href="home-2.html" class="hover:text-emerald-300 transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-emerald-300 transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-emerald-300 transition-colors">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-emerald-300 transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Services</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+            <li><a href="service-details.html?service=office-rental" class="hover:text-emerald-300 transition-colors">Office Plant Rentals</a></li>
+            <li><a href="service-details.html?service=event-rental" class="hover:text-emerald-300 transition-colors">Event Greenery</a></li>
+            <li><a href="service-details.html?service=installation" class="hover:text-emerald-300 transition-colors">Plant Installation</a></li>
+            <li><a href="service-details.html?service=maintenance" class="hover:text-emerald-300 transition-colors">Weekly Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Contact</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400 mb-4">
+            <li class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>100 Botanical Way, Suite 400</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>hello@greenspacerentals.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>
+          &copy; 2026 GreenSpace Rentals. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/service-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/quote.js"></script>
+</body>
+</html>

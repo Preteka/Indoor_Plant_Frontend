@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Details | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="request-details" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark"><img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" /></div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item active" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <a href="requests.html" class="bc-portal">Requests</a>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">#GS-1024</span>
+            </nav>
+          </div>
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                REQUEST SPECIFICATION
+              </p>
+              <h2 class="heading-glow">Request #GS-1024</h2>
+              <p>GreenTech Solutions • Submitted 08 Oct 2026 • Status: Quote Prepared</p>
+            </div>
+            <div class="page-header-actions inline-action-stack">
+              <button class="btn btn-ghost" type="button">Edit Details</button>
+              <button class="btn btn-primary" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>Send Quote</span>
+              </button>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="content-grid two-column reveal">
+            <div class="card panel">
+              <div class="panel-head">
+                <div class="panel-head-title">
+                  <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  </span>
+                  <h3>Customer Information</h3>
+                </div>
+                <a href="customer-details.html">View Profile →</a>
+              </div>
+              <dl class="info-grid">
+                <div><dt>Company</dt><dd>GreenTech Solutions</dd></div>
+                <div><dt>Contact Person</dt><dd>Riya Shah</dd></div>
+                <div><dt>Email</dt><dd>riya@greentech.solutions</dd></div>
+                <div><dt>Phone</dt><dd>+91 98765 43210</dd></div>
+                <div style="grid-column: span 2;"><dt>Location</dt><dd>Indiranagar, Bengaluru, Karnataka, India</dd></div>
+              </dl>
+            </div>
+
+            <div class="card panel">
+              <div class="panel-head">
+                <div class="panel-head-title">
+                  <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+                  </span>
+                  <h3>Rental Specifications</h3>
+                </div>
+              </div>
+              <dl class="info-grid">
+                <div><dt>Service</dt><dd>Office Plant Rental</dd></div>
+                <div><dt>Plant Requirement</dt><dd>20 Statement Plants</dd></div>
+                <div><dt>Total Count</dt><dd>28 Units</dd></div>
+                <div><dt>Preferred Start</dt><dd>08 Oct 2026</dd></div>
+                <div><dt>Duration</dt><dd>12 Months (Annual)</dd></div>
+                <div><dt>Maintenance Tier</dt><dd>Fortnightly Care</dd></div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="card panel reveal" style="margin-bottom: 22px;">
+            <div class="panel-head">
+              <div class="panel-head-title">
+                <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </span>
+                <h3>Fulfillment Stage</h3>
+              </div>
+            </div>
+            <div class="timeline-horizontal">
+              <span class="active">1. Received</span>
+              <span class="active">2. Under Review</span>
+              <span class="active">3. Quote Prepared</span>
+              <span class="active">4. Quote Sent</span>
+              <span>5. Approved</span>
+              <span>6. Payment</span>
+              <span>7. Installation</span>
+              <span>8. Completed</span>
+            </div>
+          </section>
+
+          <section class="card panel reveal">
+            <div class="panel-head">
+              <div class="panel-head-title">
+                <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                </span>
+                <h3>Quote Breakdown</h3>
+              </div>
+              <span class="status-pill info">Quote Sent</span>
+            </div>
+            <div class="quote-sheet">
+              <div class="quote-row"><span>Service Base Cost</span><strong>₹18,500</strong></div>
+              <div class="quote-row"><span>Botanical Specimen Rental (28 plants)</span><strong>₹12,000</strong></div>
+              <div class="quote-row"><span>Logistics & On-Site Installation</span><strong>₹4,200</strong></div>
+              <div class="quote-row"><span>Monthly Horticultural Care & Replacement</span><strong>₹2,800</strong></div>
+              <div class="quote-row"><span>Complimentary Planters & Soil Nutrition</span><strong>₹1,500</strong></div>
+              <div class="quote-row" style="color: var(--brand-primary);"><span>Corporate Annual Discount</span><strong>-₹2,000</strong></div>
+              <div class="quote-row total"><span>Total Estimated Investment</span><strong>₹37,000</strong></div>
+            </div>
+            <div class="inline-action-stack quote-actions">
+              <button class="btn btn-primary" type="button">Update Quote</button>
+              <button class="btn btn-success" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Approve & Finalize</span>
+              </button>
+              <button class="btn btn-ghost" type="button">Download PDF</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

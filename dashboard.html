@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal & Plant Subscription Dashboard | GreenSpace Rentals</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description" content="Manage your plant rental requests, review custom quotations, track installation schedules, and view ongoing maintenance logs.">
+  <script>
+    window.location.replace('profile.html' + window.location.search);
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              forest: '#071B15',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              cream: '#F7F2E8',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="antialiased transition-colors duration-300 bg-[var(--bg-primary)]">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
+
+  <!-- ==================== MOBILE SLIDE-IN NAVIGATION DRAWER ==================== -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-6 border-b border-[var(--border)]">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <span class="font-heading font-bold text-lg text-[var(--text-primary)]">GreenSpace</span>
+      </div>
+      <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-[var(--brand-soft)] text-[var(--text-primary)] focus:outline-none" aria-label="Close Navigation Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <nav class="py-6 flex flex-col gap-3">
+      <a href="index.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 1 – General</a>
+      <a href="services.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Services</a>
+      <a href="pricing.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Pricing</a>
+      <a href="dashboard.html" class="mobile-nav-link text-base font-semibold text-emerald-600 dark:text-emerald-400 py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Client Dashboard</a>
+      <a href="quote.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Get a Free Quote</a>
+      <a href="contact.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- ==================== TOP NAVIGATION ==================== -->
+  <header class="bg-[#071B15] text-white pt-6 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+    <nav class="relative z-30 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between mb-10">
+      <a href="index.html" class="flex items-center gap-3 text-white no-underline group focus:outline-none">
+        <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group-hover:scale-105 group-hover:border-emerald-400 transition-all shadow-lg overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-xl tracking-tight text-white flex items-center">
+            GreenSpace <span class="text-emerald-400 font-light ml-1.5 text-xs tracking-widest uppercase bg-white/10 px-2 py-0.5 rounded-full border border-white/20">Portal</span>
+          </span>
+          <span class="text-[10px] text-emerald-200/80 tracking-widest uppercase font-medium">Customer Dashboard</span>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-1 bg-white/15 dark:bg-black/40 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-full px-5 py-2 shadow-2xl">
+        <a href="index.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home</a>
+        <a href="services.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Services</a>
+        <a href="pricing.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Pricing</a>
+        <a href="dashboard.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white bg-white/25 shadow-sm">Dashboard</a>
+        <a href="contact.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 z-30">
+        <button class="rtl-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle RTL/LTR">
+          <i data-lucide="align-right" class="w-4 h-4 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text hidden sm:inline font-semibold">RTL</span>
+        </button>
+
+        <button class="theme-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle Dark/Light Mode">
+          <i data-lucide="moon" class="w-4 h-4 theme-toggle-icon"></i>
+          <span class="theme-toggle-text hidden sm:inline font-medium text-xs">Dark</span>
+        </button>
+
+        <button id="dashLogoutBtn" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-400/30 font-bold text-xs transition-all shadow-lg">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>Logout</span>
+        </button>
+
+        <button id="mobileMenuToggle" class="lg:hidden p-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all focus:outline-none">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Welcome Client Header -->
+    <div class="site-container relative z-20">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            ACTIVE CLIENT SUBSCRIPTION
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-heading font-extrabold text-white tracking-tight">
+            Welcome, <span id="dashClientName">Preteka</span>
+          </h1>
+          <p class="text-xs sm:text-sm text-emerald-100/80 mt-1">
+            <span id="dashClientCompany">ABC Technologies</span> • <span id="dashClientLocation">Coimbatore</span> • Account Ref: GS-ACC-449
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="quote.html" class="btn-primary text-xs sm:text-sm py-2.5 px-5 shadow-xl inline-flex items-center gap-2">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>New Plant Request</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN DASHBOARD BODY ==================== -->
+  <main class="py-12 -mt-10 relative z-30">
+    <div class="site-container space-y-10">
+
+      <!-- ==================== SECTION 27: MAIN STATUS TIMELINE TRACKER ==================== -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-xl">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-[var(--border)]">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-1">END-TO-END PROCESS</span>
+            <h2 class="text-xl font-bold font-heading text-[var(--text-primary)]">Your GreenSpace Journey Timeline</h2>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+            Active Workflow
+          </span>
+        </div>
+
+        <!-- Botanical Timeline (Responsive Scrollable) -->
+        <div class="overflow-x-auto pb-4">
+          <div class="flex items-center min-w-[920px] justify-between relative px-2">
+            
+            <!-- Step 1: Request Submitted -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">REQUEST SUBMITTED</span>
+              <span class="text-[10px] text-[var(--text-muted)]">Completed</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 2: Under Review -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">UNDER REVIEW</span>
+              <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">Assessed</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 3: Consultation -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">CONSULTATION</span>
+              <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">20 Oct 11:00 AM</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 4: Quote Prepared -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">QUOTE READY</span>
+              <span class="text-[10px] text-emerald-600 font-bold">#GS-Q1025</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 5: Quote Approved -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">QUOTE APPROVED</span>
+              <span class="text-[10px] text-emerald-600 font-bold">Approved</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 6: Payment -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">PAYMENT</span>
+              <span class="text-[10px] text-emerald-600 font-bold">PAID (₹33,790)</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 7: Booking Confirmed -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md mb-2">✓</div>
+              <span class="text-xs font-bold text-[var(--text-primary)]">BOOKING</span>
+              <span class="text-[10px] text-emerald-600 font-bold">#GS-B1025</span>
+            </div>
+            <div class="flex-1 h-1 bg-emerald-500 mx-2"></div>
+
+            <!-- Step 8: Installation -->
+            <div class="flex flex-col items-center text-center group">
+              <div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 flex items-center justify-center font-bold text-xs shadow-md mb-2 animate-pulse">8</div>
+              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">INSTALLATION</span>
+              <span class="text-[10px] text-amber-600 dark:text-amber-400 font-bold">Scheduled (20 Oct)</span>
+            </div>
+            <div class="flex-1 h-1 bg-[var(--border)] mx-2"></div>
+
+            <!-- Step 9: Active Care -->
+            <div class="flex flex-col items-center text-center group opacity-60">
+              <div class="w-9 h-9 rounded-full bg-[var(--surface-muted)] text-[var(--text-muted)] border border-[var(--border)] flex items-center justify-center font-bold text-xs mb-2">9</div>
+              <span class="text-xs font-bold text-[var(--text-muted)]">ACTIVE CARE</span>
+              <span class="text-[10px] text-[var(--text-muted)]">Upcoming</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== DASHBOARD TAB NAVIGATION ==================== -->
+      <div class="flex flex-wrap gap-2 p-2 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-md">
+        <button class="dash-tab-btn active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-[var(--brand-primary)] text-white" data-target="tabRequests">
+          <i data-lucide="file-text" class="w-4 h-4 inline mr-1.5"></i>
+          <span>My Requests (1)</span>
+        </button>
+        <button class="dash-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-[var(--text-secondary)] hover:bg-[var(--surface-muted)]" data-target="tabQuotes">
+          <i data-lucide="calculator" class="w-4 h-4 inline mr-1.5"></i>
+          <span>My Quotes (1)</span>
+        </button>
+        <button class="dash-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-[var(--text-secondary)] hover:bg-[var(--surface-muted)]" data-target="tabBookings">
+          <i data-lucide="calendar" class="w-4 h-4 inline mr-1.5"></i>
+          <span>Bookings & Installation</span>
+        </button>
+        <button class="dash-tab-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all text-[var(--text-secondary)] hover:bg-[var(--surface-muted)]" data-target="tabMaintenance">
+          <i data-lucide="heart-pulse" class="w-4 h-4 inline mr-1.5"></i>
+          <span>Active Rental & Care</span>
+        </button>
+      </div>
+
+      <!-- ==================== TAB 1: MY REQUESTS ==================== -->
+      <div id="tabRequests" class="dash-panel space-y-6">
+        <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-lg">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--border)] mb-6">
+            <div>
+              <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block mb-1">REQUEST ID: GS-REQ-6602</span>
+              <h3 class="text-2xl font-bold font-heading text-[var(--text-primary)]">Office Plant Rentals</h3>
+              <p class="text-xs text-[var(--text-secondary)] mt-0.5">Submitted on 02 Oct 2026 • Location: Coimbatore</p>
+            </div>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/30 inline-flex items-center gap-1.5 self-start sm:self-auto">
+              <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+              UNDER REVIEW
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="p-5 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] space-y-2 text-xs sm:text-sm">
+              <span class="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-2">Request Details</span>
+              <div><strong class="text-[var(--text-primary)]">Customer:</strong> Preteka (ABC Technologies)</div>
+              <div><strong class="text-[var(--text-primary)]">Estimated Plants:</strong> 25 Plants</div>
+              <div><strong class="text-[var(--text-primary)]">Space Type:</strong> Corporate Office (3,500 sq ft)</div>
+              <div><strong class="text-[var(--text-primary)]">Target Date:</strong> 20 October 2026</div>
+              <div><strong class="text-[var(--text-primary)]">Requirements:</strong> Office reception, meeting rooms and workspaces.</div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2 text-xs sm:text-sm">
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 block mb-2">Consultation / Site Visit Scheduled</span>
+              <div class="flex items-center gap-2 text-emerald-900 dark:text-emerald-100">
+                <i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i>
+                <span><strong>Date:</strong> 20 October 2026</span>
+              </div>
+              <div class="flex items-center gap-2 text-emerald-900 dark:text-emerald-100">
+                <i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i>
+                <span><strong>Time:</strong> 11:00 AM</span>
+              </div>
+              <div class="flex items-center gap-2 text-emerald-900 dark:text-emerald-100">
+                <i data-lucide="user" class="w-4 h-4 text-emerald-600"></i>
+                <span><strong>Specialist:</strong> Elena Vance (Senior Horticulturalist)</span>
+              </div>
+              <p class="text-xs text-emerald-800/80 dark:text-emerald-200/80 pt-2 border-t border-emerald-500/20">
+                Assessment of lighting zones and spatial vessel placement across reception and conference rooms.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--border)]">
+            <span class="text-xs text-[var(--text-muted)]">Quotation #GS-Q1025 has been prepared by our team.</span>
+            <button class="btn-primary text-xs py-2 px-5 trigger-tab-quotes">
+              <span>View Prepared Quote →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== TAB 2: MY QUOTES ==================== -->
+      <div id="tabQuotes" class="dash-panel space-y-6 hidden">
+        <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-xl">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--border)] mb-6">
+            <div>
+              <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block mb-1">OFFICIAL QUOTATION</span>
+              <h3 class="text-2xl font-bold font-heading text-[var(--text-primary)]">QUOTE #GS-Q1025</h3>
+              <p class="text-xs text-[var(--text-secondary)] mt-0.5">Prepared for ABC Technologies • Valid until 30 October 2026</p>
+            </div>
+            <span id="quoteStatusBadge" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 self-start sm:self-auto">
+              QUOTE APPROVED
+            </span>
+          </div>
+
+          <!-- Itemized Breakdown Table -->
+          <div class="overflow-x-auto mb-8">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="border-b border-[var(--border)] text-[var(--text-muted)] uppercase text-[11px] font-bold">
+                  <th class="py-3 px-2">Item Description</th>
+                  <th class="py-3 px-2 text-center">Qty</th>
+                  <th class="py-3 px-2 text-right">Unit Rate</th>
+                  <th class="py-3 px-2 text-right">Amount</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[var(--border)] text-[var(--text-primary)]">
+                <tr>
+                  <td class="py-3 px-2 font-medium">Curated Statement Plants (Ficus, Monstera, Palms)</td>
+                  <td class="py-3 px-2 text-center font-mono">15</td>
+                  <td class="py-3 px-2 text-right font-mono">₹850</td>
+                  <td class="py-3 px-2 text-right font-mono font-bold">₹12,750</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-2 font-medium">Desk & Mid-Tier Foliage (ZZ Plants, Sansevieria)</td>
+                  <td class="py-3 px-2 text-center font-mono">10</td>
+                  <td class="py-3 px-2 text-right font-mono">₹450</td>
+                  <td class="py-3 px-2 text-right font-mono font-bold">₹4,500</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-2 font-medium">Architectural Ceramic & Sub-irrigation Planters</td>
+                  <td class="py-3 px-2 text-center font-mono">25</td>
+                  <td class="py-3 px-2 text-right font-mono">₹380</td>
+                  <td class="py-3 px-2 text-right font-mono font-bold">₹9,500</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-2 font-medium">White-Glove Delivery & Installation</td>
+                  <td class="py-3 px-2 text-center font-mono">1</td>
+                  <td class="py-3 px-2 text-right font-mono">₹2,500</td>
+                  <td class="py-3 px-2 text-right font-mono font-bold">₹2,500</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-2 font-medium">Monthly Routine Maintenance & 100% Free Replacement</td>
+                  <td class="py-3 px-2 text-center font-mono">1</td>
+                  <td class="py-3 px-2 text-right font-mono">₹3,200</td>
+                  <td class="py-3 px-2 text-right font-mono font-bold">₹3,200</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Total Calculation Card -->
+          <div class="max-w-xs ml-auto p-5 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] space-y-2 mb-8 text-xs sm:text-sm">
+            <div class="flex justify-between text-[var(--text-secondary)]">
+              <span>Subtotal:</span>
+              <span class="font-mono font-semibold">₹32,450</span>
+            </div>
+            <div class="flex justify-between text-emerald-600 dark:text-emerald-400">
+              <span>Corporate Discount:</span>
+              <span class="font-mono font-semibold">- ₹1,450</span>
+            </div>
+            <div class="flex justify-between text-[var(--text-secondary)]">
+              <span>GST (9% + 9%):</span>
+              <span class="font-mono font-semibold">₹2,790</span>
+            </div>
+            <div class="flex justify-between text-base sm:text-lg font-bold text-[var(--text-primary)] pt-2 border-t border-[var(--border)]">
+              <span>Total Payable:</span>
+              <span class="font-mono text-emerald-600 dark:text-emerald-400">₹33,790</span>
+            </div>
+          </div>
+
+          <!-- Quote Actions (Approve -> Proceed to Payment) -->
+          <div class="p-6 rounded-2xl bg-[var(--surface-elevated)] border border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-[var(--text-secondary)]">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500 inline mr-1"></i>
+              Quote approved by client. Ready for secure booking payment.
+            </p>
+            <div class="flex items-center gap-3">
+              <a href="payment.html?quote=GS-Q1025&amount=33790" class="btn-primary text-sm py-3 px-7 shadow-xl inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 font-bold">
+                <span>Proceed to Payment (₹33,790)</span>
+                <i data-lucide="credit-card" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== TAB 3: BOOKINGS & INSTALLATION ==================== -->
+      <div id="tabBookings" class="dash-panel space-y-6 hidden">
+        <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-xl">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--border)] mb-6">
+            <div>
+              <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block mb-1">BOOKING ID: GS-B1025</span>
+              <h3 class="text-2xl font-bold font-heading text-[var(--text-primary)]">Booking Confirmed & Installation</h3>
+              <p class="text-xs text-[var(--text-secondary)] mt-0.5">Payment Verified • Service: Office Plant Rental</p>
+            </div>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              PAYMENT PAID ✓
+            </span>
+          </div>
+
+          <!-- Installation Details Card -->
+          <div class="p-6 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] mb-6">
+            <h4 class="text-base font-bold font-heading text-[var(--text-primary)] mb-4 flex items-center gap-2">
+              <i data-lucide="truck" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
+              <span>YOUR INSTALLATION IS SCHEDULED</span>
+            </h4>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm mb-4">
+              <div class="p-3.5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+                <span class="text-[11px] text-[var(--text-muted)] uppercase font-bold block">Date</span>
+                <strong class="text-[var(--text-primary)]">20 October 2026</strong>
+              </div>
+              <div class="p-3.5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+                <span class="text-[11px] text-[var(--text-muted)] uppercase font-bold block">Time Window</span>
+                <strong class="text-[var(--text-primary)]">10:00 AM – 12:00 PM</strong>
+              </div>
+              <div class="p-3.5 rounded-xl bg-[var(--surface)] border border-[var(--border)]">
+                <span class="text-[11px] text-[var(--text-muted)] uppercase font-bold block">Assigned Crew</span>
+                <strong class="text-[var(--text-primary)]">GreenSpace White-Glove Team</strong>
+              </div>
+            </div>
+
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Our technicians will arrive with pre-conditioned plants, waterproof saucers, and designer planters to execute white-glove placement without office disruption.
+            </p>
+          </div>
+
+          <!-- Installation Roadmap Steps -->
+          <div class="space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] block">Installation Progression:</span>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-900 dark:text-emerald-200">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+              <span><strong>1. Specimen Preparation in Greenhouse:</strong> All 25 plants cleaned, fertilized, and potted in sub-irrigation planters.</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-900 dark:text-emerald-200">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+              <span><strong>2. Logistics & Vehicle Scheduled:</strong> Temperature-controlled transit vehicle dispatched.</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-[var(--surface-elevated)] border border-[var(--border)] text-xs text-[var(--text-secondary)]">
+              <i data-lucide="circle" class="w-4 h-4 text-[var(--text-muted)] flex-shrink-0"></i>
+              <span><strong>3. On-Site Placement & Surface Protection:</strong> Scheduled for 20 October 2026.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== TAB 4: ACTIVE RENTAL & MAINTENANCE ==================== -->
+      <div id="tabMaintenance" class="dash-panel space-y-6 hidden">
+        
+        <!-- Active Subscription Summary -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--border)] mb-6">
+            <div>
+              <span class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 block mb-1">SUBSCRIPTION ACTIVE</span>
+              <h3 class="text-2xl font-bold font-heading text-[var(--text-primary)]">Office Plant Rental Program</h3>
+              <p class="text-xs text-[var(--text-secondary)] mt-0.5">25 Plants On-Site • ABC Technologies Campus, Coimbatore</p>
+            </div>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+              STATUS: ACTIVE
+            </span>
+          </div>
+
+          <!-- Next Maintenance Box -->
+          <div class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
+                  <i data-lucide="calendar-heart" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-emerald-800 dark:text-emerald-300 uppercase">NEXT SCHEDULED CARE VISIT</span>
+                  <h4 class="text-lg font-bold text-[var(--text-primary)]">28 October 2026</h4>
+                </div>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-600 text-white">Routine Visit</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs text-[var(--text-primary)] pt-3 border-t border-emerald-500/20 font-medium">
+              <div class="flex items-center gap-1.5"><i data-lucide="droplet" class="w-3.5 h-3.5 text-emerald-600"></i> Watering</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="scissors" class="w-3.5 h-3.5 text-emerald-600"></i> Pruning</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i> Leaf Polish</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="bug" class="w-3.5 h-3.5 text-emerald-600"></i> Pest Audit</div>
+              <div class="flex items-center gap-1.5"><i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i> Free Replace</div>
+            </div>
+          </div>
+
+          <!-- Individual Plant Health Checklist -->
+          <div>
+            <h4 class="text-base font-bold font-heading text-[var(--text-primary)] mb-4 flex items-center gap-2">
+              <i data-lucide="heart" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+              <span>Individual Plant Health Records (25 Plants)</span>
+            </h4>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] flex items-center justify-between">
+                <div>
+                  <strong class="text-sm text-[var(--text-primary)] block">Monstera Deliciosa (x5)</strong>
+                  <span class="text-xs text-[var(--text-muted)]">Executive Boardroom & Meeting Suites</span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">HEALTHY</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] flex items-center justify-between">
+                <div>
+                  <strong class="text-sm text-[var(--text-primary)] block">Snake Plant / Sansevieria (x10)</strong>
+                  <span class="text-xs text-[var(--text-muted)]">Reception Entryway & Open Hallways</span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">HEALTHY</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] flex items-center justify-between">
+                <div>
+                  <strong class="text-sm text-[var(--text-primary)] block">Fiddle Leaf Fig Specimen (x2)</strong>
+                  <span class="text-xs text-[var(--text-muted)]">Manager Cabin A • Relocating to light</span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300">NEEDS ATTENTION</span>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] flex items-center justify-between">
+                <div>
+                  <strong class="text-sm text-[var(--text-primary)] block">Areca Palm Specimen (x8)</strong>
+                  <span class="text-xs text-[var(--text-muted)]">Main Employee Workstations & Lounge</span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300">HEALTHY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Renewal Alert Banner -->
+          <div class="mt-8 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <strong class="text-sm font-bold text-amber-900 dark:text-amber-200 block font-heading">YOUR RENTAL PERIOD IS RUNNING SMOOTHLY</strong>
+              <p class="text-xs text-amber-800/80 dark:text-amber-300/80">Current 12-month subscription active. Auto-renewal option available before end of term.</p>
+            </div>
+            <a href="contact.html" class="btn-outline text-xs py-2 px-4 whitespace-nowrap">
+              <span>Contact Plant Manager</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#04100C] text-white pt-16 pb-10 border-t border-white/10 mt-20">
+    <div class="site-container text-center text-xs text-gray-500">
+      &copy; 2026 GreenSpace Rentals. All rights reserved. Client Portal & Botanical Care System.
+    </div>
+  </footer>
+
+  <script src="js/service-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Populate current user
+      const currentUser = window.GreenSpaceAuth?.getCurrentUser();
+      if (currentUser) {
+        const nameEl = document.getElementById('dashClientName');
+        const compEl = document.getElementById('dashClientCompany');
+        if (nameEl) nameEl.textContent = currentUser.name;
+        if (compEl) compEl.textContent = currentUser.company || 'ABC Technologies';
+      }
+
+      // 2. Tab switcher
+      const tabBtns = document.querySelectorAll('.dash-tab-btn');
+      const panels = document.querySelectorAll('.dash-panel');
+
+      function switchTab(targetId) {
+        tabBtns.forEach(btn => {
+          if (btn.getAttribute('data-target') === targetId) {
+            btn.classList.add('bg-[var(--brand-primary)]', 'text-white');
+            btn.classList.remove('text-[var(--text-secondary)]');
+          } else {
+            btn.classList.remove('bg-[var(--brand-primary)]', 'text-white');
+            btn.classList.add('text-[var(--text-secondary)]');
+          }
+        });
+
+        panels.forEach(p => {
+          if (p.id === targetId) {
+            p.classList.remove('hidden');
+          } else {
+            p.classList.add('hidden');
+          }
+        });
+      }
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          switchTab(btn.getAttribute('data-target'));
+        });
+      });
+
+      // Quick tab switch trigger
+      const triggerQuotes = document.querySelector('.trigger-tab-quotes');
+      if (triggerQuotes) {
+        triggerQuotes.addEventListener('click', () => {
+          switchTab('tabQuotes');
+        });
+      }
+
+      // Logout handler
+      const logoutBtn = document.getElementById('dashLogoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          window.GreenSpaceAuth?.logout();
+          window.location.href = 'index.html';
+        });
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

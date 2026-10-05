@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Requests | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="requests" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark"><img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" /></div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item active" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <span class="bc-portal">GreenSpace</span>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">Requests</span>
+            </nav>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                CLIENT INQUIRIES
+              </p>
+              <h2 class="heading-glow">Service Requests</h2>
+              <p>Review and manage incoming GreenSpace Rentals requests & quotes.</p>
+            </div>
+            <div class="page-header-actions">
+              <button class="btn btn-primary" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>New Request</span>
+              </button>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="card panel reveal" style="margin-bottom: 22px;">
+            <div class="filters-bar">
+              <label class="search-box">
+                <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input id="requestSearch" type="search" placeholder="Search requests by client, service..." />
+              </label>
+              <label>
+                <span>Status</span>
+                <select>
+                  <option>All Statuses</option>
+                  <option>New</option>
+                  <option>Under Review</option>
+                  <option>Quote Sent</option>
+                  <option>Approved</option>
+                  <option>Rejected</option>
+                  <option>Completed</option>
+                </select>
+              </label>
+              <label>
+                <span>Service Type</span>
+                <select>
+                  <option>All Services</option>
+                  <option>Office Plant Rental</option>
+                  <option>Corporate Event Plants</option>
+                  <option>Monthly Plant Maintenance</option>
+                </select>
+              </label>
+              <label>
+                <span>Filter Date</span>
+                <input type="date" />
+              </label>
+            </div>
+          </section>
+
+          <section class="card panel reveal">
+            <div class="table-wrap">
+              <table class="admin-table" aria-label="Service requests table">
+                <thead>
+                  <tr>
+                    <th>Request ID</th>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Requested Date</th>
+                    <th>Budget</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="requestsTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

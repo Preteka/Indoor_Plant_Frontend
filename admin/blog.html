@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="blog" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark"><img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" /></div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item active" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <span class="bc-portal">GreenSpace</span>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">Blog</span>
+            </nav>
+          </div>
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                EDITORIAL JOURNAL
+              </p>
+              <h2 class="heading-glow">Blog Management</h2>
+              <p>Publish editorial content, plant styling advice and botanical care guides.</p>
+            </div>
+            <div class="page-header-actions">
+              <button class="btn btn-primary" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>New Article</span>
+              </button>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="card panel reveal">
+            <div class="table-wrap">
+              <table class="admin-table" aria-label="Blog table">
+                <thead>
+                  <tr>
+                    <th>Article Title</th>
+                    <th>Category</th>
+                    <th>Published Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon" style="width: 32px; height: 32px; background: var(--brand-soft); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary); flex-shrink: 0;">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        </span>
+                        <strong>How Office Plants Create Healthier Workspaces</strong>
+                      </div>
+                    </td>
+                    <td><span class="status-pill info">Workplace Wellness</span></td>
+                    <td>02 Oct 2026</td>
+                    <td><span class="status-pill success">Published</span></td>
+                    <td>
+                      <div class="row-actions">
+                        <button class="link-button" type="button">Edit</button>
+                        <button class="link-button" type="button" style="color: var(--text-muted);">Unpublish</button>
+                        <button class="link-button" type="button" style="color: var(--danger);">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon" style="width: 32px; height: 32px; background: var(--brand-soft); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary); flex-shrink: 0;">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+                        </span>
+                        <strong>Choosing the Right Plants for Low-Light Offices</strong>
+                      </div>
+                    </td>
+                    <td><span class="status-pill info">Plant Care</span></td>
+                    <td>24 Sep 2026</td>
+                    <td><span class="status-pill success">Published</span></td>
+                    <td>
+                      <div class="row-actions">
+                        <button class="link-button" type="button">Edit</button>
+                        <button class="link-button" type="button" style="color: var(--text-muted);">Unpublish</button>
+                        <button class="link-button" type="button" style="color: var(--danger);">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="icon" style="width: 32px; height: 32px; background: var(--brand-soft); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary); flex-shrink: 0;">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                        </span>
+                        <strong>The Complete Guide to Corporate Plant Rentals</strong>
+                      </div>
+                    </td>
+                    <td><span class="status-pill info">Office Plants</span></td>
+                    <td>15 Sep 2026</td>
+                    <td><span class="status-pill warning">Draft</span></td>
+                    <td>
+                      <div class="row-actions">
+                        <button class="link-button" type="button">Edit</button>
+                        <button class="link-button" type="button" style="color: var(--brand-primary);">Publish</button>
+                        <button class="link-button" type="button" style="color: var(--danger);">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

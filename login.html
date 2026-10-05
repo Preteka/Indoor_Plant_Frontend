@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal Login & Registration | GreenSpace Rentals</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description" content="Access your corporate plant rental account, review custom quotes, track installation dates, and view scheduled maintenance history.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              forest: '#071B15',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              cream: '#F7F2E8',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen flex flex-col justify-between antialiased transition-colors duration-300">
+
+  <!-- Top Simple Navigation -->
+  <nav class="pt-6 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline group focus:outline-none">
+      <div class="w-10 h-10 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+      <div class="flex flex-col">
+        <span class="font-heading font-bold text-xl tracking-tight text-[var(--text-primary)]">
+          GreenSpace <span class="text-emerald-600 dark:text-emerald-400 font-light ml-1 text-xs tracking-widest uppercase bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Rentals</span>
+        </span>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <button class="rtl-toggle-btn p-2 rounded-full bg-[var(--brand-soft)] text-xs flex items-center gap-1 focus:outline-none" title="Toggle RTL/LTR">
+        <i data-lucide="align-right" class="w-4 h-4 rtl-toggle-icon"></i>
+        <span class="rtl-toggle-text hidden sm:inline font-semibold">RTL</span>
+      </button>
+
+      <button class="theme-toggle-btn p-2 rounded-full bg-[var(--brand-soft)] text-xs flex items-center gap-1 focus:outline-none" title="Toggle Theme">
+        <i data-lucide="moon" class="w-4 h-4 theme-toggle-icon"></i>
+        <span class="theme-toggle-text hidden sm:inline font-medium text-xs">Dark</span>
+      </button>
+
+      <a href="index.html" class="btn-outline text-xs py-2 px-4">Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Main Auth Box -->
+  <main class="my-auto py-12 px-4">
+    <div class="max-w-md mx-auto">
+      
+      <div class="p-8 sm:p-10 rounded-3xl bg-[var(--surface)] shadow-2xl border border-[var(--border)]">
+        
+        <!-- Auth Header -->
+        <div class="text-center mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h1 class="font-heading font-bold text-2xl text-[var(--text-primary)]" id="authTitle">Sign In to GreenSpace</h1>
+          <p class="text-xs text-[var(--text-secondary)] mt-1.5" id="authSubtitle">Manage your plant subscriptions, custom quotes & maintenance</p>
+        </div>
+
+        <!-- Tab Switcher (Sign In vs Create Account) -->
+        <div class="flex rounded-2xl bg-[var(--surface-muted)] p-1.5 mb-6 border border-[var(--border)]">
+          <button type="button" id="tabSignIn" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-[var(--surface)] text-[var(--text-primary)] shadow-sm">
+            Sign In
+          </button>
+          <button type="button" id="tabSignUp" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+            Create Account
+          </button>
+        </div>
+
+        <!-- Form: SIGN IN -->
+        <form id="signInForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Email Address</label>
+            <input type="email" id="loginEmail" required value="preteka@abctech.com" placeholder="name@company.com" class="custom-input">
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider">Password</label>
+              <a href="#" class="text-xs text-emerald-600 dark:text-emerald-400 hover:underline">Forgot?</a>
+            </div>
+            <input type="password" id="loginPassword" required value="••••••••" placeholder="••••••••" class="custom-input">
+          </div>
+
+          <div class="flex items-center justify-between pt-1">
+            <label class="flex items-center gap-2 text-xs text-[var(--text-secondary)] cursor-pointer">
+              <input type="checkbox" checked class="rounded text-emerald-600 focus:ring-emerald-500">
+              <span>Remember Me</span>
+            </label>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold cursor-pointer demo-fill-btn">Demo Account</span>
+          </div>
+
+          <button type="submit" class="btn-primary w-full py-3 text-sm font-bold justify-center shadow-lg mt-4">
+            <span>Sign In to Continue</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+        <!-- Form: SIGN UP -->
+        <form id="signUpForm" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Full Name</label>
+            <input type="text" id="signupName" required placeholder="Sarah Jenkins" class="custom-input">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Email Address</label>
+            <input type="email" id="signupEmail" required placeholder="sarah@company.com" class="custom-input">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Company / Organization</label>
+            <input type="text" id="signupCompany" placeholder="Acme Technologies" class="custom-input">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Phone Number</label>
+            <input type="tel" id="signupPhone" required placeholder="+1 (555) 019-2834" class="custom-input">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Password</label>
+            <input type="password" id="signupPassword" required placeholder="••••••••" class="custom-input">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-2">Confirm Password</label>
+            <input type="password" id="signupConfirmPassword" required placeholder="••••••••" class="custom-input">
+          </div>
+
+          <button type="submit" class="btn-primary w-full py-3 text-sm font-bold justify-center shadow-lg mt-4">
+            <span>Create Account & Continue</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+        <div class="text-center mt-6 pt-6 border-t border-[var(--border)]">
+          <p class="text-xs text-[var(--text-secondary)]">
+            By signing in, you agree to GreenSpace Rentals' 
+            <a href="#" class="text-emerald-600 dark:text-emerald-400 hover:underline">Terms of Service</a> & 
+            <a href="#" class="text-emerald-600 dark:text-emerald-400 hover:underline">Privacy Policy</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-xs text-gray-500">
+    &copy; 2026 GreenSpace Rentals. All rights reserved.
+  </footer>
+
+  <script src="js/service-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectUrl = urlParams.get('redirect') || 'profile.html';
+
+      const tabSignIn = document.getElementById('tabSignIn');
+      const tabSignUp = document.getElementById('tabSignUp');
+      const signInForm = document.getElementById('signInForm');
+      const signUpForm = document.getElementById('signUpForm');
+      const authTitle = document.getElementById('authTitle');
+      const authSubtitle = document.getElementById('authSubtitle');
+
+      // Tab Switching
+      tabSignIn.addEventListener('click', () => {
+        tabSignIn.classList.add('bg-[var(--surface)]', 'text-[var(--text-primary)]', 'shadow-sm');
+        tabSignIn.classList.remove('text-[var(--text-muted)]');
+        tabSignUp.classList.remove('bg-[var(--surface)]', 'text-[var(--text-primary)]', 'shadow-sm');
+        tabSignUp.classList.add('text-[var(--text-muted)]');
+
+        signInForm.classList.remove('hidden');
+        signUpForm.classList.add('hidden');
+        authTitle.textContent = "Sign In to GreenSpace";
+        authSubtitle.textContent = "Manage your plant subscriptions, custom quotes & maintenance";
+      });
+
+      tabSignUp.addEventListener('click', () => {
+        tabSignUp.classList.add('bg-[var(--surface)]', 'text-[var(--text-primary)]', 'shadow-sm');
+        tabSignUp.classList.remove('text-[var(--text-muted)]');
+        tabSignIn.classList.remove('bg-[var(--surface)]', 'text-[var(--text-primary)]', 'shadow-sm');
+        tabSignIn.classList.add('text-[var(--text-muted)]');
+
+        signUpForm.classList.remove('hidden');
+        signInForm.classList.add('hidden');
+        authTitle.textContent = "Create Your Account";
+        authSubtitle.textContent = "Join GreenSpace Rentals to track quotes, bookings & care visits";
+      });
+
+      // Handle Sign In
+      signInForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = (document.getElementById('loginEmail')?.value || '').trim();
+        const password = document.getElementById('loginPassword')?.value || '';
+
+        // Admin Credentials Authentication
+        if (email === "admin@greenspace.com" && password === "GreenSpace@Admin2026") {
+          sessionStorage.setItem("adminAuthenticated", "true");
+          sessionStorage.setItem("userRole", "admin");
+          sessionStorage.setItem("greenspace_admin_logged_in", "true");
+          const adminSession = { email: "admin@greenspace.com", name: "Aarav Mehta", role: "admin", loggedInAt: new Date().toISOString() };
+          sessionStorage.setItem("greenspace_admin_session", JSON.stringify(adminSession));
+          window.location.href = "admin/dashboard.html";
+          return;
+        }
+
+        // Customer Authentication Flow
+        window.GreenSpaceAuth.login(email, password);
+        window.location.href = redirectUrl;
+      });
+
+      // Handle Sign Up
+      signUpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const company = document.getElementById('signupCompany').value;
+        const phone = document.getElementById('signupPhone').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('signupConfirmPassword').value;
+
+        if (password !== confirmPassword) {
+          alert('Passwords do not match.');
+          return;
+        }
+
+        window.GreenSpaceAuth.signup({ name, email, company, phone });
+        window.location.href = redirectUrl;
+      });
+
+      // Demo Account Auto-Fill
+      const demoFillBtn = document.querySelector('.demo-fill-btn');
+      if (demoFillBtn) {
+        demoFillBtn.addEventListener('click', () => {
+          const emailField = document.getElementById('loginEmail');
+          const passField = document.getElementById('loginPassword');
+          if (emailField) emailField.value = 'preteka@abctech.com';
+          if (passField) passField.value = 'ClientPass2026';
+        });
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

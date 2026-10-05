@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Payment | GreenSpace Rentals</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description" content="Secure payment gateway for approved GreenSpace Rentals quotations and bookings.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              forest: '#071B15',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              cream: '#F7F2E8',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen flex flex-col justify-between antialiased transition-colors duration-300">
+
+  <!-- Top Simple Navigation -->
+  <nav class="pt-6 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 no-underline group focus:outline-none">
+      <div class="w-10 h-10 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+      <div class="flex flex-col">
+        <span class="font-heading font-bold text-xl tracking-tight text-[var(--text-primary)]">
+          GreenSpace <span class="text-emerald-600 dark:text-emerald-400 font-light ml-1 text-xs tracking-widest uppercase bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Secure Checkout</span>
+        </span>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="profile.html?section=payments" class="btn-outline text-xs py-2 px-4 inline-flex items-center gap-1.5">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+        <span>My GreenSpace</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Payment Card -->
+  <main class="my-auto py-12 px-4">
+    <div class="max-w-2xl mx-auto">
+      
+      <!-- PAYMENT PENDING FORM VIEW -->
+      <div id="paymentFormCard" class="p-8 sm:p-12 rounded-3xl bg-[var(--surface)] shadow-2xl border border-[var(--border)]">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--border)] mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase mb-2">
+              <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+              <span>256-BIT ENCRYPTED CHECKOUT</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold font-heading text-[var(--text-primary)]">
+              Complete Your Payment
+            </h1>
+          </div>
+          <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 self-start sm:self-auto">
+            Payment Pending
+          </span>
+        </div>
+
+        <!-- Summary Order Box -->
+        <div class="p-5 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] mb-8 space-y-3 text-xs sm:text-sm">
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Approved Quotation:</span>
+            <strong class="text-[var(--text-primary)] font-mono" id="payQuoteId">QUOTE #GS-Q1025</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Service Plan:</span>
+            <strong class="text-[var(--text-primary)]">Office Plant Rentals (25 Plants)</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Client / Organization:</span>
+            <strong class="text-[var(--text-primary)]" id="payCustName">Preteka • ABC Technologies</strong>
+          </div>
+          <div class="flex justify-between text-base sm:text-lg font-bold text-[var(--text-primary)] pt-3 border-t border-[var(--border)]">
+            <span>Total Payable Amount:</span>
+            <span class="font-mono text-emerald-600 dark:text-emerald-400" id="payTotalAmount">₹33,790</span>
+          </div>
+        </div>
+
+        <!-- Payment Method Options -->
+        <form id="checkoutPaymentForm" class="space-y-6">
+          <div>
+            <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-3">Select Payment Method</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <label class="flex items-center gap-3 p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-500/5 cursor-pointer">
+                <input type="radio" name="payMethod" value="card" checked>
+                <div>
+                  <span class="text-xs font-bold text-[var(--text-primary)] block">Card / NetBanking</span>
+                  <span class="text-[10px] text-[var(--text-muted)]">Visa, Master, RuPay</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-2xl border border-[var(--border)] bg-[var(--surface-elevated)] cursor-pointer hover:border-emerald-500/40">
+                <input type="radio" name="payMethod" value="upi">
+                <div>
+                  <span class="text-xs font-bold text-[var(--text-primary)] block">UPI / QR</span>
+                  <span class="text-[10px] text-[var(--text-muted)]">GPay, PhonePe, Paytm</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-2xl border border-[var(--border)] bg-[var(--surface-elevated)] cursor-pointer hover:border-emerald-500/40">
+                <input type="radio" name="payMethod" value="po">
+                <div>
+                  <span class="text-xs font-bold text-[var(--text-primary)] block">Corporate PO</span>
+                  <span class="text-[10px] text-[var(--text-muted)]">Invoice Net 15 Days</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Card Simulation Fields -->
+          <div class="space-y-4 pt-2">
+            <div>
+              <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1.5">Card Number</label>
+              <input type="text" value="•••• •••• •••• 4242" class="custom-input font-mono">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1.5">Expiry Date</label>
+                <input type="text" value="12/28" class="custom-input font-mono">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-[var(--text-primary)] uppercase tracking-wider mb-1.5">CVV</label>
+                <input type="password" value="•••" class="custom-input font-mono">
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo Sandbox Disclaimer -->
+          <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-800 dark:text-amber-300 flex items-center gap-2.5">
+            <i data-lucide="info" class="w-4 h-4 flex-shrink-0 text-amber-600"></i>
+            <span><strong>Development Mode:</strong> Payment gateway simulation ready for Node.js / Razorpay backend connection.</span>
+          </div>
+
+          <button type="submit" id="btnCompletePayment" class="btn-primary w-full py-3.5 text-base font-bold justify-center shadow-2xl bg-emerald-500 hover:bg-emerald-400">
+            <span>Pay ₹33,790 & Confirm Booking</span>
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+      </div>
+
+      <!-- PAYMENT SUCCESSFUL VIEW (DISPLAYED AFTER PAYMENT) -->
+      <div id="paymentSuccessCard" class="p-8 sm:p-12 md:p-14 rounded-3xl bg-[var(--surface)] shadow-2xl border border-[var(--border)] text-center hidden">
+        
+        <div class="w-20 h-20 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-5 shadow-xl animate-bounce">
+          <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+        </div>
+
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 mb-3">
+          PAYMENT SUCCESSFUL
+        </span>
+
+        <h2 class="text-3xl font-bold font-heading text-[var(--text-primary)] mb-2">
+          Thank You! Booking Confirmed
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--text-secondary)] mb-8">
+          Your payment has been processed and your plant rental booking is locked in.
+        </p>
+
+        <!-- Transaction Details Card -->
+        <div class="p-5 rounded-2xl bg-[var(--surface-muted)] border border-[var(--border)] max-w-md mx-auto text-left text-xs sm:text-sm space-y-2.5 mb-8">
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Transaction ID:</span>
+            <strong class="font-mono text-[var(--text-primary)]" id="receiptTxnId">GS-PAY-98241</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Amount Paid:</span>
+            <strong class="font-mono text-emerald-600 dark:text-emerald-400">₹33,790</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Quote Reference:</span>
+            <strong class="font-mono text-[var(--text-primary)]">GS-Q1025</strong>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[var(--text-muted)]">Booking Status:</span>
+            <strong class="text-emerald-600 font-bold">CONFIRMED (GS-B1025)</strong>
+          </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-left mb-8 space-y-2">
+          <h3 class="text-sm font-bold font-heading text-emerald-900 dark:text-emerald-200">WHAT HAPPENS NEXT</h3>
+          <p class="text-xs text-emerald-800/90 dark:text-emerald-300/90 leading-relaxed">
+            Your delivery and installation is scheduled for <strong>20 October 2026 (10:00 AM – 12:00 PM)</strong>. You can monitor the installation team and view upcoming maintenance schedules in your dashboard.
+          </p>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="profile.html?section=bookings" class="btn-primary text-sm py-3 px-8 shadow-xl inline-flex items-center gap-2">
+            <span>View Booking in My GreenSpace</span>
+            <i data-lucide="user" class="w-4 h-4"></i>
+          </a>
+          <button type="button" onclick="window.print()" class="btn-outline text-sm py-3 px-6 inline-flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Invoice</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-xs text-gray-500 border-t border-[var(--border)]">
+    &copy; 2026 GreenSpace Rentals. 256-Bit SSL Encrypted Booking System.
+  </footer>
+
+  <script src="js/service-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const paymentForm = document.getElementById('checkoutPaymentForm');
+      const formCard = document.getElementById('paymentFormCard');
+      const successCard = document.getElementById('paymentSuccessCard');
+
+      // Autofill customer name if authenticated
+      const currentUser = window.GreenSpaceAuth?.getCurrentUser();
+      if (currentUser && document.getElementById('payCustName')) {
+        document.getElementById('payCustName').textContent = `${currentUser.name} • ${currentUser.company || 'ABC Technologies'}`;
+      }
+
+      if (paymentForm) {
+        paymentForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // Generate payment transaction
+          const txnId = 'GS-PAY-' + Math.floor(10000 + Math.random() * 90000);
+          if (document.getElementById('receiptTxnId')) {
+            document.getElementById('receiptTxnId').textContent = txnId;
+          }
+
+          // Save booking in auth lifecycle
+          window.GreenSpaceAuth?.addBookingFromQuote('GS-Q1025', txnId);
+
+          formCard.classList.add('hidden');
+          successCard.classList.remove('hidden');
+
+          if (window.lucide) window.lucide.createIcons();
+        });
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

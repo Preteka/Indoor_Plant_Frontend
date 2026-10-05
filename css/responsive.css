@@ -1,0 +1,342 @@
+/* ==========================================================================
+   GreenSpace Rentals - Enhanced Responsive System (320px - 1600px+)
+   ========================================================================== */
+
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER — Fixed Overlay System
+   The drawer MUST be a fixed overlay, never in the document flow.
+   Hidden by default on ALL screen sizes; shown only when .active / .is-open is added.
+   Completely suppressed on desktop (≥ 1024px) via display:none !important.
+   ========================================================================== */
+
+/* Backdrop / dimmed overlay behind the drawer */
+#mobileNavBackdrop,
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;                        /* top:0 right:0 bottom:0 left:0 */
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.32s ease, visibility 0.32s ease;
+}
+
+#mobileNavBackdrop.active,
+#mobileNavBackdrop.is-open,
+.mobile-nav-backdrop.active,
+.mobile-nav-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Slide-in drawer panel */
+#mobileNavDrawer,
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 999;
+  width: min(320px, 85vw);
+  background: var(--surface, #ffffff);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%);     /* Hidden off-screen to the right in LTR */
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#mobileNavDrawer.active,
+#mobileNavDrawer.is-open,
+.mobile-nav-drawer.active,
+.mobile-nav-drawer.is-open {
+  transform: translateX(0);        /* Slide into view */
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* RTL Support for Mobile Drawer */
+[dir="rtl"] #mobileNavDrawer,
+[dir="rtl"] .mobile-nav-drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+  box-shadow: 8px 0 40px rgba(0, 0, 0, 0.18);
+}
+
+[dir="rtl"] #mobileNavDrawer.active,
+[dir="rtl"] #mobileNavDrawer.is-open,
+[dir="rtl"] .mobile-nav-drawer.active,
+[dir="rtl"] .mobile-nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Dark mode drawer background */
+.dark #mobileNavDrawer,
+.dark .mobile-nav-drawer {
+  background: #0f2318;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.45);
+}
+
+[dir="rtl"].dark #mobileNavDrawer,
+[dir="rtl"].dark .mobile-nav-drawer {
+  box-shadow: 8px 0 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Hide drawer entirely on desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  #mobileNavDrawer,
+  .mobile-nav-drawer,
+  #mobileNavBackdrop,
+  .mobile-nav-backdrop {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+
+/* Base Container Helper */
+.site-container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Extra Small Devices (Phones, 320px - 480px) */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 2.15rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em;
+  }
+  
+  .hero-subtext {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    padding: 0;
+  }
+  
+  .hero-bottom-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.25rem !important;
+  }
+  
+  .hero-cta-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  
+  .hero-cta-btns a,
+  .hero-cta-btns button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .about-floating-stats {
+    position: static !important;
+    margin-top: 1rem !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+  
+  .compare-wrapper,
+  .compare-interactive-box {
+    min-height: 260px !important;
+    max-height: 340px !important;
+    border-radius: 1.15rem !important;
+  }
+
+  .compare-drag-handle {
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 4px !important;
+  }
+
+  .compare-glass-badge {
+    font-size: 0.65rem !important;
+    padding: 0.25rem 0.65rem !important;
+    top: 0.65rem !important;
+  }
+  .badge-before { left: 0.65rem !important; }
+  .badge-after { right: 0.65rem !important; }
+  
+  .service-asymmetric-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Safe sizing for blooming plants on small screens so they frame nicely */
+  .botanical-plant {
+    transform: scale(0.65);
+    transform-origin: bottom center;
+  }
+  .botanical-plant-center {
+    display: none; /* Hide center plant on tiny mobile to keep CTA text crystal clear */
+  }
+}
+
+/* Small Devices (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hero-headline {
+    font-size: 2.85rem !important;
+    line-height: 1.15 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.05rem !important;
+  }
+  
+  .hero-bottom-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .about-floating-stats {
+    position: static !important;
+    margin-top: 1.5rem !important;
+    transform: none !important;
+  }
+  
+  .compare-wrapper,
+  .compare-interactive-box {
+    min-height: 320px !important;
+    max-height: 400px !important;
+  }
+
+  .botanical-plant {
+    transform: scale(0.8);
+    transform-origin: bottom center;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-headline {
+    font-size: 3.75rem !important;
+    line-height: 1.12 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.15rem !important;
+  }
+
+  .service-asymmetric-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) {
+  .hero-headline {
+    font-size: 4.6rem !important;
+    line-height: 1.08 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.2rem !important;
+  }
+
+  .service-asymmetric-grid {
+    grid-template-columns: repeat(12, 1fr) !important;
+  }
+}
+
+/* Large Screens (1440px+) */
+@media (min-width: 1440px) {
+  .hero-headline {
+    font-size: 5.4rem !important;
+    line-height: 1.05 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Plant Growth Journey Specific Breakpoints */
+@media (max-width: 767px) {
+  .journey-horizontal-vine {
+    display: none !important;
+  }
+  .journey-step-wrapper {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .journey-step-wrapper:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 2rem;
+    background: linear-gradient(180deg, #10B981, rgba(79, 138, 98, 0.2));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .journey-grid-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem 1.5rem !important;
+  }
+  .journey-horizontal-vine {
+    display: none !important;
+  }
+}
+
+/* About Page Specific Responsive Helpers */
+@media (max-width: 640px) {
+  .about-hero-plant-container {
+    max-width: 340px !important;
+  }
+  .about-plant-img {
+    max-height: 360px !important;
+  }
+  .about-plant-hint-badge {
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-hero-plant-container {
+    max-width: 420px !important;
+  }
+  .about-plant-img {
+    max-height: 400px !important;
+  }
+}
+
+

@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenSpace Rentals | Premium Indoor Plant Rental & Maintenance for Offices & Events</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description" content="Choose your plants. We deliver them, install them, maintain them, monitor their health, and replace them when needed. Flexible plant subscriptions for offices & events.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              forest: '#071B15',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              cream: '#F7F2E8',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="antialiased transition-colors duration-300">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
+
+  <!-- ==================== MOBILE SLIDE-IN NAVIGATION DRAWER ==================== -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-6 border-b border-[var(--border)]">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <span class="font-heading font-bold text-lg text-[var(--text-primary)]">GreenSpace</span>
+      </div>
+      <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-[var(--brand-soft)] text-[var(--text-primary)] focus:outline-none" aria-label="Close Navigation Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <nav class="py-6 flex flex-col gap-3">
+      <a href="index.html" class="mobile-nav-link text-base font-semibold text-emerald-600 dark:text-emerald-400 py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 1 – General</a>
+      <a href="home-2.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 2 – Niche-Specific</a>
+      <a href="about.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">About Us</a>
+      <a href="services.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Services</a>
+      <a href="pricing.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Pricing</a>
+      <a href="blog.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Blog</a>
+      <a href="contact.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Contact</a>
+      <a href="login.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)] flex items-center gap-2">
+        <i data-lucide="user" class="w-4 h-4"></i>
+        <span>Profile / Login</span>
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-[var(--text-muted)]">Appearance</span>
+        <button class="theme-toggle-btn px-3 py-1.5 rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="moon" class="w-3.5 h-3.5 theme-toggle-icon"></i>
+          <span class="theme-toggle-text">Dark Mode</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-[var(--text-muted)]">Direction</span>
+        <button class="rtl-toggle-btn px-3 py-1.5 rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="align-right" class="w-3.5 h-3.5 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text">RTL</span>
+        </button>
+      </div>
+
+      <a href="contact.html" class="btn-primary w-full justify-center text-center mt-3">
+        <span>Get a Free Quote</span>
+      </a>
+    </div>
+  </aside>
+
+
+
+  <!-- ==================== IMMERSIVE FULL-SCREEN HERO ==================== -->
+  <header class="hero-full min-h-screen relative flex flex-col justify-between overflow-hidden bg-grain">
+    <!-- Cinematic Botanical Background Visual -->
+    <video 
+      class="hero-video" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="auto"
+      poster="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2200&q=85"
+    >
+      <source src="images/WhatsApp Video 2026-10-02 at 9.48.14 PM.mp4" type="video/mp4">
+    </video>
+    <!-- Deep Multi-Layer Gradient Overlay -->
+    <div class="hero-overlay-layer"></div>
+
+    <!-- Floating Pill Navigation (MotionSites reference) -->
+    <nav class="relative z-30 pt-6 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Minimal Premium Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 text-white no-underline group focus:outline-none">
+        <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group-hover:scale-105 group-hover:border-emerald-400 transition-all shadow-lg overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-xl tracking-tight text-white flex items-center">
+            GreenSpace <span class="text-emerald-400 font-light ml-1.5 text-xs tracking-widest uppercase bg-white/10 px-2 py-0.5 rounded-full border border-white/20">Rentals</span>
+          </span>
+          <span class="text-[10px] text-emerald-200/80 tracking-widest uppercase font-medium">Offices & Events</span>
+        </div>
+      </a>
+
+      <!-- Center Pill Menu -->
+      <div class="hidden lg:flex items-center gap-1 bg-white/15 dark:bg-black/40 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-full px-5 py-2 shadow-2xl">
+        <a href="index.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white bg-white/25 shadow-sm">Home 1</a>
+        <a href="home-2.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 2</a>
+        <a href="about.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">About Us</a>
+        <a href="services.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Services</a>
+        <a href="pricing.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Pricing</a>
+        <a href="blog.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Blog</a>
+        <a href="contact.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Contact</a>
+      </div>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 z-30">
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle RTL/LTR" aria-label="Toggle Direction">
+          <i data-lucide="align-right" class="w-4 h-4 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text hidden sm:inline font-semibold">RTL</span>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button class="theme-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 theme-toggle-icon"></i>
+          <span class="theme-toggle-text hidden sm:inline font-medium text-xs">Dark</span>
+        </button>
+
+        <!-- Login / Profile -->
+        <a href="login.html" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-white text-[#17352D] font-bold text-xs hover:bg-emerald-50 transition-all shadow-xl">
+          <i data-lucide="user" class="w-3.5 h-3.5"></i>
+          <span>Login</span>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobileMenuToggle" class="lg:hidden p-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all focus:outline-none" aria-label="Open Navigation Menu" aria-expanded="false">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Centered Editorial Headline with Line-by-Line Reveal -->
+    <div class="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center my-auto py-12">
+      <!-- Tag Badge -->
+      <div class="hero-reveal-line mb-6">
+        <div class="hero-reveal-inner inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-emerald-200 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-lg">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Zero Hassle Corporate & Event Plant Subscriptions
+        </div>
+      </div>
+
+      <!-- Two-Tone Responsive Headline -->
+      <h1 class="hero-headline text-4xl sm:text-6xl md:text-7xl font-heading font-light tracking-tight text-white leading-tight mb-6">
+        <div class="hero-reveal-line">
+          <span class="hero-reveal-inner block">Bring Nature Into</span>
+        </div>
+        <div class="hero-reveal-line">
+          <span class="hero-reveal-inner block font-extrabold text-emerald-300 drop-shadow-md">Every Space</span>
+        </div>
+      </h1>
+
+      <!-- Supporting Subtext -->
+      <div class="hero-reveal-line">
+        <p class="hero-reveal-inner hero-subtext text-base sm:text-xl text-emerald-50/90 font-normal max-w-2xl mx-auto leading-relaxed drop-shadow">
+          Premium indoor plant rentals, professional maintenance, and greenery solutions for modern offices and memorable events.
+        </p>
+      </div>
+    </div>
+
+    <!-- Hero Support Card & Interactive Action -->
+    <div class="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 pb-6 pt-2">
+      <div class="hero-support-card bg-[#051e17]/75 backdrop-blur-xl border border-white/20 rounded-[28px] sm:rounded-[32px] p-6 sm:p-7 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-300">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
+          
+          <!-- Left / Content Area -->
+          <div class="flex-1 max-w-2xl">
+            <!-- Small Botanical Label -->
+            <div class="flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-emerald-300 uppercase mb-2.5">
+              <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-400 flex-shrink-0"></i>
+              <span>GREENER SPACES. BETTER WORKPLACES.</span>
+            </div>
+            
+            <!-- Main Supporting Text -->
+            <p class="text-sm sm:text-[15px] text-white/90 leading-relaxed font-normal mb-5">
+              Beautiful plants without the ownership hassle. We deliver, install, maintain, and care for your greenery.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="hero-cta-btns flex flex-wrap items-center gap-3 sm:gap-4">
+              <a href="services.html" class="btn-primary text-xs sm:text-sm py-2.5 px-6 shadow-lg inline-flex items-center gap-2">
+                <span>Explore Services</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <a href="contact.html" class="btn-glass text-xs sm:text-sm py-2.5 px-6 text-white inline-flex items-center justify-center">
+                <span>Get a Free Quote</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Video Action Card -->
+          <div class="flex-shrink-0 flex items-center lg:self-center pt-4 lg:pt-0 border-t border-white/10 lg:border-t-0 lg:border-l lg:border-white/15 lg:pl-8">
+            <button class="open-care-modal group flex items-center gap-3.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 hover:border-emerald-400/50 rounded-2xl sm:rounded-full py-3 px-5 transition-all duration-300 focus:outline-none shadow-lg text-left w-full sm:w-auto cursor-pointer" aria-label="Watch Plant Care Video">
+              <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-400 transition-all duration-300 shadow-md flex-shrink-0">
+                <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+              </div>
+              <div>
+                <div class="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-200 transition-colors">See Our Plant Care</div>
+                <div class="text-[11px] text-emerald-200/80 font-mono tracking-wide">1:20 min video</div>
+              </div>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== ABOUT / INTRO SECTION (Warm Natural Editorial) ==================== -->
+  <section class="py-24 sm:py-32 section-about relative transition-colors duration-400 overflow-hidden parallax-zone">
+    <!-- Subtle Background Organic Watermark -->
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="site-container relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Left Editorial Text -->
+        <div class="lg:col-span-6 space-y-6 reveal-left" data-delay="0">
+          <div class="badge-tag">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Transforming Workplaces & Venues</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-[#17352D] dark:text-[#F0F7F2] leading-[1.15]">
+            Greener Spaces. <br>
+            <span class="text-emerald-600 dark:text-emerald-400 italic font-normal">Happier Places.</span>
+          </h2>
+          <p class="text-base sm:text-lg text-[#3D4F3A] dark:text-[#B6CEBE] leading-relaxed">
+            We help offices, businesses and event organizers create beautiful indoor environments through flexible plant rental, professional installation and ongoing maintenance.
+          </p>
+          <p class="text-sm sm:text-base text-[#647B60] dark:text-[#8AA493] leading-relaxed">
+            Our certified horticultural team takes complete ownership of plant health, moisture diagnostics, soil nourishment, and prompt replacements—allowing your team to thrive in clean, oxygen-rich greenery without lifting a finger.
+          </p>
+          <div class="pt-3 flex items-center gap-4">
+            <a href="about.html" class="btn-primary">
+              <span>Discover Our Story</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#4B5B47] dark:text-[#B6CEBE]">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+              <span>Full 48h Plant Guarantee</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Layered Image & Floating Parallax Stats Cards -->
+        <div class="lg:col-span-6 relative reveal-right" data-delay="150">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-emerald-900/40">
+            <img 
+              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80" 
+              alt="Transformed modern architectural workspace with plants" 
+              class="w-full h-[480px] object-cover hover:scale-105 transition-transform duration-700"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Floating Stat Card 1: 500+ Plants -->
+          <div class="parallax-layer absolute -bottom-6 -left-6 sm:bottom-6 sm:-left-8 bg-white/95 dark:bg-[#11221D]/95 backdrop-blur-xl p-5 rounded-2xl shadow-xl border border-emerald-900/10 dark:border-emerald-500/30 flex items-center gap-4 animate-float" data-parallax-speed="0.25">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="trees" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="stat-counter font-heading font-extrabold text-2xl sm:text-3xl text-[#17352D] dark:text-white" data-target="500" data-suffix="+">
+                500+
+              </div>
+              <div class="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">Plants Maintained</div>
+            </div>
+          </div>
+
+          <!-- Floating Stat Card 2: 120+ Spaces & 98% Satisfaction -->
+          <div class="parallax-layer absolute -top-6 -right-4 sm:top-6 sm:-right-6 bg-white/95 dark:bg-[#11221D]/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-xl border border-emerald-900/10 dark:border-emerald-500/30 space-y-3" data-parallax-speed="0.15">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-amber-600 flex items-center justify-center">
+                <i data-lucide="building-2" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="stat-counter font-heading font-bold text-xl text-[#17352D] dark:text-white" data-target="120" data-suffix="+">120+</div>
+                <div class="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase">Spaces Transformed</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-800">
+              <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="stat-counter font-heading font-bold text-xl text-[#17352D] dark:text-white" data-target="98" data-suffix="%">98%</div>
+                <div class="text-[10px] text-gray-500 dark:text-gray-400 font-semibold uppercase">Client Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6 EDITORIAL SERVICES SECTION ==================== -->
+  <section class="py-24 section-services relative transition-colors duration-400 overflow-hidden">
+    <div class="site-container relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-init" data-delay="0">
+        <div class="badge-tag mb-3">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Comprehensive Botanical Care</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[var(--text-primary)] dark:text-white mb-4">
+          Tailored Rental & Greenery Services
+        </h2>
+        <p class="text-base text-[var(--text-secondary)] dark:text-emerald-100/80">
+          From full corporate floor wellness to dazzling event galas, we deliver, install, water, and maintain every single leaf.
+        </p>
+      </div>
+
+      <!-- Balanced 6-Service Grid (3x2 Desktop, 2x3 Tablet, 1x6 Mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        
+        <!-- Service 01: Office Plant Rentals -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group reveal-scale relative overflow-hidden h-full" data-delay="100">
+          <div class="service-card-image w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80" alt="Office Plant Rentals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span class="service-index-number text-xs font-mono font-bold text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">01</span>
+              <span class="bg-emerald-500 text-[#071B15] font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Featured Program</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
+                <i data-lucide="building" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Workplaces & Towers</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-3">Office Plant Rentals</h3>
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed mb-6">
+                Flexible monthly subscriptions for executive suites, open floorplans, meeting rooms, and reception atriums with weekly care.
+              </p>
+            </div>
+            
+            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+              <span class="text-xs text-[var(--text-muted)] font-mono">Includes sub-irrigation planters</span>
+              <a href="services.html" class="btn-primary text-xs py-2 px-4 shadow-sm">
+                <span>Learn More</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 02: Event Plant Rentals -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group reveal-scale relative overflow-hidden h-full" data-delay="200">
+          <div class="service-card-image w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80" alt="Event Plant Rentals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span class="service-index-number text-xs font-mono font-bold text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">02</span>
+              <span class="bg-amber-400 text-[#071B15] font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Short-Term & Galas</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Conferences & Galas</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-3">Event Plant Rentals</h3>
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed mb-6">
+                Temporary botanical styling for luxury weddings, product launches, conventions, and experiential pop-up activations.
+              </p>
+            </div>
+
+            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+              <span class="text-xs text-[var(--text-muted)] font-mono">Pre-doors setup & pack-down</span>
+              <a href="services.html" class="btn-primary text-xs py-2 px-4 shadow-sm">
+                <span>Learn More</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 03: Plant Installation -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group reveal-scale relative overflow-hidden h-full" data-delay="300">
+          <div class="service-card-image w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80" alt="Plant Installation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span class="service-index-number text-xs font-mono font-bold text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">03</span>
+              <span class="bg-emerald-500/80 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/20">White-Glove</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
+                <i data-lucide="package-check" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Custom Placement</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-3">Plant Installation</h3>
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed mb-6">
+                Seamless delivery and designer placement matched to room lighting, humidity, and airflow with floor protection.
+              </p>
+            </div>
+
+            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+              <span class="text-xs text-[var(--text-muted)] font-mono">Zero workplace disruption</span>
+              <a href="services.html" class="btn-primary text-xs py-2 px-4 shadow-sm">
+                <span>Learn More</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 04: Plant Maintenance -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group reveal-scale relative overflow-hidden h-full" data-delay="400">
+          <div class="service-card-image w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1000&q=80" alt="Plant Maintenance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span class="service-index-number text-xs font-mono font-bold text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">04</span>
+              <span class="bg-emerald-500 text-[#071B15] font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">Weekly Routine</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
+                <i data-lucide="droplet" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Ongoing Botanical Care</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-3">Plant Maintenance</h3>
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed mb-6">
+                Scheduled watering, dusting, organic fertilizing, and precision pruning by certified horticultural specialists.
+              </p>
+            </div>
+
+            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+              <span class="text-xs text-[var(--text-muted)] font-mono">Invisible, tidy visits</span>
+              <a href="services.html" class="btn-primary text-xs py-2 px-4 shadow-sm">
+                <span>Learn More</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 05: Plant Health Checks -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group reveal-scale relative overflow-hidden h-full" data-delay="500">
+          <div class="service-card-image w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1000&q=80" alt="Plant Health Checks" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span class="service-index-number text-xs font-mono font-bold text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">05</span>
+              <span class="bg-emerald-500/80 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-white/20">Diagnostics</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
+                <i data-lucide="activity" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Scientific Audits</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-3">Plant Health Checks</h3>
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed mb-6">
+                Bi-weekly soil moisture testing, root analysis, light meter verification, and preventive pest defense audits.
+              </p>
+            </div>
+
+            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+              <span class="text-xs text-[var(--text-muted)] font-mono">Monthly digital health logs</span>
+              <a href="services.html" class="btn-primary text-xs py-2 px-4 shadow-sm">
+                <span>Learn More</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 06: Plant Replacement -->
+        <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group reveal-scale relative overflow-hidden h-full" data-delay="600">
+          <div class="service-card-image w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 relative flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1000&q=80" alt="Plant Replacement" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span class="service-index-number text-xs font-mono font-bold text-white bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">06</span>
+              <span class="bg-emerald-500 text-[#071B15] font-extrabold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">100% Free Swap</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 mb-2">
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-widest">Vitality Pledge</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-3">Plant Replacement</h3>
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed mb-6">
+                Free 48-hour swap guarantee whenever any plant shows fatigue, ensuring pristine premises at all times.
+              </p>
+            </div>
+
+            <div class="mt-auto pt-4 border-t border-[var(--border)] flex items-center justify-between">
+              <span class="text-xs text-[var(--text-muted)] font-mono">48-Hour priority replacement</span>
+              <a href="services.html" class="btn-primary text-xs py-2 px-4 shadow-sm">
+                <span>Learn More</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE BEFORE & AFTER TRANSFORMATION ==================== -->
+  <section class="py-24 section-before-after transition-colors duration-400 overflow-hidden">
+    <div class="site-container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text & Action -->
+        <div class="lg:col-span-5 space-y-6 reveal-left">
+          <div class="badge-tag">
+            <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+            <span>Interactive Biophilic Makeover</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[var(--text-primary)] dark:text-white leading-tight">
+            From Empty Corners <br>
+            <span class="text-emerald-600 dark:text-emerald-400">to Living Spaces</span>
+          </h2>
+          <p class="text-base text-[var(--text-secondary)] dark:text-[#B6CEBE] leading-relaxed">
+            Drag the interactive slider to see how strategic plant styling elevates sterile corporate interiors into vibrant, oxygen-rich environments that inspire productivity and creativity.
+          </p>
+
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-sm text-[var(--text-primary)] dark:text-white font-semibold">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+              <span>Improves air quality & naturally regulates humidity</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm text-[var(--text-primary)] dark:text-white font-semibold">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+              <span>Reduces ambient noise and office acoustic echo</span>
+            </li>
+            <li class="flex items-center gap-3 text-sm text-[var(--text-primary)] dark:text-white font-semibold">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+              <span>Proven 15% increase in employee focus & morale</span>
+            </li>
+          </ul>
+
+          <div class="pt-4">
+            <a href="contact.html" class="btn-primary">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Transform My Office</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pointer Events Interactive Comparison Slider Widget -->
+        <div class="lg:col-span-7 reveal-right">
+          <div class="relative bg-emerald-950/5 dark:bg-emerald-950/40 p-3 sm:p-4 rounded-3xl border border-[var(--border)] shadow-2xl">
+            
+            <div id="compareInteractiveBox" class="compare-interactive-box">
+              
+              <!-- AFTER Layer (Transformed Biophilic Office) -->
+              <div class="compare-layer-after">
+                <img 
+                  src="images/after-office.jpg" 
+                  alt="Transformed office with professional plant styling (After)"
+                >
+                <div class="compare-glass-badge badge-after">
+                  AFTER (GREENSPACE)
+                </div>
+              </div>
+
+              <!-- BEFORE Layer (Matching Sterile Modern Office) -->
+              <div id="compareBeforeLayer" class="compare-layer-before">
+                <img 
+                  src="images/before-office.jpg" 
+                  alt="Sterile modern office without plants (Before)"
+                >
+                <div class="compare-glass-badge badge-before">
+                  BEFORE
+                </div>
+              </div>
+
+              <!-- Vertical Divider Line -->
+              <div id="compareDividerLine" class="compare-divider-line"></div>
+
+              <!-- Drag Handle with Arrows & Keyboard Accessibility -->
+              <div 
+                id="compareDragHandle" 
+                class="compare-drag-handle" 
+                role="slider" 
+                tabindex="0" 
+                aria-valuemin="0" 
+                aria-valuemax="100" 
+                aria-valuenow="50" 
+                aria-label="Before and after biophilic office transformation slider"
+              >
+                <i data-lucide="chevron-left" class="w-4 h-4 text-emerald-800 flex-shrink-0"></i>
+                <div class="w-0.5 h-4 bg-emerald-600/50 rounded-full"></div>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-800 flex-shrink-0"></i>
+              </div>
+
+            </div>
+
+            <p class="text-center text-xs text-[var(--text-muted)] mt-3 font-medium flex items-center justify-center gap-1.5">
+              <i data-lucide="move-horizontal" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Click or drag anywhere across the image to explore the transformation</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY BUSINESSES CHOOSE US ==================== -->
+  <section class="py-24 section-why-choose transition-colors duration-400 border-t border-[var(--border)]">
+    <div class="site-container">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-init">
+        <div class="badge-tag mb-3">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>The GreenSpace Advantage</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-4">
+          Why Businesses Choose Us
+        </h2>
+        <p class="text-base text-[var(--text-secondary)] dark:text-[#B6CEBE]">
+          Experience total peace of mind with end-to-end greenery management tailored for modern commercial spaces.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="glass-card p-8 rounded-2xl flex gap-5 items-start reveal-init" data-delay="100">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="sliders" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-[var(--text-primary)] mb-2">Flexible Rental Plans</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              No long-term lock-in traps. Scale your plant subscription up or down easily as your team and floorplan grow.
+            </p>
+          </div>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="glass-card p-8 rounded-2xl flex gap-5 items-start reveal-init" data-delay="150">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="user-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-[var(--text-primary)] mb-2">Professional Maintenance</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              Our uniformed plant specialists handle soil nutrition, watering, polishing, and pest control without disturbing your work.
+            </p>
+          </div>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="glass-card p-8 rounded-2xl flex gap-5 items-start reveal-init" data-delay="200">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-[var(--text-primary)] mb-2">Healthy Plants Guarantee</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              We source lush, acclimatized nursery-grade plants that naturally purify indoor air and boost workplace productivity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="glass-card p-8 rounded-2xl flex gap-5 items-start reveal-init" data-delay="250">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="truck" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-[var(--text-primary)] mb-2">Scheduled Delivery</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              On-time delivery and clean setup scheduled during after-hours or quiet windows to avoid any workflow interruption.
+            </p>
+          </div>
+        </div>
+
+        <!-- Benefit 5 -->
+        <div class="glass-card p-8 rounded-2xl flex gap-5 items-start reveal-init" data-delay="300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="repeat" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-[var(--text-primary)] mb-2">Easy Free Replacement</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              If a plant loses its vitality or look, we replace it instantly with zero questions and zero extra charges.
+            </p>
+          </div>
+        </div>
+
+        <!-- Benefit 6 -->
+        <div class="glass-card p-8 rounded-2xl flex gap-5 items-start reveal-init" data-delay="350">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="headphones" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-[var(--text-primary)] mb-2">Dedicated Support</h3>
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              A dedicated plant account manager ready to attend to special event add-ons, layout shifts, or seasonal tweaks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW PLANT RENTAL WORKS (PLANT GROWTH JOURNEY) ==================== -->
+  <section id="howItWorksSection" class="growth-journey-section py-28 text-white relative transition-colors duration-400">
+    <!-- Ambient Background Depth Silhouettes -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    
+    <div class="site-container relative z-10">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-20 reveal-init">
+        <div class="badge-tag mb-3 process-badge">
+          <i data-lucide="git-commit" class="w-3.5 h-3.5"></i>
+          <span>Effortless Process</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold process-heading mb-4">
+          How Plant Rental Works
+        </h2>
+        <p class="text-base sm:text-lg process-description leading-relaxed">
+          From selection to weekly care, we make having lush greenery effortless.
+        </p>
+      </div>
+
+      <!-- Progressive Plant Growth Story Grid -->
+      <div class="relative">
+        <!-- Connecting Organic Botanical Vine (Desktop) -->
+        <svg class="journey-connecting-vine journey-horizontal-vine" viewBox="0 0 1000 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 50 30 Q 180 -10, 300 30 T 550 30 T 800 30 T 950 30" stroke="url(#vineGrad)" stroke-width="2.5" stroke-linecap="round" class="vine-path-svg"/>
+          <defs>
+            <linearGradient id="vineGrad" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#4F8A62" stop-opacity="0.3"/>
+              <stop offset="0.33" stop-color="#10B981" stop-opacity="0.7"/>
+              <stop offset="0.66" stop-color="#10B981" stop-opacity="0.85"/>
+              <stop offset="1" stop-color="#F5A623" stop-opacity="0.9"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="journey-grid-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          
+          <!-- ==================== STEP 01: SEEDLING / SPROUT ==================== -->
+          <div class="journey-step-wrapper flex flex-col items-center">
+            <!-- Step Card -->
+            <div class="growth-step-card process-card w-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="growth-step-number process-step-number">01</span>
+                  <span class="process-stage-badge text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">Sprout Stage</span>
+                </div>
+                <h3 class="text-xl font-heading font-bold process-card-title mb-2.5">Choose Your Plants</h3>
+                <p class="text-xs sm:text-sm process-card-description leading-relaxed">
+                  Browse our curated botanical catalog or let our designers recommend the best species for your lighting conditions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Plant Pot & Growing Seedling -->
+            <div class="growth-pot-container">
+              <div class="growth-plant-wrap">
+                <svg class="growth-plant-svg" viewBox="0 0 130 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Tiny Seedling Stem -->
+                  <path d="M65 130 C65 110 63 90 65 72" stroke="#4F8A62" stroke-width="3.5" stroke-linecap="round" class="journey-stem"/>
+                  <!-- First Tiny Leaf (Left) -->
+                  <path d="M65 78 C52 70 42 76 46 84 C54 87 63 81 65 78 Z" fill="#2FA66F" class="journey-leaf" style="transition-delay: 350ms; transform-origin: 65px 78px;"/>
+                  <!-- Second Tiny Leaf (Right) -->
+                  <path d="M65 74 C78 66 88 72 84 80 C76 83 67 77 65 74 Z" fill="#35C98A" class="journey-leaf" style="transition-delay: 500ms; transform-origin: 65px 74px;"/>
+                </svg>
+              </div>
+              <!-- Ceramic Planter Pot 1 -->
+              <svg class="growth-ceramic-pot" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="60" rx="42" ry="5" fill="#000000" opacity="0.45" filter="blur(2px)"/>
+                <path d="M14 14 L23 54 C24 57 27 59 30 59 L70 59 C73 59 76 57 77 54 L86 14 Z" fill="url(#potGrad1)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="36" ry="6" fill="url(#rimGrad1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="31" ry="4" fill="#16120D"/>
+                <defs>
+                  <linearGradient id="potGrad1" x1="14" y1="14" x2="86" y2="59" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1B3A31"/>
+                    <stop offset="0.6" stop-color="#112720"/>
+                    <stop offset="1" stop-color="#081510"/>
+                  </linearGradient>
+                  <linearGradient id="rimGrad1" x1="14" y1="8" x2="86" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2D5E50"/>
+                    <stop offset="0.7" stop-color="#193B31"/>
+                    <stop offset="1" stop-color="#0E211A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <!-- ==================== STEP 02: GROWING YOUNG PLANT ==================== -->
+          <div class="journey-step-wrapper flex flex-col items-center">
+            <!-- Step Card -->
+            <div class="growth-step-card process-card w-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="growth-step-number process-step-number">02</span>
+                  <span class="process-stage-badge text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">Growth Stage</span>
+                </div>
+                <h3 class="text-xl font-heading font-bold process-card-title mb-2.5">Select Your Plan</h3>
+                <p class="text-xs sm:text-sm process-card-description leading-relaxed">
+                  Choose a flexible monthly office subscription or a customized short-term rental package for special corporate events.
+                </p>
+              </div>
+            </div>
+
+            <!-- Plant Pot & Growing Foliage -->
+            <div class="growth-pot-container">
+              <div class="growth-plant-wrap">
+                <svg class="growth-plant-svg" viewBox="0 0 130 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Main Sturdy Stem -->
+                  <path d="M65 130 C65 95 60 70 65 42" stroke="#4F8A62" stroke-width="3.5" stroke-linecap="round" class="journey-stem"/>
+                  <!-- Branch 1 & Leaf Lower Left -->
+                  <path d="M64 98 C45 92 34 100 38 108 C50 110 62 101 64 98 Z" fill="#2FA66F" class="journey-leaf" style="transition-delay: 250ms; transform-origin: 64px 98px;"/>
+                  <!-- Branch 2 & Leaf Lower Right -->
+                  <path d="M65 82 C85 76 96 84 92 92 C80 94 68 85 65 82 Z" fill="#35C98A" class="journey-leaf" style="transition-delay: 400ms; transform-origin: 65px 82px;"/>
+                  <!-- Branch 3 & Leaf Upper Left -->
+                  <path d="M64 62 C48 52 40 60 44 67 C54 69 63 64 64 62 Z" fill="#4F8A62" class="journey-leaf" style="transition-delay: 550ms; transform-origin: 64px 62px;"/>
+                  <!-- Top New Leaf -->
+                  <path d="M65 44 C65 30 75 24 80 32 C78 40 70 43 65 44 Z" fill="#35C98A" class="journey-leaf" style="transition-delay: 700ms; transform-origin: 65px 44px;"/>
+                </svg>
+              </div>
+              <!-- Ceramic Planter Pot 2 -->
+              <svg class="growth-ceramic-pot" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="60" rx="42" ry="5" fill="#000000" opacity="0.45" filter="blur(2px)"/>
+                <path d="M14 14 L23 54 C24 57 27 59 30 59 L70 59 C73 59 76 57 77 54 L86 14 Z" fill="url(#potGrad2)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="36" ry="6" fill="url(#rimGrad2)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="31" ry="4" fill="#16120D"/>
+                <defs>
+                  <linearGradient id="potGrad2" x1="14" y1="14" x2="86" y2="59" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#23453A"/>
+                    <stop offset="0.6" stop-color="#162E26"/>
+                    <stop offset="1" stop-color="#0C1B16"/>
+                  </linearGradient>
+                  <linearGradient id="rimGrad2" x1="14" y1="8" x2="86" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#346B5B"/>
+                    <stop offset="0.7" stop-color="#20463A"/>
+                    <stop offset="1" stop-color="#122B22"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <!-- ==================== STEP 03: HEALTHY CANOPY WITH BUD ==================== -->
+          <div class="journey-step-wrapper flex flex-col items-center">
+            <!-- Step Card -->
+            <div class="growth-step-card process-card w-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="growth-step-number process-step-number">03</span>
+                  <span class="process-stage-badge text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">Maturing Stage</span>
+                </div>
+                <h3 class="text-xl font-heading font-bold process-card-title mb-2.5">Schedule Delivery</h3>
+                <p class="text-xs sm:text-sm process-card-description leading-relaxed">
+                  Our white-glove team delivers, pots, and installs each plant in designer planters with zero disruption.
+                </p>
+              </div>
+            </div>
+
+            <!-- Plant Pot & Canopy with Floral Bud -->
+            <div class="growth-pot-container">
+              <div class="growth-plant-wrap">
+                <svg class="growth-plant-svg" viewBox="0 0 130 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Central Stem & Secondary Stem -->
+                  <path d="M65 130 C65 85 58 55 65 24" stroke="#336443" stroke-width="4" stroke-linecap="round" class="journey-stem"/>
+                  <path d="M63 75 C45 65 38 48 35 36" stroke="#35C98A" stroke-width="3" stroke-linecap="round" class="journey-stem" style="transition-delay: 150ms;"/>
+                  <!-- Lush Leaves Spread -->
+                  <path d="M64 105 C40 98 28 108 34 118 C48 120 62 109 64 105 Z" fill="#2FA66F" class="journey-leaf" style="transition-delay: 200ms; transform-origin: 64px 105px;"/>
+                  <path d="M65 90 C90 82 102 92 98 102 C84 104 70 93 65 90 Z" fill="#35C98A" class="journey-leaf" style="transition-delay: 350ms; transform-origin: 65px 90px;"/>
+                  <path d="M35 36 C22 30 15 40 20 48 C30 50 38 42 35 36 Z" fill="#4F8A62" class="journey-leaf" style="transition-delay: 500ms; transform-origin: 35px 36px;"/>
+                  <path d="M64 50 C82 40 92 48 88 56 C76 58 66 52 64 50 Z" fill="#2FA66F" class="journey-leaf" style="transition-delay: 650ms; transform-origin: 64px 50px;"/>
+                  <!-- Decorative Flower Bud -->
+                  <g class="journey-bloom" style="transform-origin: 65px 24px; transition-delay: 850ms;">
+                    <ellipse cx="65" cy="18" rx="7" ry="10" fill="#F5A623"/>
+                    <circle cx="65" cy="22" r="5" fill="#FFEBA3"/>
+                  </g>
+                </svg>
+              </div>
+              <!-- Ceramic Planter Pot 3 -->
+              <svg class="growth-ceramic-pot" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="60" rx="42" ry="5" fill="#000000" opacity="0.45" filter="blur(2px)"/>
+                <path d="M14 14 L23 54 C24 57 27 59 30 59 L70 59 C73 59 76 57 77 54 L86 14 Z" fill="url(#potGrad3)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="36" ry="6" fill="url(#rimGrad3)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="31" ry="4" fill="#16120D"/>
+                <defs>
+                  <linearGradient id="potGrad3" x1="14" y1="14" x2="86" y2="59" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1B3A31"/>
+                    <stop offset="0.6" stop-color="#112720"/>
+                    <stop offset="1" stop-color="#081510"/>
+                  </linearGradient>
+                  <linearGradient id="rimGrad3" x1="14" y1="8" x2="86" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2D5E50"/>
+                    <stop offset="0.7" stop-color="#193B31"/>
+                    <stop offset="1" stop-color="#0E211A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <!-- ==================== STEP 04: FULL LUSH THRIVING WITH FLOWER ==================== -->
+          <div class="journey-step-wrapper flex flex-col items-center">
+            <!-- Step Card -->
+            <div class="growth-step-card process-card w-full flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="growth-step-number process-step-number">04</span>
+                  <span class="process-stage-badge text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">Thriving Stage</span>
+                </div>
+                <h3 class="text-xl font-heading font-bold process-card-title mb-2.5">We Maintain Them</h3>
+                <p class="text-xs sm:text-sm process-card-description leading-relaxed">
+                  Sit back and enjoy thriving greenery. We water, prune, fertilize, check health, and replace any plant when required.
+                </p>
+              </div>
+            </div>
+
+            <!-- Plant Pot & Full Lush Foliage with Blooming Flower -->
+            <div class="growth-pot-container">
+              <div class="growth-plant-wrap">
+                <svg class="growth-plant-svg" viewBox="0 0 130 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Multi Branch Canopy Stems -->
+                  <path d="M65 130 C65 80 62 45 65 18" stroke="#336443" stroke-width="4" stroke-linecap="round" class="journey-stem"/>
+                  <path d="M63 85 C42 70 32 50 28 35" stroke="#4F8A62" stroke-width="3.5" stroke-linecap="round" class="journey-stem" style="transition-delay: 150ms;"/>
+                  <path d="M67 75 C88 62 98 46 102 32" stroke="#4F8A62" stroke-width="3.5" stroke-linecap="round" class="journey-stem" style="transition-delay: 200ms;"/>
+                  <!-- Multi-Layer Lush Foliage -->
+                  <path d="M64 108 C35 102 22 114 30 125 C48 127 62 113 64 108 Z" fill="#143B2E" class="journey-leaf" style="transition-delay: 200ms; transform-origin: 64px 108px;"/>
+                  <path d="M66 95 C98 88 112 100 106 112 C90 114 74 99 66 95 Z" fill="#336443" class="journey-leaf" style="transition-delay: 300ms; transform-origin: 66px 95px;"/>
+                  <path d="M28 35 C12 28 4 40 10 50 C24 53 32 42 28 35 Z" fill="#10B981" class="journey-leaf" style="transition-delay: 450ms; transform-origin: 28px 35px;"/>
+                  <path d="M102 32 C118 25 126 38 120 48 C106 50 98 39 102 32 Z" fill="#10B981" class="journey-leaf" style="transition-delay: 550ms; transform-origin: 102px 32px;"/>
+                  <path d="M64 52 C45 40 38 52 44 60 C56 62 66 54 64 52 Z" fill="#4F8A62" class="journey-leaf" style="transition-delay: 650ms; transform-origin: 64px 52px;"/>
+                  <path d="M66 45 C86 35 94 46 88 54 C76 56 68 47 66 45 Z" fill="#4F8A62" class="journey-leaf" style="transition-delay: 750ms; transform-origin: 66px 45px;"/>
+                  <!-- Blooming Flower at Top -->
+                  <g class="journey-bloom" style="transform-origin: 65px 18px; transition-delay: 950ms;">
+                    <circle cx="65" cy="8" r="9" fill="#F5A623" opacity="0.95"/>
+                    <circle cx="53" cy="16" r="9" fill="#F5A623" opacity="0.95"/>
+                    <circle cx="77" cy="16" r="9" fill="#F5A623" opacity="0.95"/>
+                    <circle cx="58" cy="28" r="9" fill="#F5A623" opacity="0.95"/>
+                    <circle cx="72" cy="28" r="9" fill="#F5A623" opacity="0.95"/>
+                    <circle cx="65" cy="18" r="7" fill="#FFFFFF"/>
+                  </g>
+                </svg>
+              </div>
+              <!-- Ceramic Planter Pot 4 -->
+              <svg class="growth-ceramic-pot" viewBox="0 0 100 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="60" rx="42" ry="5" fill="#000000" opacity="0.45" filter="blur(2px)"/>
+                <path d="M14 14 L23 54 C24 57 27 59 30 59 L70 59 C73 59 76 57 77 54 L86 14 Z" fill="url(#potGrad4)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="36" ry="6" fill="url(#rimGrad4)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <ellipse cx="50" cy="14" rx="31" ry="4" fill="#16120D"/>
+                <defs>
+                  <linearGradient id="potGrad4" x1="14" y1="14" x2="86" y2="59" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2D584B"/>
+                    <stop offset="0.6" stop-color="#1B382F"/>
+                    <stop offset="1" stop-color="#0E211B"/>
+                  </linearGradient>
+                  <linearGradient id="rimGrad4" x1="14" y1="8" x2="86" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#41826F"/>
+                    <stop offset="0.7" stop-color="#285648"/>
+                    <stop offset="1" stop-color="#153229"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CLIENT TESTIMONIALS & SMOOTH MARQUEE ==================== -->
+  <section class="py-24 section-testimonials transition-colors duration-400 overflow-hidden">
+    <div class="site-container">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-init">
+        <div class="badge-tag mb-3">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>Client Stories</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[var(--text-primary)] dark:text-white mb-4">
+          Trusted by Top Workplaces & Events
+        </h2>
+        <p class="text-base text-[var(--text-secondary)] dark:text-[#B6CEBE]">
+          Read what facility directors, founders, and event planners say about partnering with GreenSpace Rentals.
+        </p>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <!-- Review 1 -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between reveal-init" data-delay="100">
+          <div>
+            <div class="flex text-amber-400 gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)] italic leading-relaxed mb-6">
+              "GreenSpace Rentals transformed our tech campus with over 80 vibrant plants. The maintenance crew visits weekly on a precise schedule and we never have to worry about watering or dead leaves."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-[var(--border)]">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Sarah Jenkins" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <div class="font-heading font-bold text-sm text-[var(--text-primary)]">Sarah Jenkins</div>
+              <div class="text-xs text-emerald-600 dark:text-emerald-400">Head of People & Workplace, Lumina Tech</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between reveal-init" data-delay="200">
+          <div>
+            <div class="flex text-amber-400 gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)] italic leading-relaxed mb-6">
+              "For our annual 3-day design conference, GreenSpace provided stunning tropical foliage and living stage dividers. Flawless installation and prompt teardown. Truly professional service!"
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-[var(--border)]">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="David Miller" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <div class="font-heading font-bold text-sm text-[var(--text-primary)]">David Miller</div>
+              <div class="text-xs text-emerald-600 dark:text-emerald-400">Executive Producer, Apex Creative Events</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass-card p-8 rounded-3xl flex flex-col justify-between reveal-init" data-delay="300">
+          <div>
+            <div class="flex text-amber-400 gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-[var(--text-secondary)] italic leading-relaxed mb-6">
+              "When we switched from buying plants that kept dying to renting from GreenSpace, we saved both money and frustration. The free replacement promise gives us complete confidence."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-[var(--border)]">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="Elena Rostova" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <div class="font-heading font-bold text-sm text-[var(--text-primary)]">Elena Rostova</div>
+              <div class="text-xs text-emerald-600 dark:text-emerald-400">Director of Operations, Vantage Co-Working</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smooth Continuous Brand Marquee -->
+      <div class="pt-8 border-t border-[var(--border)] overflow-hidden relative">
+        <div class="marquee-track flex items-center gap-16 text-[var(--text-muted)] text-sm font-bold tracking-widest uppercase opacity-70">
+          <span>Lumina Tech</span>
+          <span>•</span>
+          <span>Vantage Workspaces</span>
+          <span>•</span>
+          <span>Apex Creative</span>
+          <span>•</span>
+          <span>Horizon Tower</span>
+          <span>•</span>
+          <span>Bellevue Gala</span>
+          <span>•</span>
+          <span>Studio Biophilia</span>
+          <span>•</span>
+          <span>Lumina Tech</span>
+          <span>•</span>
+          <span>Vantage Workspaces</span>
+          <span>•</span>
+          <span>Apex Creative</span>
+          <span>•</span>
+          <span>Horizon Tower</span>
+          <span>•</span>
+          <span>Bellevue Gala</span>
+          <span>•</span>
+          <span>Studio Biophilia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA SECTION WITH REAL SVG FLOWER GROWING ANIMATION ==================== -->
+  <section id="finalCtaSection" class="section-cta py-28 relative overflow-hidden text-white">
+    <!-- Subtle Background Ambient Shimmer -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#10B981_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+
+    <!-- ==================== BIOLUMINESCENT BOTANICAL CLUSTERS (LEFT & RIGHT FRAMING) ==================== -->
+
+    <!-- LEFT BOTANICAL CLUSTER (Staggered Rising Stems, Unfurling Leaves & Blooming Petals) -->
+    <div class="cta-botanical-cluster cta-cluster-left pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-botanical-svg">
+        <defs>
+          <!-- Bioluminescent Stem Gradients -->
+          <linearGradient id="leftStemGrad1" x1="0%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#04261C"/>
+            <stop offset="45%" stop-color="#10B981"/>
+            <stop offset="90%" stop-color="#00D4AA"/>
+            <stop offset="100%" stop-color="#A7F3D0"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad2" x1="0%" y1="100%" x2="60%" y2="0%">
+            <stop offset="0%" stop-color="#073527"/>
+            <stop offset="55%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#6EE7B7"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad3" x1="0%" y1="100%" x2="40%" y2="0%">
+            <stop offset="0%" stop-color="#071B15"/>
+            <stop offset="60%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+
+          <!-- Flower Radial Ambient Glow Gradients -->
+          <radialGradient id="leftGlowMajor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5B84A" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#10B981" stop-opacity="0.45"/>
+            <stop offset="80%" stop-color="#00D4AA" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="leftGlowMinor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFEBA3" stop-opacity="0.75"/>
+            <stop offset="50%" stop-color="#34D399" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Leaf Fill Gradients -->
+          <linearGradient id="leftLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#073527"/>
+          </linearGradient>
+          <linearGradient id="leftLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#0B261E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- === STEM 1: Tall Graceful Primary Arch === -->
+        <path d="M 50 500 C 60 360, 40 200, 150 70" stroke="url(#leftStemGrad1)" stroke-width="4.5" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 0ms;"/>
+        
+        <!-- Stem 1 Leaves -->
+        <path d="M 52 380 C 15 360, 5 385, 20 400 C 45 405, 52 385, 52 380 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 300ms;"/>
+        <path d="M 50 310 C 85 290, 110 310, 95 328 C 70 335, 50 315, 50 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 450ms;"/>
+        <path d="M 48 230 C 10 210, 2 235, 18 250 C 42 255, 48 235, 48 230 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 75 160 C 115 140, 135 165, 120 180 C 95 185, 75 165, 75 160 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+        <path d="M 115 110 C 100 80, 75 90, 85 112 C 98 122, 115 115, 115 110 Z" fill="#6EE7B7" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 1 Primary Blossom Head at (150, 70) -->
+        <circle cx="150" cy="70" r="55" fill="url(#leftGlowMajor)" class="cta-bloom-glow" style="transition-delay: 850ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 150px 70px; transition-delay: 800ms;">
+          <!-- Outer Petals -->
+          <g class="cta-petal-outer" style="transition-delay: 920ms;">
+            <ellipse cx="150" cy="38" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="150" cy="102" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="118" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="182" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+          </g>
+          <!-- Middle Petals (Rotated 45deg) -->
+          <g class="cta-petal-middle" style="transition-delay: 1100ms;">
+            <ellipse cx="128" cy="48" rx="13" ry="22" transform="rotate(-45 128 48)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="48" rx="13" ry="22" transform="rotate(45 172 48)" fill="#FFF3B0"/>
+            <ellipse cx="128" cy="92" rx="13" ry="22" transform="rotate(45 128 92)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="92" rx="13" ry="22" transform="rotate(-45 172 92)" fill="#FFF3B0"/>
+          </g>
+          <!-- Inner Petals -->
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="150" cy="54" r="11" fill="#F5A623"/>
+            <circle cx="134" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="166" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="150" cy="86" r="11" fill="#F5A623"/>
+          </g>
+          <!-- Golden Bioluminescent Core -->
+          <circle cx="150" cy="70" r="12" fill="#FFF9D8" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="150" cy="70" r="7" fill="#F5B84A"/>
+          <circle cx="150" cy="70" r="3" fill="#FFFFFF"/>
+        </g>
+
+        <!-- === STEM 2: Mid Outward Sweeping Stem === -->
+        <path d="M 80 500 C 120 390, 190 310, 260 180" stroke="url(#leftStemGrad2)" stroke-width="3.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 200ms;"/>
+        
+        <!-- Stem 2 Leaves -->
+        <path d="M 125 390 C 160 370, 180 395, 165 410 C 140 415, 125 395, 125 390 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 500ms;"/>
+        <path d="M 160 310 C 130 290, 115 315, 128 328 C 150 332, 160 315, 160 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 650ms;"/>
+        <path d="M 215 235 C 255 215, 275 240, 260 252 C 235 258, 215 240, 215 235 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+
+        <!-- Stem 2 Blossom Head at (260, 180) -->
+        <circle cx="260" cy="180" r="44" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1050ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 260px 180px; transition-delay: 980ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1100ms;">
+            <circle cx="260" cy="154" r="14" fill="#F7F5E8"/>
+            <circle cx="234" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="286" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="260" cy="206" r="14" fill="#F7F5E8"/>
+          </g>
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="260" cy="166" r="10" fill="#FFEBA3"/>
+            <circle cx="246" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="274" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="260" cy="194" r="10" fill="#FFEBA3"/>
+          </g>
+          <circle cx="260" cy="180" r="10" fill="#F5A623" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="260" cy="180" r="5" fill="#FFFDF5"/>
+        </g>
+
+        <!-- === STEM 3: Lower Arching Branch === -->
+        <path d="M 30 500 C 40 430, 90 390, 130 300" stroke="url(#leftStemGrad3)" stroke-width="3.2" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 350ms;"/>
+        <path d="M 65 435 C 35 415, 20 438, 32 450 C 55 455, 65 440, 65 435 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 105 350 C 140 332, 155 355, 142 365 C 120 370, 105 355, 105 350 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+
+        <!-- Stem 3 Blossom at (130, 300) -->
+        <circle cx="130" cy="300" r="32" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1200ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 130px 300px; transition-delay: 1120ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1220ms;">
+            <ellipse cx="130" cy="284" rx="9" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="114" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="146" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="130" cy="316" rx="9" ry="14" fill="#FFFDF5"/>
+          </g>
+          <circle cx="130" cy="300" r="7" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1350ms;"/>
+        </g>
+
+        <!-- === STEM 4: Slender High Vine === -->
+        <path d="M 110 500 C 110 420, 30 300, 75 170" stroke="url(#leftStemGrad1)" stroke-width="2.6" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 450ms;"/>
+        <path d="M 70 330 C 40 315, 30 335, 42 345 C 62 350, 70 335, 70 330 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 700ms;"/>
+        <path d="M 52 240 C 22 225, 12 248, 25 258 C 45 262, 52 245, 52 240 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 4 Bud at (75, 170) -->
+        <circle cx="75" cy="170" r="24" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1250ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 75px 170px; transition-delay: 1200ms;">
+          <ellipse cx="75" cy="162" rx="7" ry="12" fill="#E8F3E8"/>
+          <ellipse cx="68" cy="174" rx="7" ry="10" transform="rotate(-30 68 174)" fill="#FFF3B0"/>
+          <ellipse cx="82" cy="174" rx="7" ry="10" transform="rotate(30 82 174)" fill="#FFF3B0"/>
+          <circle cx="75" cy="170" r="5" fill="#F5A623"/>
+        </g>
+
+        <!-- === STEM 5: Foreground Sprout Accent === -->
+        <path d="M 140 500 C 175 460, 215 410, 230 360" stroke="url(#leftStemGrad2)" stroke-width="2.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 550ms;"/>
+        <path d="M 175 440 C 205 425, 220 445, 208 455 C 190 460, 175 445, 175 440 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+        <circle cx="230" cy="360" r="6" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+
+        <!-- Bioluminescent Floating Spores / Pollen -->
+        <circle cx="140" cy="45" r="3.5" fill="#FFF9D8" class="cta-sparkle-dot" style="animation-delay: 1.2s;"/>
+        <circle cx="165" cy="30" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.7s;"/>
+        <circle cx="250" cy="150" r="3" fill="#FFE599" class="cta-sparkle-dot" style="animation-delay: 2.2s;"/>
+        <circle cx="280" cy="165" r="2" fill="#6EE7B7" class="cta-sparkle-dot" style="animation-delay: 2.8s;"/>
+        <circle cx="120" cy="275" r="2.5" fill="#FFFDF5" class="cta-sparkle-dot" style="animation-delay: 3.3s;"/>
+        <circle cx="65" cy="145" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.9s;"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT BOTANICAL CLUSTER (Symmetrical Framing, Rich Blooms & Bioluminescent Growth) -->
+    <div class="cta-botanical-cluster cta-cluster-right pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-botanical-svg">
+        <defs>
+          <!-- Bioluminescent Stem Gradients -->
+          <linearGradient id="leftStemGrad1" x1="0%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#04261C"/>
+            <stop offset="45%" stop-color="#10B981"/>
+            <stop offset="90%" stop-color="#00D4AA"/>
+            <stop offset="100%" stop-color="#A7F3D0"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad2" x1="0%" y1="100%" x2="60%" y2="0%">
+            <stop offset="0%" stop-color="#073527"/>
+            <stop offset="55%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#6EE7B7"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad3" x1="0%" y1="100%" x2="40%" y2="0%">
+            <stop offset="0%" stop-color="#071B15"/>
+            <stop offset="60%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+
+          <!-- Flower Radial Ambient Glow Gradients -->
+          <radialGradient id="leftGlowMajor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5B84A" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#10B981" stop-opacity="0.45"/>
+            <stop offset="80%" stop-color="#00D4AA" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="leftGlowMinor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFEBA3" stop-opacity="0.75"/>
+            <stop offset="50%" stop-color="#34D399" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Leaf Fill Gradients -->
+          <linearGradient id="leftLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#073527"/>
+          </linearGradient>
+          <linearGradient id="leftLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#0B261E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- === STEM 1: Tall Graceful Primary Arch === -->
+        <path d="M 50 500 C 60 360, 40 200, 150 70" stroke="url(#leftStemGrad1)" stroke-width="4.5" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 0ms;"/>
+        
+        <!-- Stem 1 Leaves -->
+        <path d="M 52 380 C 15 360, 5 385, 20 400 C 45 405, 52 385, 52 380 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 300ms;"/>
+        <path d="M 50 310 C 85 290, 110 310, 95 328 C 70 335, 50 315, 50 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 450ms;"/>
+        <path d="M 48 230 C 10 210, 2 235, 18 250 C 42 255, 48 235, 48 230 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 75 160 C 115 140, 135 165, 120 180 C 95 185, 75 165, 75 160 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+        <path d="M 115 110 C 100 80, 75 90, 85 112 C 98 122, 115 115, 115 110 Z" fill="#6EE7B7" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 1 Primary Blossom Head at (150, 70) -->
+        <circle cx="150" cy="70" r="55" fill="url(#leftGlowMajor)" class="cta-bloom-glow" style="transition-delay: 850ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 150px 70px; transition-delay: 800ms;">
+          <!-- Outer Petals -->
+          <g class="cta-petal-outer" style="transition-delay: 920ms;">
+            <ellipse cx="150" cy="38" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="150" cy="102" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="118" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="182" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+          </g>
+          <!-- Middle Petals (Rotated 45deg) -->
+          <g class="cta-petal-middle" style="transition-delay: 1100ms;">
+            <ellipse cx="128" cy="48" rx="13" ry="22" transform="rotate(-45 128 48)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="48" rx="13" ry="22" transform="rotate(45 172 48)" fill="#FFF3B0"/>
+            <ellipse cx="128" cy="92" rx="13" ry="22" transform="rotate(45 128 92)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="92" rx="13" ry="22" transform="rotate(-45 172 92)" fill="#FFF3B0"/>
+          </g>
+          <!-- Inner Petals -->
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="150" cy="54" r="11" fill="#F5A623"/>
+            <circle cx="134" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="166" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="150" cy="86" r="11" fill="#F5A623"/>
+          </g>
+          <!-- Golden Bioluminescent Core -->
+          <circle cx="150" cy="70" r="12" fill="#FFF9D8" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="150" cy="70" r="7" fill="#F5B84A"/>
+          <circle cx="150" cy="70" r="3" fill="#FFFFFF"/>
+        </g>
+
+        <!-- === STEM 2: Mid Outward Sweeping Stem === -->
+        <path d="M 80 500 C 120 390, 190 310, 260 180" stroke="url(#leftStemGrad2)" stroke-width="3.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 200ms;"/>
+        
+        <!-- Stem 2 Leaves -->
+        <path d="M 125 390 C 160 370, 180 395, 165 410 C 140 415, 125 395, 125 390 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 500ms;"/>
+        <path d="M 160 310 C 130 290, 115 315, 128 328 C 150 332, 160 315, 160 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 650ms;"/>
+        <path d="M 215 235 C 255 215, 275 240, 260 252 C 235 258, 215 240, 215 235 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+
+        <!-- Stem 2 Blossom Head at (260, 180) -->
+        <circle cx="260" cy="180" r="44" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1050ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 260px 180px; transition-delay: 980ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1100ms;">
+            <circle cx="260" cy="154" r="14" fill="#F7F5E8"/>
+            <circle cx="234" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="286" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="260" cy="206" r="14" fill="#F7F5E8"/>
+          </g>
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="260" cy="166" r="10" fill="#FFEBA3"/>
+            <circle cx="246" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="274" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="260" cy="194" r="10" fill="#FFEBA3"/>
+          </g>
+          <circle cx="260" cy="180" r="10" fill="#F5A623" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="260" cy="180" r="5" fill="#FFFDF5"/>
+        </g>
+
+        <!-- === STEM 3: Lower Arching Branch === -->
+        <path d="M 30 500 C 40 430, 90 390, 130 300" stroke="url(#leftStemGrad3)" stroke-width="3.2" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 350ms;"/>
+        <path d="M 65 435 C 35 415, 20 438, 32 450 C 55 455, 65 440, 65 435 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 105 350 C 140 332, 155 355, 142 365 C 120 370, 105 355, 105 350 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+
+        <!-- Stem 3 Blossom at (130, 300) -->
+        <circle cx="130" cy="300" r="32" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1200ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 130px 300px; transition-delay: 1120ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1220ms;">
+            <ellipse cx="130" cy="284" rx="9" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="114" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="146" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="130" cy="316" rx="9" ry="14" fill="#FFFDF5"/>
+          </g>
+          <circle cx="130" cy="300" r="7" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1350ms;"/>
+        </g>
+
+        <!-- === STEM 4: Slender High Vine === -->
+        <path d="M 110 500 C 110 420, 30 300, 75 170" stroke="url(#leftStemGrad1)" stroke-width="2.6" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 450ms;"/>
+        <path d="M 70 330 C 40 315, 30 335, 42 345 C 62 350, 70 335, 70 330 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 700ms;"/>
+        <path d="M 52 240 C 22 225, 12 248, 25 258 C 45 262, 52 245, 52 240 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 4 Bud at (75, 170) -->
+        <circle cx="75" cy="170" r="24" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1250ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 75px 170px; transition-delay: 1200ms;">
+          <ellipse cx="75" cy="162" rx="7" ry="12" fill="#E8F3E8"/>
+          <ellipse cx="68" cy="174" rx="7" ry="10" transform="rotate(-30 68 174)" fill="#FFF3B0"/>
+          <ellipse cx="82" cy="174" rx="7" ry="10" transform="rotate(30 82 174)" fill="#FFF3B0"/>
+          <circle cx="75" cy="170" r="5" fill="#F5A623"/>
+        </g>
+
+        <!-- === STEM 5: Foreground Sprout Accent === -->
+        <path d="M 140 500 C 175 460, 215 410, 230 360" stroke="url(#leftStemGrad2)" stroke-width="2.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 550ms;"/>
+        <path d="M 175 440 C 205 425, 220 445, 208 455 C 190 460, 175 445, 175 440 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+        <circle cx="230" cy="360" r="6" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+
+        <!-- Bioluminescent Floating Spores / Pollen -->
+        <circle cx="140" cy="45" r="3.5" fill="#FFF9D8" class="cta-sparkle-dot" style="animation-delay: 1.2s;"/>
+        <circle cx="165" cy="30" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.7s;"/>
+        <circle cx="250" cy="150" r="3" fill="#FFE599" class="cta-sparkle-dot" style="animation-delay: 2.2s;"/>
+        <circle cx="280" cy="165" r="2" fill="#6EE7B7" class="cta-sparkle-dot" style="animation-delay: 2.8s;"/>
+        <circle cx="120" cy="275" r="2.5" fill="#FFFDF5" class="cta-sparkle-dot" style="animation-delay: 3.3s;"/>
+        <circle cx="65" cy="145" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.9s;"/>
+      </svg>
+    </div>
+
+    <!-- CTA Content (Preserved Text & Buttons) -->
+    <div class="site-container relative z-10 text-center max-w-3xl mx-auto">
+      <div class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mx-auto mb-6 shadow-2xl animate-float p-2.5 overflow-hidden"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight mb-4 drop-shadow-md">
+        Ready to Grow a Greener Space?
+      </h2>
+      <p class="text-base sm:text-lg text-emerald-100/90 leading-relaxed mb-10 max-w-xl mx-auto drop-shadow">
+        Tell us about your space and we'll recommend the right plants, rental plan and maintenance schedule.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 relative z-20">
+        <a href="contact.html" class="btn-primary text-base py-3.5 px-9 bg-emerald-400 hover:bg-emerald-300 text-[#071B15] font-extrabold shadow-2xl">
+          <span>Get a Free Quote</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="contact.html" class="btn-glass text-base py-3.5 px-9 text-white border-white/40">
+          <span>Contact Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#04100C] text-white pt-20 pb-12 border-t border-white/10 relative overflow-hidden">
+    <div class="site-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+            <span class="font-heading font-bold text-xl tracking-tight text-white">
+              GreenSpace <span class="text-emerald-400 font-light text-sm tracking-widest uppercase">Rentals</span>
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 max-w-sm leading-relaxed">
+            Leading indoor plant rental and maintenance service for offices, venues, and events. Beautiful plants without the ownership hassle.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Pages</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-emerald-300 transition-colors">Home 1</a></li>
+            <li><a href="home-2.html" class="hover:text-emerald-300 transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-emerald-300 transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-emerald-300 transition-colors">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-emerald-300 transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Services</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Office Plant Rentals</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Event Greenery</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Plant Installation</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Weekly Maintenance</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Health Checks & Replace</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Living Walls & Decor</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Newsletter -->
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400 mb-4">
+            <li class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>100 Botanical Way, Suite 400</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>hello@greenspacerentals.com</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>+1 (800) 555-PLANT</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>
+          &copy; 2026 GreenSpace Rentals. All rights reserved. Choose your plants. We handle the rest.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-400">Terms of Service</a>
+          <a href="login.html" class="text-emerald-400 hover:text-emerald-300 font-medium">Portal Sign In</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Plant Care Video Modal -->
+  <div id="careVideoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 transition-all duration-300" role="dialog" aria-modal="true" aria-label="Plant Care Video">
+    <div class="relative w-full max-w-3xl bg-[#071B15] border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <i data-lucide="play-circle" class="w-5 h-5 text-emerald-400"></i>
+          <span class="font-heading font-bold text-white text-sm sm:text-base">GreenSpace Plant Care In Action</span>
+        </div>
+        <button id="closeCareModal" class="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors focus:outline-none cursor-pointer" aria-label="Close Video Modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="relative aspect-video bg-black flex items-center justify-center">
+        <video id="careModalVideo" class="w-full h-full object-cover" controls playsinline preload="metadata">
+          <source src="images/WhatsApp Video 2026-10-02 at 9.48.14 PM.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | GreenSpace Rentals - Our Story, Mission & Team</title>
+  <link rel="icon" type="image/png" href="images/greenspace-logo-transparent.png">
+  <meta name="description" content="Learn how GreenSpace Rentals makes professional indoor greenery simple, flexible, and accessible for modern offices and special events.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#17352D',
+              forest: '#071B15',
+              deep: '#075B46',
+              medium: '#336443',
+              fresh: '#4F8A62',
+              soft: '#E8F3E8',
+              cream: '#F7F2E8',
+              accent: '#F5A623',
+              text: '#4B5B47',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="antialiased transition-colors duration-300">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress"></div>
+
+  <!-- ==================== MOBILE SLIDE-IN NAVIGATION DRAWER ==================== -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-6 border-b border-[var(--border)]">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-white/10 dark:bg-white/5 border border-emerald-500/20 flex items-center justify-center overflow-hidden p-1"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <span class="font-heading font-bold text-lg text-[var(--text-primary)]">GreenSpace</span>
+      </div>
+      <button id="mobileMenuClose" class="p-2 rounded-full hover:bg-[var(--brand-soft)] text-[var(--text-primary)] focus:outline-none" aria-label="Close Navigation Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <nav class="py-6 flex flex-col gap-3">
+      <a href="index.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 1 – General</a>
+      <a href="home-2.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Home Page 2 – Niche-Specific</a>
+      <a href="about.html" class="mobile-nav-link text-base font-semibold text-emerald-600 dark:text-emerald-400 py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">About Us</a>
+      <a href="services.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Services</a>
+      <a href="pricing.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Pricing</a>
+      <a href="blog.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Blog</a>
+      <a href="contact.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)]">Contact</a>
+      <a href="login.html" class="mobile-nav-link text-base font-semibold text-[var(--text-primary)] py-2 px-3 rounded-lg hover:bg-[var(--brand-soft)] flex items-center gap-2">
+        <i data-lucide="user" class="w-4 h-4"></i>
+        <span>Profile / Login</span>
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-[var(--border)] flex flex-col gap-3">
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-[var(--text-muted)]">Appearance</span>
+        <button class="theme-toggle-btn px-3 py-1.5 rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="moon" class="w-3.5 h-3.5 theme-toggle-icon"></i>
+          <span class="theme-toggle-text">Dark Mode</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-[var(--text-muted)]">Direction</span>
+        <button class="rtl-toggle-btn px-3 py-1.5 rounded-full bg-[var(--brand-soft)] text-[var(--brand-primary)] text-xs font-semibold flex items-center gap-1.5">
+          <i data-lucide="align-right" class="w-3.5 h-3.5 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text">RTL</span>
+        </button>
+      </div>
+
+      <a href="contact.html" class="btn-primary w-full justify-center text-center mt-3">
+        <span>Get a Free Quote</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==================== IMMERSIVE TWO-ZONE HERO (ABOUT US) ==================== -->
+  <header class="hero-full min-h-screen relative flex flex-col justify-between overflow-hidden bg-grain">
+    <!-- Cinematic Botanical Background Visual -->
+    <img 
+      src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=2200&q=85" 
+      alt="Lush botanical nursery and biophilic architectural design" 
+      class="hero-bg-media"
+    >
+    <!-- Deep Multi-Layer Gradient Overlay -->
+    <div class="hero-overlay-layer"></div>
+
+    <!-- Floating Pill Navigation (Matching Master Design) -->
+    <nav class="relative z-30 pt-6 px-4 sm:px-8 w-full max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Minimal Premium Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 text-white no-underline group focus:outline-none">
+        <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group-hover:scale-105 group-hover:border-emerald-400 transition-all shadow-lg overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-xl tracking-tight text-white flex items-center">
+            GreenSpace <span class="text-emerald-400 font-light ml-1.5 text-xs tracking-widest uppercase bg-white/10 px-2 py-0.5 rounded-full border border-white/20">Rentals</span>
+          </span>
+          <span class="text-[10px] text-emerald-200/80 tracking-widest uppercase font-medium">Offices & Events</span>
+        </div>
+      </a>
+
+      <!-- Center Pill Menu -->
+      <div class="hidden lg:flex items-center gap-1 bg-white/15 dark:bg-black/40 backdrop-blur-xl border border-white/30 dark:border-white/10 rounded-full px-5 py-2 shadow-2xl">
+        <a href="index.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 1</a>
+        <a href="home-2.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Home 2</a>
+        <a href="about.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white bg-white/25 shadow-sm">About Us</a>
+        <a href="services.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Services</a>
+        <a href="pricing.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Pricing</a>
+        <a href="blog.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Blog</a>
+        <a href="contact.html" class="hero-nav-link text-sm font-medium px-4 py-1.5 rounded-full text-white/80 hover:text-white">Contact</a>
+      </div>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 z-30">
+        <!-- RTL Toggle -->
+        <button class="rtl-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle RTL/LTR" aria-label="Toggle Direction">
+          <i data-lucide="align-right" class="w-4 h-4 rtl-toggle-icon"></i>
+          <span class="rtl-toggle-text hidden sm:inline font-semibold">RTL</span>
+        </button>
+
+        <!-- Dark/Light Toggle -->
+        <button class="theme-toggle-btn p-2 rounded-full bg-white/15 dark:bg-black/40 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all text-xs flex items-center gap-1.5 focus:outline-none" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 theme-toggle-icon"></i>
+          <span class="theme-toggle-text hidden sm:inline font-medium text-xs">Dark</span>
+        </button>
+
+        <!-- Login / Profile -->
+        <a href="login.html" class="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-white text-[#17352D] font-bold text-xs hover:bg-emerald-50 transition-all shadow-xl">
+          <i data-lucide="user" class="w-3.5 h-3.5"></i>
+          <span>Login</span>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobileMenuToggle" class="lg:hidden p-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all focus:outline-none" aria-label="Open Navigation Menu" aria-expanded="false">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Two-Zone Balanced Botanical Hero Content -->
+    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-14 my-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- LEFT / CENTER: About Page Editorial Content (~55%) -->
+        <div class="lg:col-span-7 text-left space-y-5 lg:space-y-6">
+          <!-- Small Eyebrow Pill -->
+          <div class="hero-reveal-line">
+            <div class="hero-reveal-inner inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-emerald-200 text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-lg">
+              <i data-lucide="sprout" class="w-4 h-4 text-emerald-300"></i>
+              <span>ABOUT GREENSPACE RENTALS</span>
+            </div>
+          </div>
+
+          <!-- Main Two-Tone Heading -->
+          <h1 class="hero-headline text-3xl sm:text-5xl lg:text-6xl font-heading font-light tracking-tight text-white leading-[1.14]">
+            <div class="hero-reveal-line">
+              <span class="hero-reveal-inner block">Growing Better Spaces,</span>
+            </div>
+            <div class="hero-reveal-line">
+              <span class="hero-reveal-inner block font-extrabold text-emerald-300 drop-shadow-md">One Plant at a Time.</span>
+            </div>
+          </h1>
+
+          <!-- Supporting Text -->
+          <div class="hero-reveal-line">
+            <p class="hero-reveal-inner hero-subtext text-sm sm:text-base lg:text-lg text-emerald-50/90 font-normal max-w-xl leading-relaxed drop-shadow">
+              We make professional indoor greenery simple for offices, events, and businesses. Our turnkey subscriptions combine curated architectural plants with dedicated white-glove horticultural care so your spaces always thrive effortlessly.
+            </p>
+          </div>
+
+          <!-- Action Buttons (Existing Home 1 button system) -->
+          <div class="hero-reveal-line pt-2">
+            <div class="hero-reveal-inner hero-cta-btns flex flex-wrap items-center gap-3 sm:gap-4">
+              <a href="#companyStory" class="btn-primary text-xs sm:text-sm py-3 px-6 sm:px-7 shadow-xl inline-flex items-center gap-2">
+                <span>Explore Our Story</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              </a>
+              <a href="#theWayWeCare" class="btn-glass text-xs sm:text-sm py-3 px-6 sm:px-7 text-white border-white/30 inline-flex items-center justify-center">
+                <span>Meet Our Approach</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Trust Badges & Video Trigger -->
+          <div class="pt-3 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-emerald-200/90 font-medium border-t border-white/10">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+              <span>100% Free Replacements</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+              <span>500+ Workspaces Curated</span>
+            </div>
+            <button class="open-care-modal flex items-center gap-1.5 text-emerald-300 hover:text-white transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full border border-white/20 ml-auto sm:ml-0" aria-label="Watch Plant Care Video">
+              <i data-lucide="play-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Watch Video</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Clean Interactive Plant Growth Card (~45%) -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div 
+            id="aboutPlantCard" 
+            class="about-plant-card" 
+            role="button"
+            tabindex="0"
+            aria-label="Interactive botanical tree growth card. Hover or press Enter to grow a tree."
+          >
+            <!-- Soft Ambient Glow Behind Foliage -->
+            <div class="about-plant-card-glow" aria-hidden="true"></div>
+
+            <!-- Hint badge top right -->
+            <div class="plant-hint-text" aria-hidden="true">
+              <i data-lucide="mouse-pointer-click" class="w-2.5 h-2.5"></i>
+              Hover to grow
+            </div>
+
+            <!-- Botanical SVG Tree Growth Canvas -->
+            <div class="plant-svg-canvas" aria-hidden="true">
+              <svg viewBox="0 0 340 390" xmlns="http://www.w3.org/2000/svg" class="botanical-tree-svg">
+                <defs>
+                  <!-- Rich Botanical Gradients (GreenSpace Curated Palette) -->
+                  <linearGradient id="trunkGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#1E382E" />
+                    <stop offset="35%" stop-color="#2D5444" />
+                    <stop offset="70%" stop-color="#3D6E5A" />
+                    <stop offset="100%" stop-color="#559179" />
+                  </linearGradient>
+
+                  <linearGradient id="branchGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#2D5444" />
+                    <stop offset="60%" stop-color="#3D6E5A" />
+                    <stop offset="100%" stop-color="#559179" />
+                  </linearGradient>
+
+                  <!-- Mature Deep Canopy Leaf Gradient -->
+                  <linearGradient id="leafGradMature" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0A3B2C" />
+                    <stop offset="45%" stop-color="#115D46" />
+                    <stop offset="100%" stop-color="#1E8B69" />
+                  </linearGradient>
+
+                  <!-- Vibrant Mid-Tier Leaf Gradient -->
+                  <linearGradient id="leafGradVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0F543F" />
+                    <stop offset="50%" stop-color="#1A936F" />
+                    <stop offset="100%" stop-color="#38C999" />
+                  </linearGradient>
+
+                  <!-- Fresh Tender Shoot Leaf Gradient -->
+                  <linearGradient id="leafGradFresh" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#188C69" />
+                    <stop offset="55%" stop-color="#2ED197" />
+                    <stop offset="100%" stop-color="#A7F3D0" />
+                  </linearGradient>
+
+                  <!-- Planter Ceramic Pot Gradient -->
+                  <linearGradient id="potGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FAFBF9" />
+                    <stop offset="40%" stop-color="#E8EFEA" />
+                    <stop offset="100%" stop-color="#CAD9CE" />
+                  </linearGradient>
+
+                  <linearGradient id="potDarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#244B3E" />
+                    <stop offset="60%" stop-color="#15362B" />
+                    <stop offset="100%" stop-color="#0A1D16" />
+                  </linearGradient>
+
+                  <linearGradient id="soilGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#2E2118" />
+                    <stop offset="60%" stop-color="#473427" />
+                    <stop offset="100%" stop-color="#1F160F" />
+                  </linearGradient>
+                </defs>
+
+                <!-- POT & SOIL BASE (Stationary Anchor) -->
+                <g class="pot-group" transform="translate(0, 0)">
+                  <!-- Soft Planter Drop Shadow -->
+                  <ellipse cx="170" cy="382" rx="52" ry="7" fill="rgba(7, 40, 30, 0.16)" class="pot-drop-shadow" />
+
+                  <!-- Planter Pedestal Saucer -->
+                  <path d="M132,374 Q170,381 208,374 L205,380 Q170,385 135,380 Z" fill="#9FB5AA" opacity="0.85" />
+
+                  <!-- Planter Body (Modern Ceramic Architectural Fluted Taper) -->
+                  <path class="plant-pot-body-svg" d="M126,330 L134,374 Q170,380 206,374 L214,330 Z" fill="url(#potGrad)" stroke="rgba(7, 91, 70, 0.2)" stroke-width="1.5" />
+                  
+                  <!-- Pot 3D Curvature Highlight -->
+                  <path d="M144,332 L150,372 Q158,375 164,372 L158,332 Z" fill="#FFFFFF" opacity="0.32" />
+
+                  <!-- Pot Rim Collar -->
+                  <rect x="120" y="324" width="100" height="9" rx="4" fill="url(#potGrad)" stroke="rgba(7, 91, 70, 0.22)" stroke-width="1.5" />
+
+                  <!-- Potting Soil Bed -->
+                  <ellipse cx="170" cy="326" rx="46" ry="5.5" fill="url(#soilGrad)" />
+                  <!-- Organic soil mulch specks -->
+                  <circle cx="152" cy="326" r="1.3" fill="#6A5140" opacity="0.8" />
+                  <circle cx="184" cy="327" r="1.1" fill="#6A5140" opacity="0.8" />
+                  <circle cx="168" cy="325" r="1.4" fill="#584131" opacity="0.7" />
+                </g>
+
+                <!-- DORMANT SEEDLING SPROUT (Stage 0: Young sprout before full growth) -->
+                <g class="dormant-sprout-svg" transform="translate(170, 325)">
+                  <path d="M0,0 Q-2,-12 0,-24" stroke="#2D5444" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                  <path d="M-1,-12 C-8,-14 -16,-22 -12,-30 C-4,-28 2,-18 -1,-12 Z" fill="url(#leafGradVibrant)" />
+                  <path d="M0,-22 C6,-24 14,-32 10,-40 C3,-38 -3,-28 0,-22 Z" fill="url(#leafGradFresh)" />
+                </g>
+
+                <!-- TREE STEMS & CANOPY LAYER (Natural Botanical Plant Structure) -->
+                <g class="tree-growth-canopy">
+                  
+                  <!-- Central Main Stem (Organic, architectural indoor plant style) -->
+                  <path class="tree-trunk-path"
+                    d="M170,325 C168,275 172,215 168,155 C166,115 170,80 170,48"
+                    stroke="url(#trunkGrad)"
+                    stroke-width="3.5"
+                    stroke-linecap="round"
+                    fill="none"
+                  />
+
+                  <!-- ==================== BRANCHES ==================== -->
+                  <!-- Branch 1 (Lower Left) -->
+                  <path class="tree-branch-path branch-1"
+                    d="M169,285 C150,282 134,276 118,266"
+                    stroke="url(#branchGrad)" stroke-width="2.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 2 (Lower Right) -->
+                  <path class="tree-branch-path branch-2"
+                    d="M170,274 C188,270 206,264 222,254"
+                    stroke="url(#branchGrad)" stroke-width="2.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 3 (Mid-Lower Left) -->
+                  <path class="tree-branch-path branch-3"
+                    d="M168,235 C144,228 118,218 94,204"
+                    stroke="url(#branchGrad)" stroke-width="2.6" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 4 (Mid-Lower Right) -->
+                  <path class="tree-branch-path branch-4"
+                    d="M171,225 C196,218 222,208 246,194"
+                    stroke="url(#branchGrad)" stroke-width="2.6" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 5 (Upper-Mid Left) -->
+                  <path class="tree-branch-path branch-5"
+                    d="M169,175 C148,162 128,146 110,126"
+                    stroke="url(#branchGrad)" stroke-width="2.4" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 6 (Upper-Mid Right) -->
+                  <path class="tree-branch-path branch-6"
+                    d="M170,165 C190,152 212,136 230,116"
+                    stroke="url(#branchGrad)" stroke-width="2.4" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 7 (Upper Left) -->
+                  <path class="tree-branch-path branch-7"
+                    d="M169,122 C156,106 142,90 130,70"
+                    stroke="url(#branchGrad)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+
+                  <!-- Branch 8 (Upper Right) -->
+                  <path class="tree-branch-path branch-8"
+                    d="M170,112 C184,98 198,82 210,64"
+                    stroke="url(#branchGrad)" stroke-width="2.2" stroke-linecap="round" fill="none" />
+
+
+                  <!-- ==================== PETIOLES (LEAF ATTACHMENT STEMS) ==================== -->
+                  <!-- Petiole 1 (Lower Left Tip -> Leaf 1) -->
+                  <path class="tree-petiole-path petiole-1"
+                    d="M118,266 C110,262 104,256 96,246"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 2 (Lower Left Mid -> Leaf 2) -->
+                  <path class="tree-petiole-path petiole-2"
+                    d="M140,279 C134,270 128,260 126,248"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 3 (Lower Right Tip -> Leaf 3) -->
+                  <path class="tree-petiole-path petiole-3"
+                    d="M222,254 C230,250 236,244 244,234"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 4 (Lower Right Mid -> Leaf 4) -->
+                  <path class="tree-petiole-path petiole-4"
+                    d="M200,266 C206,256 212,246 214,234"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 5 (Mid Left Tip -> Leaf 5) -->
+                  <path class="tree-petiole-path petiole-5"
+                    d="M94,204 C84,198 76,188 68,176"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 6 (Mid Left Sub -> Leaf 6) -->
+                  <path class="tree-petiole-path petiole-6"
+                    d="M124,220 C118,208 114,194 114,180"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 7 (Mid Right Tip -> Leaf 7) -->
+                  <path class="tree-petiole-path petiole-7"
+                    d="M246,194 C256,188 264,178 272,166"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 8 (Mid Right Sub -> Leaf 8) -->
+                  <path class="tree-petiole-path petiole-8"
+                    d="M216,210 C222,198 226,184 226,170"
+                    stroke="url(#branchGrad)" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 9 (Upper-Mid Left -> Leaf 9) -->
+                  <path class="tree-petiole-path petiole-9"
+                    d="M110,126 C104,116 98,104 94,92"
+                    stroke="url(#branchGrad)" stroke-width="1.6" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 10 (Upper-Mid Right -> Leaf 10) -->
+                  <path class="tree-petiole-path petiole-10"
+                    d="M230,116 C236,106 242,94 246,82"
+                    stroke="url(#branchGrad)" stroke-width="1.6" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 11 (Upper Left -> Leaf 11) -->
+                  <path class="tree-petiole-path petiole-11"
+                    d="M130,70 C126,60 124,50 122,38"
+                    stroke="url(#branchGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 12 (Upper Right -> Leaf 12) -->
+                  <path class="tree-petiole-path petiole-12"
+                    d="M210,64 C214,54 218,44 220,32"
+                    stroke="url(#branchGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+
+                  <!-- Petiole 13 (Crown Sub-Left -> Leaf 13) -->
+                  <path class="tree-petiole-path petiole-13"
+                    d="M169,72 C162,60 156,48 152,36"
+                    stroke="url(#branchGrad)" stroke-width="1.4" stroke-linecap="round" fill="none" />
+
+
+                  <!-- ==================== REAL BOTANICAL INDOOR PLANT LEAF BLADES (14 Leaves) ==================== -->
+                  <!-- Every leaf is anchored via parent translate, unfolding naturally from origin (0,0) -->
+
+                  <!-- Leaf 1: Lower Left Broad Mature (at petiole-1 end 96, 246) -->
+                  <g transform="translate(96, 246)">
+                    <g class="tree-leaf-group leaf-1">
+                      <path class="tree-leaf-body" d="M0,0 C-18,-6 -34,-26 -24,-48 C-6,-44 10,-22 0,0 Z" fill="url(#leafGradMature)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-8,-16 -16,-34 -19,-45" stroke="#6EE7B7" stroke-width="1.2" stroke-linecap="round" opacity="0.65" />
+                      <path class="tree-leaf-vein" d="M-6,-14 Q-14,-15 -18,-20" stroke="#6EE7B7" stroke-width="0.75" opacity="0.5" />
+                      <path class="tree-leaf-vein" d="M-12,-28 Q-19,-30 -21,-35" stroke="#6EE7B7" stroke-width="0.75" opacity="0.5" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 2: Lower Left Upward Mature (at petiole-2 end 126, 248) -->
+                  <g transform="translate(126, 248)">
+                    <g class="tree-leaf-group leaf-2">
+                      <path class="tree-leaf-body" d="M0,0 C-14,-6 -24,-24 -14,-42 C0,-38 10,-18 0,0 Z" fill="url(#leafGradMature)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-5,-14 -10,-28 -11,-39" stroke="#6EE7B7" stroke-width="1.1" stroke-linecap="round" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 3: Lower Right Broad Mature (at petiole-3 end 244, 234) -->
+                  <g transform="translate(244, 234)">
+                    <g class="tree-leaf-group leaf-3">
+                      <path class="tree-leaf-body" d="M0,0 C18,-6 34,-26 24,-48 C6,-44 -10,-22 0,0 Z" fill="url(#leafGradMature)" />
+                      <path class="tree-leaf-vein" d="M0,0 C8,-16 16,-34 19,-45" stroke="#6EE7B7" stroke-width="1.2" stroke-linecap="round" opacity="0.65" />
+                      <path class="tree-leaf-vein" d="M6,-14 Q14,-15 18,-20" stroke="#6EE7B7" stroke-width="0.75" opacity="0.5" />
+                      <path class="tree-leaf-vein" d="M12,-28 Q19,-30 21,-35" stroke="#6EE7B7" stroke-width="0.75" opacity="0.5" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 4: Lower Right Upward Mature (at petiole-4 end 214, 234) -->
+                  <g transform="translate(214, 234)">
+                    <g class="tree-leaf-group leaf-4">
+                      <path class="tree-leaf-body" d="M0,0 C14,-6 24,-24 14,-42 C0,-38 -10,-18 0,0 Z" fill="url(#leafGradMature)" />
+                      <path class="tree-leaf-vein" d="M0,0 C5,-14 10,-28 11,-39" stroke="#6EE7B7" stroke-width="1.1" stroke-linecap="round" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 5: Mid-Lower Left Broad (at petiole-5 end 68, 176) -->
+                  <g transform="translate(68, 176)">
+                    <g class="tree-leaf-group leaf-5">
+                      <path class="tree-leaf-body" d="M0,0 C-22,-8 -40,-32 -28,-56 C-8,-52 14,-26 0,0 Z" fill="url(#leafGradVibrant)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-10,-20 -20,-40 -23,-52" stroke="#A7F3D0" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
+                      <path class="tree-leaf-vein" d="M-8,-16 Q-18,-18 -24,-24" stroke="#A7F3D0" stroke-width="0.8" opacity="0.5" />
+                      <path class="tree-leaf-vein" d="M-15,-32 Q-24,-34 -26,-40" stroke="#A7F3D0" stroke-width="0.8" opacity="0.5" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 6: Mid-Lower Left Sub (at petiole-6 end 114, 180) -->
+                  <g transform="translate(114, 180)">
+                    <g class="tree-leaf-group leaf-6">
+                      <path class="tree-leaf-body" d="M0,0 C-16,-6 -28,-26 -16,-46 C2,-42 12,-20 0,0 Z" fill="url(#leafGradVibrant)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-6,-16 -12,-32 -13,-43" stroke="#A7F3D0" stroke-width="1.1" stroke-linecap="round" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 7: Mid-Lower Right Broad (at petiole-7 end 272, 166) -->
+                  <g transform="translate(272, 166)">
+                    <g class="tree-leaf-group leaf-7">
+                      <path class="tree-leaf-body" d="M0,0 C22,-8 40,-32 28,-56 C8,-52 -14,-26 0,0 Z" fill="url(#leafGradVibrant)" />
+                      <path class="tree-leaf-vein" d="M0,0 C10,-20 20,-40 23,-52" stroke="#A7F3D0" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
+                      <path class="tree-leaf-vein" d="M8,-16 Q18,-18 24,-24" stroke="#A7F3D0" stroke-width="0.8" opacity="0.5" />
+                      <path class="tree-leaf-vein" d="M15,-32 Q24,-34 26,-40" stroke="#A7F3D0" stroke-width="0.8" opacity="0.5" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 8: Mid-Lower Right Sub (at petiole-8 end 226, 170) -->
+                  <g transform="translate(226, 170)">
+                    <g class="tree-leaf-group leaf-8">
+                      <path class="tree-leaf-body" d="M0,0 C16,-6 28,-26 16,-46 C-2,-42 -12,-20 0,0 Z" fill="url(#leafGradVibrant)" />
+                      <path class="tree-leaf-vein" d="M0,0 C6,-16 12,-32 13,-43" stroke="#A7F3D0" stroke-width="1.1" stroke-linecap="round" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 9: Upper-Mid Left (at petiole-9 end 94, 92) -->
+                  <g transform="translate(94, 92)">
+                    <g class="tree-leaf-group leaf-9">
+                      <path class="tree-leaf-body" d="M0,0 C-18,-6 -30,-26 -18,-48 C-2,-44 12,-22 0,0 Z" fill="url(#leafGradVibrant)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-6,-18 -12,-36 -15,-45" stroke="#A7F3D0" stroke-width="1.2" stroke-linecap="round" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 10: Upper-Mid Right (at petiole-10 end 246, 82) -->
+                  <g transform="translate(246, 82)">
+                    <g class="tree-leaf-group leaf-10">
+                      <path class="tree-leaf-body" d="M0,0 C18,-6 30,-26 18,-48 C2,-44 -12,-22 0,0 Z" fill="url(#leafGradVibrant)" />
+                      <path class="tree-leaf-vein" d="M0,0 C6,-18 12,-36 15,-45" stroke="#A7F3D0" stroke-width="1.2" stroke-linecap="round" opacity="0.65" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 11: Upper Left Fresh (at petiole-11 end 122, 38) -->
+                  <g transform="translate(122, 38)">
+                    <g class="tree-leaf-group leaf-11">
+                      <path class="tree-leaf-body" d="M0,0 C-14,-4 -22,-22 -12,-38 C2,-34 10,-16 0,0 Z" fill="url(#leafGradFresh)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-3,-12 -6,-26 -8,-35" stroke="#FFFFFF" stroke-width="0.9" opacity="0.75" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 12: Upper Right Fresh (at petiole-12 end 220, 32) -->
+                  <g transform="translate(220, 32)">
+                    <g class="tree-leaf-group leaf-12">
+                      <path class="tree-leaf-body" d="M0,0 C14,-4 22,-22 12,-38 C-2,-34 -10,-16 0,0 Z" fill="url(#leafGradFresh)" />
+                      <path class="tree-leaf-vein" d="M0,0 C3,-12 6,-26 8,-35" stroke="#FFFFFF" stroke-width="0.9" opacity="0.75" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 13: Crown Left Fresh (at petiole-13 end 152, 36) -->
+                  <g transform="translate(152, 36)">
+                    <g class="tree-leaf-group leaf-13">
+                      <path class="tree-leaf-body" d="M0,0 C-12,-4 -18,-20 -8,-34 C2,-30 8,-14 0,0 Z" fill="url(#leafGradFresh)" />
+                      <path class="tree-leaf-vein" d="M0,0 C-2,-10 -5,-22 -6,-31" stroke="#FFFFFF" stroke-width="0.85" opacity="0.75" />
+                    </g>
+                  </g>
+
+                  <!-- Leaf 14: Crown Apex Center Lead (at stem top 170, 48) -->
+                  <g transform="translate(170, 48)">
+                    <g class="tree-leaf-group leaf-14">
+                      <path class="tree-leaf-body" d="M0,0 C-10,-8 -8,-32 0,-40 C8,-32 10,-8 0,0 Z" fill="url(#leafGradFresh)" />
+                      <path class="tree-leaf-vein" d="M0,0 L0,-36" stroke="#FFFFFF" stroke-width="1" opacity="0.85" />
+                    </g>
+                  </g>
+
+                </g>
+              </svg>
+            </div>
+
+            <!-- Action Area: PLANT A TREE Button -->
+            <div class="about-plant-action-wrap">
+              <button 
+                type="button" 
+                id="plantTreeBtn" 
+                class="plant-tree-btn" 
+                aria-label="Plant an architectural tree and watch botanical foliage grow"
+              >
+                <i data-lucide="sprout" class="w-4 h-4 text-emerald-300"></i>
+                <span>PLANT A TREE</span>
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-200"></i>
+              </button>
+              <div class="plant-card-caption">
+                <span class="caption-dormant">
+                  <i data-lucide="mouse-pointer-click" class="w-3 h-3 text-emerald-500"></i>
+                  Hover or tap to nurture and grow
+                </span>
+                <span class="caption-grown">
+                  <i data-lucide="check-circle" class="w-3 h-3 text-emerald-500"></i>
+                  Thriving botanical tree · Tap to regrow
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== COMPANY STORY SECTION ==================== -->
+  <section id="companyStory" class="py-24 sm:py-32 relative transition-colors duration-400 overflow-hidden">
+    <!-- Atmospheric Glow -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="site-container relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Story Text -->
+        <div class="lg:col-span-6 space-y-6 reveal-left" data-delay="0">
+          <div class="badge-tag">
+            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+            <span>Our Origin</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#17352D] dark:text-[#F0F7F2] leading-tight">
+            The Story Behind <br>
+            <span class="text-emerald-600 dark:text-emerald-400">GreenSpace Rentals</span>
+          </h2>
+          <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            GreenSpace Rentals was founded with a simple observation: modern offices and venues wanted the uplifting beauty of live indoor plants, but purchasing them inevitably led to neglected, dying greenery, dead leaves on carpets, and wasted money.
+          </p>
+          <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            We reinvented the entire model into a seamless rental subscription. Instead of buying, our clients rent acclimated, nursery-grade plants housed in designer sub-irrigated planters. Our certified horticultural specialists visit regularly to prune, water, feed, and monitor plant health metrics.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm">
+              <div class="font-heading font-extrabold text-3xl text-emerald-600 dark:text-emerald-400 mb-1">100%</div>
+              <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] font-medium">Healthy plant swap guarantee</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] shadow-sm">
+              <div class="font-heading font-extrabold text-3xl text-emerald-600 dark:text-emerald-400 mb-1">Zero</div>
+              <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] font-medium">Hassle or maintenance for you</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Visual -->
+        <div class="lg:col-span-6 reveal-right" data-delay="150">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] group">
+            <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1200&q=80" alt="Plant care specialist tending foliage" class="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 text-white shadow-xl">
+              <p class="text-xs sm:text-sm italic text-emerald-100 leading-relaxed">
+                "Our mission is to bring vibrant, living nature into everyday human work and celebration environments, effortlessly."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MISSION & VISION CARDS ==================== -->
+  <section class="py-24 sm:py-28 relative transition-colors duration-400 overflow-hidden bg-white/60 dark:bg-[#0E1E19]/80 border-t border-[var(--border)]">
+    <div class="site-container relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Mission Card -->
+        <div class="glass-card p-8 sm:p-10 rounded-3xl bg-[var(--surface)] relative overflow-hidden border border-[var(--border)] shadow-xl reveal-left" data-delay="100">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 shadow-sm">
+            <i data-lucide="target" class="w-7 h-7"></i>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-2">Our Mission</div>
+          <h3 class="font-heading font-bold text-2xl sm:text-3xl text-[#17352D] dark:text-white mb-4">
+            Making Greenery Simple & Accessible
+          </h3>
+          <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            "To make professional indoor greenery simple, flexible and accessible for every workspace and event venue worldwide."
+          </p>
+        </div>
+
+        <!-- Vision Card -->
+        <div class="glass-card p-8 sm:p-10 rounded-3xl bg-emerald-900 text-white dark:bg-[#172F28] relative overflow-hidden shadow-2xl border border-emerald-500/30 reveal-right" data-delay="200">
+          <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-md text-emerald-300 flex items-center justify-center mb-6 shadow-md">
+            <i data-lucide="eye" class="w-7 h-7"></i>
+          </div>
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-300 mb-2">Our Vision</div>
+          <h3 class="font-heading font-bold text-2xl sm:text-3xl text-white mb-4">
+            Healthier, Welcoming Spaces
+          </h3>
+          <p class="text-base text-emerald-100 leading-relaxed">
+            "To create healthier and more welcoming spaces through professionally managed greenery and sustainable biophilic practices."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMPANY JOURNEY (BOTANICAL GROWTH TIMELINE 2022-2026) ==================== -->
+  <section class="py-24 sm:py-28 relative transition-colors duration-400 overflow-hidden" id="growthSection">
+    <!-- Ambient Green Backlight -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-80 bg-emerald-600/5 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="site-container relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-init">
+        <div class="badge-tag mb-3">
+          <i data-lucide="milestone" class="w-3.5 h-3.5"></i>
+          <span>Our Growth</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[#17352D] dark:text-white mb-4">
+          The GreenSpace Journey
+        </h2>
+        <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+          From a local botanical rental sprout into a thriving nationwide corporate greenery network.
+        </p>
+      </div>
+
+      <!-- Botanical Timeline Interactive Component -->
+      <div id="aboutGrowthTimeline" class="growth-timeline-wrapper max-w-6xl mx-auto relative">
+        
+        <!-- Desktop Organic Curved SVG Growth Stem (Hidden on Mobile) -->
+        <svg class="growth-timeline-path-svg hidden md:block" viewBox="0 0 1050 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="growthStemGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#10B981"/>
+              <stop offset="25%" stop-color="#059669"/>
+              <stop offset="50%" stop-color="#34D399"/>
+              <stop offset="75%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#6EE7B7"/>
+            </linearGradient>
+          </defs>
+          <path d="M 50 30 C 180 5, 230 55, 300 30 C 370 5, 430 55, 525 30 C 620 5, 680 55, 750 30 C 820 5, 870 55, 1000 30" stroke="url(#growthStemGradient)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 6" class="growth-timeline-stem"/>
+        </svg>
+
+        <!-- Mobile Vertical Organic Line (Hidden on Desktop) -->
+        <div class="mobile-timeline-vertical-line md:hidden"></div>
+
+        <!-- 5-Stage Staggered Cards (2022 to 2026) -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
+          
+          <!-- 2022: Sprout 🌱 -->
+          <div class="growth-year-node glass-card p-6 rounded-3xl bg-[var(--surface)] relative border-t-4 border-t-emerald-500 shadow-md transition-all duration-300 ml-10 md:ml-0">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl font-heading font-extrabold text-emerald-600 dark:text-emerald-400">2022</div>
+              <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center growth-sprout-icon" title="Stage 1: Initial Sprout">
+                <i data-lucide="sprout" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white mb-2">Company Founded</h3>
+            <p class="text-xs sm:text-[13px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+              Started with 20 partner offices and a dedicated greenhouse nursery facility.
+            </p>
+          </div>
+
+          <!-- 2023: First Branch 🌿 -->
+          <div class="growth-year-node glass-card p-6 rounded-3xl bg-[var(--surface)] relative border-t-4 border-t-emerald-500 shadow-md transition-all duration-300 ml-10 md:ml-0">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl font-heading font-extrabold text-emerald-600 dark:text-emerald-400">2023</div>
+              <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center growth-sprout-icon" title="Stage 2: Branch Growth">
+                <i data-lucide="leaf" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white mb-2">Office Rental Launch</h3>
+            <p class="text-xs sm:text-[13px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+              Introduced turnkey subscription packages with sub-irrigated planter systems.
+            </p>
+          </div>
+
+          <!-- 2024: Leaf Unfolding 🌿🌿 -->
+          <div class="growth-year-node glass-card p-6 rounded-3xl bg-[var(--surface)] relative border-t-4 border-t-emerald-500 shadow-md transition-all duration-300 ml-10 md:ml-0">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl font-heading font-extrabold text-emerald-600 dark:text-emerald-400">2024</div>
+              <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center growth-sprout-icon" title="Stage 3: Multiple Leaves">
+                <i data-lucide="trees" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white mb-2">Corporate Care</h3>
+            <p class="text-xs sm:text-[13px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+              Rolled out bi-weekly sensor-assisted plant health checks and living green walls.
+            </p>
+          </div>
+
+          <!-- 2025: Fuller Canopy 🌿🌿🌿 -->
+          <div class="growth-year-node glass-card p-6 rounded-3xl bg-[var(--surface)] relative border-t-4 border-t-emerald-500 shadow-md transition-all duration-300 ml-10 md:ml-0">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl font-heading font-extrabold text-emerald-600 dark:text-emerald-400">2025</div>
+              <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center growth-sprout-icon" title="Stage 4: Lush Branches">
+                <i data-lucide="flower-2" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white mb-2">Event Greenery</h3>
+            <p class="text-xs sm:text-[13px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+              Expanded rapid-deployment rental units for summits, galas, and luxury weddings.
+            </p>
+          </div>
+
+          <!-- 2026: Mature State 🌳 -->
+          <div class="growth-year-node glass-card p-6 rounded-3xl bg-emerald-600 text-white dark:bg-emerald-700 relative border-t-4 border-t-emerald-300 shadow-xl transition-all duration-300 ml-10 md:ml-0">
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-3xl font-heading font-extrabold text-white">2026</div>
+              <div class="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center growth-sprout-icon" title="Stage 5: Mature Network">
+                <i data-lucide="tree-pine" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <h3 class="font-heading font-bold text-base text-white mb-2">Expanded Network</h3>
+            <p class="text-xs sm:text-[13px] text-emerald-100 leading-relaxed">
+              Managing 500+ active commercial spaces with regional nursery distribution hubs.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR VALUES (6 CARDS) ==================== -->
+  <section class="py-24 sm:py-28 relative transition-colors duration-400 overflow-hidden bg-white/60 dark:bg-[#0E1E19]/80 border-t border-[var(--border)]">
+    <div class="site-container relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-init">
+        <div class="badge-tag mb-3">
+          <i data-lucide="gem" class="w-3.5 h-3.5"></i>
+          <span>Guiding Principles</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[#17352D] dark:text-white mb-4">
+          Our Core Values
+        </h2>
+        <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+          The foundational commitments that inspire every client relationship and plant care protocol.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <!-- Value 1 -->
+        <div class="glass-card p-8 rounded-3xl bg-[var(--surface)] hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="50">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="recycle" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-[#17352D] dark:text-white mb-2">Sustainability</h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            We use 100% peat-free organic soils, recycled composite planters, and water-conserving irrigation systems.
+          </p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="glass-card p-8 rounded-3xl bg-[var(--surface)] hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="100">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-[#17352D] dark:text-white mb-2">Quality</h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Only hand-inspected, healthy plants and premium designer planters make it into our clients' workspaces.
+          </p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="glass-card p-8 rounded-3xl bg-[var(--surface)] hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="150">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-[#17352D] dark:text-white mb-2">Reliability</h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Punctual scheduled visits, zero mess during maintenance, and rapid 48-hour plant replacement guarantee.
+          </p>
+        </div>
+
+        <!-- Value 4 -->
+        <div class="glass-card p-8 rounded-3xl bg-[var(--surface)] hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="200">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-[#17352D] dark:text-white mb-2">Care</h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Deep passion for plant physiology and horticultural care, ensuring every leaf is shining and pest-free.
+          </p>
+        </div>
+
+        <!-- Value 5 -->
+        <div class="glass-card p-8 rounded-3xl bg-[var(--surface)] hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="250">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="sliders-horizontal" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-[#17352D] dark:text-white mb-2">Flexibility</h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Effortlessly scale subscriptions, pause during office renovations, or change botanical varieties anytime.
+          </p>
+        </div>
+
+        <!-- Value 6 -->
+        <div class="glass-card p-8 rounded-3xl bg-[var(--surface)] hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="300">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-5 shadow-sm">
+            <i data-lucide="smile" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-heading font-bold text-xl text-[#17352D] dark:text-white mb-2">Customer First</h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Attentive support, proactive communication, and white-glove setup tailored around your schedule.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEW SECTION: THE WAY WE CARE ==================== -->
+  <section id="theWayWeCare" class="py-24 sm:py-28 relative transition-colors duration-400 overflow-hidden">
+    <!-- Atmospheric Ambient Glow -->
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="site-container relative z-10">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-init">
+        <div class="badge-tag mb-3">
+          <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-emerald-500"></i>
+          <span>Plant Care Philosophy</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[#17352D] dark:text-white mb-4">
+          The Way We Care
+        </h2>
+        <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+          From choosing the right plant to ongoing maintenance, every space receives thoughtful care designed around its environment.
+        </p>
+      </div>
+
+      <!-- 4 Care Feature Blocks -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <!-- 01 -->
+        <div class="care-feature-card glass-card p-7 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-md reveal-init" data-delay="50">
+          <div class="flex items-center justify-between mb-6">
+            <span class="care-num-badge">01</span>
+            <div class="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-sm">
+              <i data-lucide="sun-medium" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-[#17352D] dark:text-white mb-2.5">
+            Right Plant, Right Space
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Plants selected according to lighting, layout, and environment for optimal vitality.
+          </p>
+        </div>
+
+        <!-- 02 -->
+        <div class="care-feature-card glass-card p-7 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-md reveal-init" data-delay="100">
+          <div class="flex items-center justify-between mb-6">
+            <span class="care-num-badge">02</span>
+            <div class="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-sm">
+              <i data-lucide="droplets" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-[#17352D] dark:text-white mb-2.5">
+            Consistent Care
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Regular watering, pruning, health checks, and maintenance visits by certified specialists.
+          </p>
+        </div>
+
+        <!-- 03 -->
+        <div class="care-feature-card glass-card p-7 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-md reveal-init" data-delay="150">
+          <div class="flex items-center justify-between mb-6">
+            <span class="care-num-badge">03</span>
+            <div class="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-sm">
+              <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-[#17352D] dark:text-white mb-2.5">
+            Quick Replacement
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Plants that are no longer thriving are replaced when required at no extra cost.
+          </p>
+        </div>
+
+        <!-- 04 -->
+        <div class="care-feature-card glass-card p-7 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-md reveal-init" data-delay="200">
+          <div class="flex items-center justify-between mb-6">
+            <span class="care-num-badge">04</span>
+            <div class="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-sm">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+          </div>
+          <h3 class="font-heading font-bold text-lg text-[#17352D] dark:text-white mb-2.5">
+            Designed to Last
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+            Greenery that continues to look healthy and intentional over time with zero office effort.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR TEAM (5 LEADERSHIP CARDS) ==================== -->
+  <section id="meetTeam" class="py-24 sm:py-28 relative transition-colors duration-400 overflow-hidden">
+    <div class="site-container relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-init">
+        <div class="badge-tag mb-3">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i>
+          <span>Botanical Specialists</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-[#17352D] dark:text-white mb-4">
+          Meet Our Team
+        </h2>
+        <p class="text-base text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed">
+          Passionate horticultural experts and workplace designers dedicated to your greenery.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <!-- Team 1 -->
+        <div class="glass-card rounded-3xl overflow-hidden bg-[var(--surface)] text-center p-6 group hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="50">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Elena Vance" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-emerald-500/50 group-hover:scale-105 transition-transform shadow-md">
+          <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white">Elena Vance</h3>
+          <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-2">Founder & CEO</div>
+          <p class="text-[11px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed mb-4">
+            Landscape architect with 12+ years championing biophilic design in modern corporate towers.
+          </p>
+          <div class="flex justify-center gap-2 text-gray-400">
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="Email"><i data-lucide="mail" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- Team 2 -->
+        <div class="glass-card rounded-3xl overflow-hidden bg-[var(--surface)] text-center p-6 group hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="100">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Dr. Julian Ross" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-emerald-500/50 group-hover:scale-105 transition-transform shadow-md">
+          <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white">Dr. Julian Ross</h3>
+          <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-2">Plant Care Specialist</div>
+          <p class="text-[11px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed mb-4">
+            Master Botanist overseeing plant health diagnostics, soil ecology, and preventive pest care.
+          </p>
+          <div class="flex justify-center gap-2 text-gray-400">
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="Email"><i data-lucide="mail" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- Team 3 -->
+        <div class="glass-card rounded-3xl overflow-hidden bg-[var(--surface)] text-center p-6 group hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="150">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Marcus Chen" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-emerald-500/50 group-hover:scale-105 transition-transform shadow-md">
+          <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white">Marcus Chen</h3>
+          <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-2">Operations Manager</div>
+          <p class="text-[11px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed mb-4">
+            Coordinates our punctual delivery fleet, white-glove installations, and inventory management.
+          </p>
+          <div class="flex justify-center gap-2 text-gray-400">
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="Email"><i data-lucide="mail" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- Team 4 -->
+        <div class="glass-card rounded-3xl overflow-hidden bg-[var(--surface)] text-center p-6 group hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="200">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sophia Al-Mansoor" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-emerald-500/50 group-hover:scale-105 transition-transform shadow-md">
+          <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white">Sophia Al-Mansoor</h3>
+          <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-2">Client Success Manager</div>
+          <p class="text-[11px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed mb-4">
+            Dedicated account concierge ensuring customized plant setups and swift member responses.
+          </p>
+          <div class="flex justify-center gap-2 text-gray-400">
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="Email"><i data-lucide="mail" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- Team 5 -->
+        <div class="glass-card rounded-3xl overflow-hidden bg-[var(--surface)] text-center p-6 group hover:border-emerald-500/40 transition-all duration-300 reveal-init" data-delay="250">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Chloe Davies" class="w-24 h-24 rounded-full mx-auto object-cover mb-4 border-2 border-emerald-500/50 group-hover:scale-105 transition-transform shadow-md">
+          <h3 class="font-heading font-bold text-base text-[#17352D] dark:text-white">Chloe Davies</h3>
+          <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-2">Event Greenery Designer</div>
+          <p class="text-[11px] text-[#4B5B47] dark:text-[#B6CEBE] leading-relaxed mb-4">
+            Crafts bespoke living foliage installations, gala arches, and exhibition stage designs.
+          </p>
+          <div class="flex justify-center gap-2 text-gray-400">
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i></a>
+            <a href="#" class="w-7 h-7 rounded-full bg-white/10 dark:bg-white/5 flex items-center justify-center hover:text-emerald-500 hover:bg-emerald-50 transition-colors" aria-label="Email"><i data-lucide="mail" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA SECTION WITH REAL SVG FLOWER GROWING ANIMATION ==================== -->
+  <section id="finalCtaSection" class="section-cta py-28 relative overflow-hidden text-white">
+    <!-- Subtle Background Ambient Shimmer -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#10B981_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+
+    <!-- ==================== BIOLUMINESCENT BOTANICAL CLUSTERS (LEFT & RIGHT FRAMING) ==================== -->
+
+    <!-- LEFT BOTANICAL CLUSTER (Staggered Rising Stems, Unfurling Leaves & Blooming Petals) -->
+    <div class="cta-botanical-cluster cta-cluster-left pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-botanical-svg">
+        <defs>
+          <!-- Bioluminescent Stem Gradients -->
+          <linearGradient id="leftStemGrad1" x1="0%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#04261C"/>
+            <stop offset="45%" stop-color="#10B981"/>
+            <stop offset="90%" stop-color="#00D4AA"/>
+            <stop offset="100%" stop-color="#A7F3D0"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad2" x1="0%" y1="100%" x2="60%" y2="0%">
+            <stop offset="0%" stop-color="#073527"/>
+            <stop offset="55%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#6EE7B7"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad3" x1="0%" y1="100%" x2="40%" y2="0%">
+            <stop offset="0%" stop-color="#071B15"/>
+            <stop offset="60%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+
+          <!-- Flower Radial Ambient Glow Gradients -->
+          <radialGradient id="leftGlowMajor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5B84A" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#10B981" stop-opacity="0.45"/>
+            <stop offset="80%" stop-color="#00D4AA" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="leftGlowMinor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFEBA3" stop-opacity="0.75"/>
+            <stop offset="50%" stop-color="#34D399" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Leaf Fill Gradients -->
+          <linearGradient id="leftLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#073527"/>
+          </linearGradient>
+          <linearGradient id="leftLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#0B261E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- === STEM 1: Tall Graceful Primary Arch === -->
+        <path d="M 50 500 C 60 360, 40 200, 150 70" stroke="url(#leftStemGrad1)" stroke-width="4.5" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 0ms;"/>
+        
+        <!-- Stem 1 Leaves -->
+        <path d="M 52 380 C 15 360, 5 385, 20 400 C 45 405, 52 385, 52 380 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 300ms;"/>
+        <path d="M 50 310 C 85 290, 110 310, 95 328 C 70 335, 50 315, 50 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 450ms;"/>
+        <path d="M 48 230 C 10 210, 2 235, 18 250 C 42 255, 48 235, 48 230 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 75 160 C 115 140, 135 165, 120 180 C 95 185, 75 165, 75 160 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+        <path d="M 115 110 C 100 80, 75 90, 85 112 C 98 122, 115 115, 115 110 Z" fill="#6EE7B7" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 1 Primary Blossom Head at (150, 70) -->
+        <circle cx="150" cy="70" r="55" fill="url(#leftGlowMajor)" class="cta-bloom-glow" style="transition-delay: 850ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 150px 70px; transition-delay: 800ms;">
+          <!-- Outer Petals -->
+          <g class="cta-petal-outer" style="transition-delay: 920ms;">
+            <ellipse cx="150" cy="38" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="150" cy="102" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="118" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="182" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+          </g>
+          <!-- Middle Petals (Rotated 45deg) -->
+          <g class="cta-petal-middle" style="transition-delay: 1100ms;">
+            <ellipse cx="128" cy="48" rx="13" ry="22" transform="rotate(-45 128 48)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="48" rx="13" ry="22" transform="rotate(45 172 48)" fill="#FFF3B0"/>
+            <ellipse cx="128" cy="92" rx="13" ry="22" transform="rotate(45 128 92)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="92" rx="13" ry="22" transform="rotate(-45 172 92)" fill="#FFF3B0"/>
+          </g>
+          <!-- Inner Petals -->
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="150" cy="54" r="11" fill="#F5A623"/>
+            <circle cx="134" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="166" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="150" cy="86" r="11" fill="#F5A623"/>
+          </g>
+          <!-- Golden Bioluminescent Core -->
+          <circle cx="150" cy="70" r="12" fill="#FFF9D8" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="150" cy="70" r="7" fill="#F5B84A"/>
+          <circle cx="150" cy="70" r="3" fill="#FFFFFF"/>
+        </g>
+
+        <!-- === STEM 2: Mid Outward Sweeping Stem === -->
+        <path d="M 80 500 C 120 390, 190 310, 260 180" stroke="url(#leftStemGrad2)" stroke-width="3.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 200ms;"/>
+        
+        <!-- Stem 2 Leaves -->
+        <path d="M 125 390 C 160 370, 180 395, 165 410 C 140 415, 125 395, 125 390 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 500ms;"/>
+        <path d="M 160 310 C 130 290, 115 315, 128 328 C 150 332, 160 315, 160 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 650ms;"/>
+        <path d="M 215 235 C 255 215, 275 240, 260 252 C 235 258, 215 240, 215 235 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+
+        <!-- Stem 2 Blossom Head at (260, 180) -->
+        <circle cx="260" cy="180" r="44" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1050ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 260px 180px; transition-delay: 980ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1100ms;">
+            <circle cx="260" cy="154" r="14" fill="#F7F5E8"/>
+            <circle cx="234" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="286" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="260" cy="206" r="14" fill="#F7F5E8"/>
+          </g>
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="260" cy="166" r="10" fill="#FFEBA3"/>
+            <circle cx="246" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="274" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="260" cy="194" r="10" fill="#FFEBA3"/>
+          </g>
+          <circle cx="260" cy="180" r="10" fill="#F5A623" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="260" cy="180" r="5" fill="#FFFDF5"/>
+        </g>
+
+        <!-- === STEM 3: Lower Arching Branch === -->
+        <path d="M 30 500 C 40 430, 90 390, 130 300" stroke="url(#leftStemGrad3)" stroke-width="3.2" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 350ms;"/>
+        <path d="M 65 435 C 35 415, 20 438, 32 450 C 55 455, 65 440, 65 435 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 105 350 C 140 332, 155 355, 142 365 C 120 370, 105 355, 105 350 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+
+        <!-- Stem 3 Blossom at (130, 300) -->
+        <circle cx="130" cy="300" r="32" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1200ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 130px 300px; transition-delay: 1120ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1220ms;">
+            <ellipse cx="130" cy="284" rx="9" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="114" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="146" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="130" cy="316" rx="9" ry="14" fill="#FFFDF5"/>
+          </g>
+          <circle cx="130" cy="300" r="7" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1350ms;"/>
+        </g>
+
+        <!-- === STEM 4: Slender High Vine === -->
+        <path d="M 110 500 C 110 420, 30 300, 75 170" stroke="url(#leftStemGrad1)" stroke-width="2.6" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 450ms;"/>
+        <path d="M 70 330 C 40 315, 30 335, 42 345 C 62 350, 70 335, 70 330 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 700ms;"/>
+        <path d="M 52 240 C 22 225, 12 248, 25 258 C 45 262, 52 245, 52 240 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 4 Bud at (75, 170) -->
+        <circle cx="75" cy="170" r="24" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1250ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 75px 170px; transition-delay: 1200ms;">
+          <ellipse cx="75" cy="162" rx="7" ry="12" fill="#E8F3E8"/>
+          <ellipse cx="68" cy="174" rx="7" ry="10" transform="rotate(-30 68 174)" fill="#FFF3B0"/>
+          <ellipse cx="82" cy="174" rx="7" ry="10" transform="rotate(30 82 174)" fill="#FFF3B0"/>
+          <circle cx="75" cy="170" r="5" fill="#F5A623"/>
+        </g>
+
+        <!-- === STEM 5: Foreground Sprout Accent === -->
+        <path d="M 140 500 C 175 460, 215 410, 230 360" stroke="url(#leftStemGrad2)" stroke-width="2.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 550ms;"/>
+        <path d="M 175 440 C 205 425, 220 445, 208 455 C 190 460, 175 445, 175 440 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+        <circle cx="230" cy="360" r="6" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+
+        <!-- Bioluminescent Floating Spores / Pollen -->
+        <circle cx="140" cy="45" r="3.5" fill="#FFF9D8" class="cta-sparkle-dot" style="animation-delay: 1.2s;"/>
+        <circle cx="165" cy="30" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.7s;"/>
+        <circle cx="250" cy="150" r="3" fill="#FFE599" class="cta-sparkle-dot" style="animation-delay: 2.2s;"/>
+        <circle cx="280" cy="165" r="2" fill="#6EE7B7" class="cta-sparkle-dot" style="animation-delay: 2.8s;"/>
+        <circle cx="120" cy="275" r="2.5" fill="#FFFDF5" class="cta-sparkle-dot" style="animation-delay: 3.3s;"/>
+        <circle cx="65" cy="145" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.9s;"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT BOTANICAL CLUSTER (Symmetrical Framing, Rich Blooms & Bioluminescent Growth) -->
+    <div class="cta-botanical-cluster cta-cluster-right pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="cta-botanical-svg">
+        <defs>
+          <!-- Bioluminescent Stem Gradients -->
+          <linearGradient id="leftStemGrad1" x1="0%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#04261C"/>
+            <stop offset="45%" stop-color="#10B981"/>
+            <stop offset="90%" stop-color="#00D4AA"/>
+            <stop offset="100%" stop-color="#A7F3D0"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad2" x1="0%" y1="100%" x2="60%" y2="0%">
+            <stop offset="0%" stop-color="#073527"/>
+            <stop offset="55%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#6EE7B7"/>
+          </linearGradient>
+          <linearGradient id="leftStemGrad3" x1="0%" y1="100%" x2="40%" y2="0%">
+            <stop offset="0%" stop-color="#071B15"/>
+            <stop offset="60%" stop-color="#059669"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+
+          <!-- Flower Radial Ambient Glow Gradients -->
+          <radialGradient id="leftGlowMajor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5B84A" stop-opacity="0.8"/>
+            <stop offset="40%" stop-color="#10B981" stop-opacity="0.45"/>
+            <stop offset="80%" stop-color="#00D4AA" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="leftGlowMinor" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFEBA3" stop-opacity="0.75"/>
+            <stop offset="50%" stop-color="#34D399" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#075B46" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Leaf Fill Gradients -->
+          <linearGradient id="leftLeafGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#073527"/>
+          </linearGradient>
+          <linearGradient id="leftLeafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#0B261E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- === STEM 1: Tall Graceful Primary Arch === -->
+        <path d="M 50 500 C 60 360, 40 200, 150 70" stroke="url(#leftStemGrad1)" stroke-width="4.5" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 0ms;"/>
+        
+        <!-- Stem 1 Leaves -->
+        <path d="M 52 380 C 15 360, 5 385, 20 400 C 45 405, 52 385, 52 380 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 300ms;"/>
+        <path d="M 50 310 C 85 290, 110 310, 95 328 C 70 335, 50 315, 50 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 450ms;"/>
+        <path d="M 48 230 C 10 210, 2 235, 18 250 C 42 255, 48 235, 48 230 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 75 160 C 115 140, 135 165, 120 180 C 95 185, 75 165, 75 160 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+        <path d="M 115 110 C 100 80, 75 90, 85 112 C 98 122, 115 115, 115 110 Z" fill="#6EE7B7" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 1 Primary Blossom Head at (150, 70) -->
+        <circle cx="150" cy="70" r="55" fill="url(#leftGlowMajor)" class="cta-bloom-glow" style="transition-delay: 850ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 150px 70px; transition-delay: 800ms;">
+          <!-- Outer Petals -->
+          <g class="cta-petal-outer" style="transition-delay: 920ms;">
+            <ellipse cx="150" cy="38" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="150" cy="102" rx="14" ry="26" fill="#FFFDF5"/>
+            <ellipse cx="118" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="182" cy="70" rx="26" ry="14" fill="#FFFDF5"/>
+          </g>
+          <!-- Middle Petals (Rotated 45deg) -->
+          <g class="cta-petal-middle" style="transition-delay: 1100ms;">
+            <ellipse cx="128" cy="48" rx="13" ry="22" transform="rotate(-45 128 48)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="48" rx="13" ry="22" transform="rotate(45 172 48)" fill="#FFF3B0"/>
+            <ellipse cx="128" cy="92" rx="13" ry="22" transform="rotate(45 128 92)" fill="#FFF3B0"/>
+            <ellipse cx="172" cy="92" rx="13" ry="22" transform="rotate(-45 172 92)" fill="#FFF3B0"/>
+          </g>
+          <!-- Inner Petals -->
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="150" cy="54" r="11" fill="#F5A623"/>
+            <circle cx="134" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="166" cy="70" r="11" fill="#F5A623"/>
+            <circle cx="150" cy="86" r="11" fill="#F5A623"/>
+          </g>
+          <!-- Golden Bioluminescent Core -->
+          <circle cx="150" cy="70" r="12" fill="#FFF9D8" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="150" cy="70" r="7" fill="#F5B84A"/>
+          <circle cx="150" cy="70" r="3" fill="#FFFFFF"/>
+        </g>
+
+        <!-- === STEM 2: Mid Outward Sweeping Stem === -->
+        <path d="M 80 500 C 120 390, 190 310, 260 180" stroke="url(#leftStemGrad2)" stroke-width="3.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 200ms;"/>
+        
+        <!-- Stem 2 Leaves -->
+        <path d="M 125 390 C 160 370, 180 395, 165 410 C 140 415, 125 395, 125 390 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 500ms;"/>
+        <path d="M 160 310 C 130 290, 115 315, 128 328 C 150 332, 160 315, 160 310 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 650ms;"/>
+        <path d="M 215 235 C 255 215, 275 240, 260 252 C 235 258, 215 240, 215 235 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+
+        <!-- Stem 2 Blossom Head at (260, 180) -->
+        <circle cx="260" cy="180" r="44" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1050ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 260px 180px; transition-delay: 980ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1100ms;">
+            <circle cx="260" cy="154" r="14" fill="#F7F5E8"/>
+            <circle cx="234" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="286" cy="180" r="14" fill="#F7F5E8"/>
+            <circle cx="260" cy="206" r="14" fill="#F7F5E8"/>
+          </g>
+          <g class="cta-petal-inner" style="transition-delay: 1250ms;">
+            <circle cx="260" cy="166" r="10" fill="#FFEBA3"/>
+            <circle cx="246" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="274" cy="180" r="10" fill="#FFEBA3"/>
+            <circle cx="260" cy="194" r="10" fill="#FFEBA3"/>
+          </g>
+          <circle cx="260" cy="180" r="10" fill="#F5A623" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+          <circle cx="260" cy="180" r="5" fill="#FFFDF5"/>
+        </g>
+
+        <!-- === STEM 3: Lower Arching Branch === -->
+        <path d="M 30 500 C 40 430, 90 390, 130 300" stroke="url(#leftStemGrad3)" stroke-width="3.2" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 350ms;"/>
+        <path d="M 65 435 C 35 415, 20 438, 32 450 C 55 455, 65 440, 65 435 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 600ms;"/>
+        <path d="M 105 350 C 140 332, 155 355, 142 365 C 120 370, 105 355, 105 350 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 750ms;"/>
+
+        <!-- Stem 3 Blossom at (130, 300) -->
+        <circle cx="130" cy="300" r="32" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1200ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 130px 300px; transition-delay: 1120ms;">
+          <g class="cta-petal-outer" style="transition-delay: 1220ms;">
+            <ellipse cx="130" cy="284" rx="9" ry="14" fill="#FFFDF5"/>
+            <ellipse cx="114" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="146" cy="300" rx="14" ry="9" fill="#FFFDF5"/>
+            <ellipse cx="130" cy="316" rx="9" ry="14" fill="#FFFDF5"/>
+          </g>
+          <circle cx="130" cy="300" r="7" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1350ms;"/>
+        </g>
+
+        <!-- === STEM 4: Slender High Vine === -->
+        <path d="M 110 500 C 110 420, 30 300, 75 170" stroke="url(#leftStemGrad1)" stroke-width="2.6" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 450ms;"/>
+        <path d="M 70 330 C 40 315, 30 335, 42 345 C 62 350, 70 335, 70 330 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 700ms;"/>
+        <path d="M 52 240 C 22 225, 12 248, 25 258 C 45 262, 52 245, 52 240 Z" fill="url(#leftLeafGrad2)" class="cta-leaf-element" style="transition-delay: 850ms;"/>
+
+        <!-- Stem 4 Bud at (75, 170) -->
+        <circle cx="75" cy="170" r="24" fill="url(#leftGlowMinor)" class="cta-bloom-glow" style="transition-delay: 1250ms;"/>
+        <g class="cta-flower-head" style="transform-origin: 75px 170px; transition-delay: 1200ms;">
+          <ellipse cx="75" cy="162" rx="7" ry="12" fill="#E8F3E8"/>
+          <ellipse cx="68" cy="174" rx="7" ry="10" transform="rotate(-30 68 174)" fill="#FFF3B0"/>
+          <ellipse cx="82" cy="174" rx="7" ry="10" transform="rotate(30 82 174)" fill="#FFF3B0"/>
+          <circle cx="75" cy="170" r="5" fill="#F5A623"/>
+        </g>
+
+        <!-- === STEM 5: Foreground Sprout Accent === -->
+        <path d="M 140 500 C 175 460, 215 410, 230 360" stroke="url(#leftStemGrad2)" stroke-width="2.8" stroke-linecap="round" class="cta-stem-path" style="transition-delay: 550ms;"/>
+        <path d="M 175 440 C 205 425, 220 445, 208 455 C 190 460, 175 445, 175 440 Z" fill="url(#leftLeafGrad1)" class="cta-leaf-element" style="transition-delay: 800ms;"/>
+        <circle cx="230" cy="360" r="6" fill="#F5B84A" class="cta-flower-core" style="transition-delay: 1400ms;"/>
+
+        <!-- Bioluminescent Floating Spores / Pollen -->
+        <circle cx="140" cy="45" r="3.5" fill="#FFF9D8" class="cta-sparkle-dot" style="animation-delay: 1.2s;"/>
+        <circle cx="165" cy="30" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.7s;"/>
+        <circle cx="250" cy="150" r="3" fill="#FFE599" class="cta-sparkle-dot" style="animation-delay: 2.2s;"/>
+        <circle cx="280" cy="165" r="2" fill="#6EE7B7" class="cta-sparkle-dot" style="animation-delay: 2.8s;"/>
+        <circle cx="120" cy="275" r="2.5" fill="#FFFDF5" class="cta-sparkle-dot" style="animation-delay: 3.3s;"/>
+        <circle cx="65" cy="145" r="2" fill="#A7F3D0" class="cta-sparkle-dot" style="animation-delay: 1.9s;"/>
+      </svg>
+    </div>
+
+    <!-- CTA Content -->
+    <div class="site-container relative z-10 text-center max-w-3xl mx-auto">
+      <div class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mx-auto mb-6 shadow-2xl animate-float p-2.5 overflow-hidden"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight mb-4 drop-shadow-md">
+        Let's Grow Something Better Together
+      </h2>
+      <p class="text-base sm:text-lg text-emerald-100/90 leading-relaxed mb-10 max-w-xl mx-auto drop-shadow">
+        Bring thoughtful greenery into your workplace or next event with professional plant rental and care.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 relative z-20">
+        <a href="services.html" class="btn-primary text-base py-3.5 px-9 bg-emerald-400 hover:bg-emerald-300 text-[#071B15] font-extrabold shadow-2xl">
+          <span>Explore Our Services</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="contact.html" class="btn-glass text-base py-3.5 px-9 text-white border-white/40">
+          <span>Get a Free Quote</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#04100C] text-white pt-20 pb-12 border-t border-white/10 relative overflow-hidden">
+    <div class="site-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center overflow-hidden p-1.5"><img src="images/greenspace-logo-transparent.png" alt="GreenSpace Logo" class="w-full h-full object-contain"></div>
+            <span class="font-heading font-bold text-xl tracking-tight text-white">
+              GreenSpace <span class="text-emerald-400 font-light text-sm tracking-widest uppercase">Rentals</span>
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-400 max-w-sm leading-relaxed">
+            Leading indoor plant rental and maintenance service for offices, venues, and events. Beautiful plants without the ownership hassle.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/5 hover:bg-emerald-500/20 border border-white/10 text-gray-300 hover:text-emerald-400 flex items-center justify-center transition-all" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Pages</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-emerald-300 transition-colors">Home 1</a></li>
+            <li><a href="home-2.html" class="hover:text-emerald-300 transition-colors">Home 2</a></li>
+            <li><a href="about.html" class="hover:text-emerald-300 transition-colors">About Us</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="hover:text-emerald-300 transition-colors">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-emerald-300 transition-colors">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-emerald-300 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Services</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Office Plant Rentals</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Event Greenery</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Plant Installation</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Weekly Maintenance</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Health Checks & Replace</a></li>
+            <li><a href="services.html" class="hover:text-emerald-300 transition-colors">Living Walls & Decor</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Newsletter -->
+        <div>
+          <h4 class="font-heading font-bold text-sm tracking-wider uppercase text-emerald-400 mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-400 mb-4">
+            <li class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>100 Botanical Way, Suite 400</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>hello@greenspacerentals.com</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+              <span>+1 (800) 555-PLANT</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div>
+          &copy; 2026 GreenSpace Rentals. All rights reserved. Choose your plants. We handle the rest.
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-400">Terms of Service</a>
+          <a href="login.html" class="text-emerald-400 hover:text-emerald-300 font-medium">Portal Sign In</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Plant Care Video Modal -->
+  <div id="careVideoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 transition-all duration-300" role="dialog" aria-modal="true" aria-label="Plant Care Video">
+    <div class="relative w-full max-w-3xl bg-[#071B15] border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <i data-lucide="play-circle" class="w-5 h-5 text-emerald-400"></i>
+          <span class="font-heading font-bold text-white text-sm sm:text-base">GreenSpace Plant Care In Action</span>
+        </div>
+        <button id="closeCareModal" class="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors focus:outline-none cursor-pointer" aria-label="Close Video Modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="relative aspect-video bg-black flex items-center justify-center">
+        <video id="careModalVideo" class="w-full h-full object-cover" controls playsinline preload="metadata">
+          <source src="images/WhatsApp Video 2026-10-02 at 9.48.14 PM.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
