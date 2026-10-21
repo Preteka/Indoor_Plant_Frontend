@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payments | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="payments" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark"><img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" /></div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item active" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <span class="bc-portal">GreenSpace</span>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">Payments</span>
+            </nav>
+          </div>
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                FINANCIAL TRANSACTIONS
+              </p>
+              <h2 class="heading-glow">Payments & Invoicing</h2>
+              <p>Track corporate payments, monthly subscriptions, and billing transactions.</p>
+            </div>
+            <div class="page-header-actions">
+              <button class="btn btn-primary" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Export Ledger</span>
+              </button>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="stats-grid compact reveal">
+            <article class="stat-card card">
+              <div class="stat-top">
+                <span class="label">Total Collected</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5.5C15.5 4 13.8 3 12 3S8.5 4 7 5.5 5 8.5 5 12s1.2 4.6 2.5 5.5 3.6 2.5 4.5 2.5 3.1-1 4.5-2.5 2.5-3.1 2.5-5.5S18.8 6.6 17 5.5z"/></svg></span>
+              </div>
+              <h3>₹12.4L</h3>
+              <p>Across all active accounts</p>
+            </article>
+
+            <article class="stat-card card">
+              <div class="stat-top">
+                <span class="label">Pending Invoices</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+              </div>
+              <h3>₹2.8L</h3>
+              <p>Awaiting client sign-off & processing</p>
+            </article>
+
+            <article class="stat-card card">
+              <div class="stat-top">
+                <span class="label">Current Month</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+              </div>
+              <h3>₹4.6L</h3>
+              <p>Collected in current billing cycle</p>
+            </article>
+
+            <article class="stat-card card">
+              <div class="stat-top">
+                <span class="label">Refunds / Adjustments</span>
+                <span class="icon"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></span>
+              </div>
+              <h3>₹8.5K</h3>
+              <p>Adjusted against damage deposit</p>
+            </article>
+          </section>
+
+          <section class="card panel reveal">
+            <div class="panel-head">
+              <div class="panel-head-title">
+                <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                </span>
+                <h3>Transaction History</h3>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="admin-table" aria-label="Payments table">
+                <thead>
+                  <tr>
+                    <th>Payment ID</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Method</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>PMT-1018</strong></td>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">GS</span>
+                        <strong>GreenTech Solutions</strong>
+                      </div>
+                    </td>
+                    <td><strong>₹18,500</strong></td>
+                    <td>08 Oct 2026</td>
+                    <td>Corporate UPI</td>
+                    <td><span class="status-pill success">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>PMT-1019</strong></td>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">BE</span>
+                        <strong>Bloom Events</strong>
+                      </div>
+                    </td>
+                    <td><strong>₹12,000</strong></td>
+                    <td>09 Oct 2026</td>
+                    <td>Bank Transfer (NEFT)</td>
+                    <td><span class="status-pill warning">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>PMT-1020</strong></td>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">NL</span>
+                        <strong>Northwind Labs</strong>
+                      </div>
+                    </td>
+                    <td><strong>₹24,000</strong></td>
+                    <td>10 Oct 2026</td>
+                    <td>Corporate Card</td>
+                    <td><span class="status-pill danger">Failed</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>PMT-1021</strong></td>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">UD</span>
+                        <strong>UrbanDesk Pvt Ltd</strong>
+                      </div>
+                    </td>
+                    <td><strong>₹8,500</strong></td>
+                    <td>11 Oct 2026</td>
+                    <td>Wallet / Credit</td>
+                    <td><span class="status-pill info">Refunded</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

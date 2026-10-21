@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="dashboard" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" />
+          </div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item active" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu">
+              <span></span><span></span><span></span>
+            </button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <span class="bc-portal">GreenSpace</span>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">Dashboard</span>
+            </nav>
+          </div>
+
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                OPERATIONAL OVERVIEW
+              </p>
+              <h2 class="heading-glow">Good morning, Admin</h2>
+              <p>Here’s what’s happening across your GreenSpace Rentals operations today.</p>
+            </div>
+            <div class="page-header-actions">
+              <a class="btn btn-primary" href="requests.html">
+                <span>View Requests</span>
+                <svg class="btn-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="stats-grid reveal" aria-label="Key operational metrics">
+            <article class="stat-card card" data-count="124">
+              <div class="stat-top">
+                <span class="label">Active Rentals</span>
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 4.4-3.1 8.5-8 10-4.9-1.5-8-5.6-8-10V6l8-4zm0 6v6m-3-3h6"/></svg>
+                </span>
+              </div>
+              <h3>124</h3>
+              <p>Across corporate and event locations</p>
+            </article>
+
+            <article class="stat-card card" data-count="18">
+              <div class="stat-top">
+                <span class="label">Pending Requests</span>
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 3h10l4 4v14H7zM17 3v4h4M9 11h8M9 16h8"/></svg>
+                </span>
+              </div>
+              <h3>18</h3>
+              <p>Awaiting confirmation & quote review</p>
+            </article>
+
+            <article class="stat-card card" data-count="12">
+              <div class="stat-top">
+                <span class="label">Upcoming Visits</span>
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 2v3M17 2v3M4 9h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+                </span>
+              </div>
+              <h3>12</h3>
+              <p>Scheduled for this week</p>
+            </article>
+
+            <article class="stat-card card" data-count="248000">
+              <div class="stat-top">
+                <span class="label">Monthly Revenue</span>
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5.5C15.5 4 13.8 3 12 3S8.5 4 7 5.5 5 8.5 5 12s1.2 4.6 2.5 5.5 3.6 2.5 4.5 2.5 3.1-1 4.5-2.5 2.5-3.1 2.5-5.5S18.8 6.6 17 5.5z"/></svg>
+                </span>
+              </div>
+              <h3>₹2.48L</h3>
+              <p>Collected from active rentals & services</p>
+            </article>
+          </section>
+
+          <section class="content-grid two-column">
+            <div class="card panel reveal">
+              <div class="panel-head">
+                <div class="panel-head-title">
+                  <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  </span>
+                  <h3>Recent Requests</h3>
+                </div>
+                <a href="requests.html">View All Requests →</a>
+              </div>
+              <div class="list-rows" id="dashboardRequests"></div>
+            </div>
+
+            <div class="card panel reveal">
+              <div class="panel-head">
+                <div class="panel-head-title">
+                  <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </span>
+                  <h3>Upcoming Bookings</h3>
+                </div>
+                <a href="bookings.html">View Schedule →</a>
+              </div>
+              <div class="booking-list" id="dashboardBookings"></div>
+            </div>
+          </section>
+
+          <section class="content-grid two-column lower-grid">
+            <div class="card panel reveal">
+              <div class="panel-head">
+                <div class="panel-head-title">
+                  <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+                  </span>
+                  <h3>Maintenance Overview</h3>
+                </div>
+                <a href="maintenance.html">Manage Health →</a>
+              </div>
+              <div class="maintenance-overview">
+                <div class="progress-wrap"><span>Healthy Plants (Thriving)</span><strong>92%</strong></div>
+                <div class="progress-bar"><span style="width: 92%"></span></div>
+                <div class="progress-wrap"><span>Needs Attention (Treatment)</span><strong>6%</strong></div>
+                <div class="progress-bar"><span class="warning" style="width: 6%"></span></div>
+                <div class="progress-wrap"><span>Replacement Required</span><strong>2%</strong></div>
+                <div class="progress-bar"><span class="danger" style="width: 2%"></span></div>
+              </div>
+            </div>
+
+            <div class="card panel reveal">
+              <div class="panel-head">
+                <div class="panel-head-title">
+                  <span class="icon" style="width: 28px; height: 28px; font-size: 0.8rem; background: var(--brand-soft); border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--brand-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </span>
+                  <h3>Recent Activity</h3>
+                </div>
+              </div>
+              <div class="activity-timeline">
+                <div class="activity-item">
+                  <span class="time">09:42 AM</span>
+                  <p>Payment received from GreenTech Solutions (₹18,500)</p>
+                </div>
+                <div class="activity-item">
+                  <span class="time">08:50 AM</span>
+                  <p>Maintenance visit completed at Bengaluru HQ</p>
+                </div>
+                <div class="activity-item">
+                  <span class="time">Yesterday</span>
+                  <p>New rental request received from Fable Works</p>
+                </div>
+                <div class="activity-item">
+                  <span class="time">Yesterday</span>
+                  <p>Quote approved by Bloom Events for corporate showcase</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

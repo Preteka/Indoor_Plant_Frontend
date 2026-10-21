@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Health & Inspection Reports | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">
+              GreenSpace
+              <span class="brand-portal-pill">User</span>
+            </span>
+            <span class="brand-tagline">Client Plant Hub</span>
+          </div>
+        </div>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Plant Health Reports</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>Botanical Health Audits & Inspection Logs</h1>
+            <p>Verified diagnostic reports recorded by certified GreenSpace horticulturalists during scheduled on-site audits.</p>
+          </div>
+          <div class="page-actions-group">
+            <a href="maintenance.html" class="btn btn-secondary">
+              <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+              <span>Next Care Visit (28 Oct)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-pills-group" id="healthStatusFilters">
+            <button type="button" class="filter-pill-btn active" data-status="ALL">All Reports (3)</button>
+            <button type="button" class="filter-pill-btn" data-status="HEALTHY">Healthy (2)</button>
+            <button type="button" class="filter-pill-btn" data-status="NEEDS ATTENTION">Needs Attention (1)</button>
+            <button type="button" class="filter-pill-btn" data-status="CRITICAL">Critical (0)</button>
+          </div>
+
+          <div class="search-box-wrap" style="max-width: 320px;">
+            <i data-lucide="search" class="search-icon-inside"></i>
+            <input type="text" id="healthSearchInput" class="search-input" placeholder="Search by plant or inspector...">
+          </div>
+        </div>
+
+        <!-- Reports Grid -->
+        <div class="catalog-grid" id="reportsGrid">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="noReportsState" class="empty-state" style="display: none;">
+          <div class="empty-icon-wrap">
+            <i data-lucide="clipboard-x" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h3 class="empty-title">No inspection reports found</h3>
+          <p class="empty-desc">No botanical diagnostic reports match your current filter settings.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Health Audit Detail Modal -->
+  <div id="reportDetailModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 id="modalReportTitle" class="modal-title">Plant Health Audit</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalReportBody">
+        <!-- Injected -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close-trigger">Close</button>
+        <a href="maintenance.html" class="btn btn-primary">Schedule Follow-up Visit</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      const reports = dataStore.getHealthReports();
+      const gridEl = document.getElementById('reportsGrid');
+      const searchInput = document.getElementById('healthSearchInput');
+      const filterPills = document.querySelectorAll('#healthStatusFilters button');
+      const emptyState = document.getElementById('noReportsState');
+
+      let currentStatus = 'ALL';
+      let searchQuery = '';
+
+      function renderReports() {
+        const filtered = reports.filter(r => {
+          const matchStatus = (currentStatus === 'ALL') || (r.status === currentStatus);
+          const matchSearch = r.plantName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              r.inspector.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              r.rentalRef.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchStatus && matchSearch;
+        });
+
+        if (filtered.length === 0) {
+          gridEl.style.display = 'none';
+          emptyState.style.display = 'flex';
+          return;
+        }
+
+        gridEl.style.display = 'grid';
+        emptyState.style.display = 'none';
+
+        gridEl.innerHTML = filtered.map(r => {
+          const statusClass = r.status === 'HEALTHY' ? 'status-healthy' :
+                             (r.status === 'CRITICAL' ? 'status-critical' : 'status-pending');
+
+          return `
+            <div class="dashboard-card" style="margin-bottom: 0; display: flex; flex-direction: column;">
+              <div class="card-header-bar" style="padding: 1rem 1.25rem;">
+                <div>
+                  <span class="status-pill ${statusClass}" style="font-size: 0.68rem;">${r.status}</span>
+                  <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">Ref: ${r.rentalRef}</div>
+                </div>
+                <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-secondary);">${r.inspectionDate}</span>
+              </div>
+
+              <div class="card-body" style="padding: 1.25rem; flex: 1; display: flex; flex-direction: column;">
+                <h3 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">
+                  ${r.plantName}
+                </h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 1rem; flex: 1;">
+                  ${r.observations}
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem; font-size: 0.72rem;">
+                  <div style="background: var(--surface-muted); padding: 0.5rem 0.65rem; border-radius: var(--radius-sm);">
+                    <span style="color: var(--text-muted);">Root Moisture:</span><br>
+                    <strong>${r.moistureLevel}</strong>
+                  </div>
+                  <div style="background: var(--surface-muted); padding: 0.5rem 0.65rem; border-radius: var(--radius-sm);">
+                    <span style="color: var(--text-muted);">Light Reading:</span><br>
+                    <strong>${r.lightLevel}</strong>
+                  </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--border); padding-top: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 0.72rem; color: var(--text-muted);">Auditor: <strong>${r.inspector}</strong></span>
+                  <button type="button" class="btn btn-secondary btn-sm btn-view-report" data-id="${r.reportId}">
+                    <span>Full Audit</span>
+                    <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.btn-view-report').forEach(btn => {
+          btn.onclick = () => {
+            const r = reports.find(item => item.reportId === btn.getAttribute('data-id'));
+            if (r) openReportDetails(r);
+          };
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function openReportDetails(r) {
+        document.getElementById('modalReportTitle').textContent = `Audit Report: ${r.plantName} (${r.reportId})`;
+        document.getElementById('modalReportBody').innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <span class="status-pill status-${r.status.toLowerCase().replace(' ', '-')}">${r.status}</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Inspection Date: <strong>${r.inspectionDate}</strong></span>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 1rem;">
+            <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Horticultural Diagnostics</div>
+            <p style="font-size: 0.875rem; color: var(--text-primary); margin-top: 0.35rem; line-height: 1.5;">${r.observations}</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.825rem;">
+            <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm);">
+              <strong>Soil Moisture Audit:</strong><br>${r.moistureLevel}
+            </div>
+            <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm);">
+              <strong>Light Exposure Audit:</strong><br>${r.lightLevel}
+            </div>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 0.85rem; border-radius: var(--radius-sm); margin-bottom: 0.85rem; font-size: 0.825rem;">
+            <strong>Watering & Nutrient Instructions:</strong><br>
+            <span style="color: var(--text-secondary);">${r.wateringAdvice}</span>
+          </div>
+
+          <div style="background: var(--brand-soft); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.825rem; color: var(--brand-primary); border: 1px solid var(--border-strong);">
+            <strong>Care Team Recommendation:</strong><br>
+            ${r.recommendations}
+          </div>
+        `;
+
+        window.GreenSpaceUserDashboard.openModal('reportDetailModal');
+      }
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        renderReports();
+      });
+
+      filterPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterPills.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentStatus = btn.getAttribute('data-status');
+          renderReports();
+        });
+      });
+
+      renderReports();
+    });
+  </script>
+</body>
+</html>

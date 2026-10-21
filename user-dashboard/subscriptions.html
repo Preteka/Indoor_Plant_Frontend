@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Subscriptions | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">
+              GreenSpace
+              <span class="brand-portal-pill">User</span>
+            </span>
+            <span class="brand-tagline">Client Plant Hub</span>
+          </div>
+        </div>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Subscriptions</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>Recurring Rental Subscriptions</h1>
+            <p>Manage your corporate plant rental packages, renewal schedules, and inclusive replacement guarantees.</p>
+          </div>
+          <div class="page-actions-group">
+            <button type="button" id="btnUpgradePlan" class="btn btn-primary">
+              <i data-lucide="arrow-up-circle" style="width: 16px; height: 16px;"></i>
+              <span>Upgrade Plan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Subscription Main Card -->
+        <div class="dashboard-card" id="subscriptionCardContainer">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Available Plan Tiers Comparison -->
+        <div class="dashboard-card">
+          <div class="card-header-bar">
+            <div class="card-title">
+              <i data-lucide="layers" style="width: 18px; height: 18px; color: var(--brand-primary);"></i>
+              <span>Available Corporate Subscription Tiers</span>
+            </div>
+            <span class="status-pill status-neutral">Zero-Worry Plant Programs</span>
+          </div>
+
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+              
+              <!-- Tier 1 -->
+              <div style="border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; background: var(--surface); display: flex; flex-direction: column;">
+                <span class="status-pill status-neutral" style="align-self: flex-start; margin-bottom: 0.75rem;">Starter Office</span>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Green Essentials</h3>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">₹4,500 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ month</span></div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Ideal for small agencies, boutique studios, and dental/medical reception spaces.</p>
+                <ul style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                  <li>Up to 8 curated indoor plants</li>
+                  <li>Monthly routine maintenance visit</li>
+                  <li>Ceramic planter vessels included</li>
+                  <li>Seasonal leaf cleaning</li>
+                </ul>
+                <button type="button" class="btn btn-secondary btn-sm select-tier-btn" data-tier="Green Essentials" style="margin-top: auto;">Select Tier</button>
+              </div>
+
+              <!-- Tier 2 (Current Active) -->
+              <div style="border: 2px solid var(--brand-primary); border-radius: var(--radius-lg); padding: 1.5rem; background: var(--surface); display: flex; flex-direction: column; position: relative;">
+                <span class="status-pill status-active" style="position: absolute; top: 1rem; right: 1rem;">YOUR CURRENT PLAN</span>
+                <span class="status-pill status-healthy" style="align-self: flex-start; margin-bottom: 0.75rem;">Enterprise Preferred</span>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Executive Workplace</h3>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">₹33,790 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ year (billed annually)</span></div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Complete corporate botanical package for tech companies and multi-room offices.</p>
+                <ul style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                  <li>27 Large specimen & mid-tier plants</li>
+                  <li>Bi-weekly scheduled care visits</li>
+                  <li>100% Free replacement guarantee</li>
+                  <li>Sub-irrigation architectural vessels</li>
+                  <li>Monthly plant health audit logs</li>
+                </ul>
+                <button type="button" class="btn btn-primary btn-sm" disabled style="margin-top: auto; opacity: 0.8;">Current Active Plan</button>
+              </div>
+
+              <!-- Tier 3 -->
+              <div style="border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; background: var(--surface); display: flex; flex-direction: column;">
+                <span class="status-pill status-neutral" style="align-self: flex-start; margin-bottom: 0.75rem;">Campus & Multi-Floor</span>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Botanical Campus</h3>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">₹65,000 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ year</span></div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Large-scale installations including living green walls and statement atrium palms.</p>
+                <ul style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                  <li>50+ Specimen indoor trees & plants</li>
+                  <li>Weekly dedicated gardener attendance</li>
+                  <li>Preserved moss & living wall care</li>
+                  <li>Priority emergency callout support</li>
+                  <li>Quarterly seasonal foliage makeover</li>
+                </ul>
+                <button type="button" class="btn btn-secondary btn-sm select-tier-btn" data-tier="Botanical Campus" style="margin-top: auto;">Upgrade to Campus</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Plan Change Modal -->
+  <div id="changePlanModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Change Subscription Tier</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.825rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Select your new desired plant subscription tier. Pricing changes will adjust prorated from the next billing cycle.
+        </p>
+        <form id="changePlanForm">
+          <div class="form-group">
+            <label class="form-label">Subscription Tier</label>
+            <select id="selectedPlanTier" class="form-control">
+              <option value="Green Essentials">Green Essentials (₹4,500/mo)</option>
+              <option value="Executive Workplace" selected>Executive Workplace Annual (₹33,790/yr)</option>
+              <option value="Botanical Campus">Botanical Campus (₹65,000/yr)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Billing Cycle</label>
+            <select class="form-control">
+              <option value="annual">Annual Advance (Includes 10% Discount)</option>
+              <option value="monthly">Monthly Recurring</option>
+            </select>
+          </div>
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
+            <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+            <button type="submit" class="btn btn-primary">Update Subscription</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      let subs = dataStore.getSubscriptions();
+      const container = document.getElementById('subscriptionCardContainer');
+
+      function renderSubscription() {
+        if (!subs || subs.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <h3 class="empty-title">No Active Subscriptions</h3>
+              <p class="empty-desc">You currently do not have any recurring plant rental subscriptions.</p>
+              <a href="browse-plants.html" class="btn btn-primary btn-sm">Explore Plans</a>
+            </div>
+          `;
+          return;
+        }
+
+        const s = subs[0];
+        container.innerHTML = `
+          <div class="card-header-bar">
+            <div>
+              <span class="status-pill status-${s.status.toLowerCase()}">${s.status}</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted); margin-left: 0.5rem;">Ref: ${s.subscriptionId}</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button type="button" id="btnRenewSub" class="btn btn-secondary btn-sm">Renew Early</button>
+              <button type="button" id="btnCancelSub" class="btn btn-danger btn-sm">Cancel Plan</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <div>
+                <span class="plant-category-tag">${s.planTier}</span>
+                <h2 style="font-family: var(--font-heading); font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin: 0.2rem 0 0.4rem 0;">
+                  ${s.planName}
+                </h2>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 600px;">
+                  ${s.servicesIncluded}
+                </p>
+              </div>
+
+              <div style="background: var(--surface-muted); padding: 1.25rem 1.5rem; border-radius: var(--radius-lg); text-align: right; border: 1px solid var(--border);">
+                <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Subscription Fee</div>
+                <div style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; color: var(--brand-primary);">₹${s.amount.toLocaleString('en-IN')}</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">${s.billingFrequency} Billing • Status: <strong>${s.paymentStatus}</strong></div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.25rem; font-size: 0.825rem;">
+              <div>
+                <span style="color: var(--text-muted);">Included Plant Count:</span><br>
+                <strong style="color: var(--text-primary);">${s.includedPlants}</strong>
+              </div>
+              <div>
+                <span style="color: var(--text-muted);">Subscription Started:</span><br>
+                <strong style="color: var(--text-primary);">${s.startDate}</strong>
+              </div>
+              <div>
+                <span style="color: var(--text-muted);">Next Renewal Date:</span><br>
+                <strong style="color: var(--brand-primary);">${s.renewalDate}</strong>
+              </div>
+              <div>
+                <span style="color: var(--text-muted);">Replacement Guarantee:</span><br>
+                <strong style="color: var(--success);">100% Free Coverage Active</strong>
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('btnRenewSub').onclick = () => {
+          window.GreenSpaceUserDashboard.showToast(`Subscription ${s.subscriptionId} renewal confirmed for another 12-month period!`);
+        };
+
+        document.getElementById('btnCancelSub').onclick = () => {
+          if (confirm(`Are you sure you want to cancel ${s.planName} (${s.subscriptionId})? Your plant care and replacement coverage will terminate at the end of the billing cycle.`)) {
+            s.status = 'CANCELLED';
+            localStorage.setItem('gs_user_subscriptions', JSON.stringify(subs));
+            window.GreenSpaceUserDashboard.showToast(`Subscription ${s.subscriptionId} cancellation recorded.`);
+            renderSubscription();
+          }
+        };
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      document.getElementById('btnUpgradePlan').onclick = () => {
+        window.GreenSpaceUserDashboard.openModal('changePlanModal');
+      };
+
+      document.querySelectorAll('.select-tier-btn').forEach(btn => {
+        btn.onclick = () => {
+          const tier = btn.getAttribute('data-tier');
+          document.getElementById('selectedPlanTier').value = tier;
+          window.GreenSpaceUserDashboard.openModal('changePlanModal');
+        };
+      });
+
+      document.getElementById('changePlanForm').onsubmit = (e) => {
+        e.preventDefault();
+        const tier = document.getElementById('selectedPlanTier').value;
+        if (subs[0]) {
+          subs[0].planName = tier;
+          subs[0].planTier = tier === 'Botanical Campus' ? 'Campus Executive' : 'Standard Office';
+          localStorage.setItem('gs_user_subscriptions', JSON.stringify(subs));
+          window.GreenSpaceUserDashboard.closeModal('changePlanModal');
+          window.GreenSpaceUserDashboard.showToast(`Subscription successfully updated to ${tier}!`);
+          renderSubscription();
+        }
+      };
+
+      renderSubscription();
+    });
+  </script>
+</body>
+</html>

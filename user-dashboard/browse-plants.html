@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Indoor Plants | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">
+              GreenSpace
+              <span class="brand-portal-pill">User</span>
+            </span>
+            <span class="brand-tagline">Client Plant Hub</span>
+          </div>
+        </div>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Browse Plant Catalog</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <!-- Header -->
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>Browse Indoor Plant Catalog</h1>
+            <p>Select nursery-conditioned indoor botanical specimens, designer containers, and automated care schedules for your office.</p>
+          </div>
+          <div class="page-actions-group">
+            <a href="bookings.html" class="btn btn-secondary">
+              <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+              <span>View Current Bookings</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="filter-toolbar">
+          <div class="search-box-wrap">
+            <i data-lucide="search" class="search-icon-inside"></i>
+            <input type="text" id="plantSearchInput" class="search-input" placeholder="Search by botanical or common name...">
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+            <!-- Category Filter Pills -->
+            <div class="filter-pills-group" id="categoryFilterPills">
+              <button type="button" class="filter-pill-btn active" data-category="ALL">All Categories</button>
+              <button type="button" class="filter-pill-btn" data-category="Floor Specimen">Floor Specimen</button>
+              <button type="button" class="filter-pill-btn" data-category="Air Purifying">Air Purifying</button>
+              <button type="button" class="filter-pill-btn" data-category="Desktop & Mid-Tier">Desktop & Mid-Tier</button>
+              <button type="button" class="filter-pill-btn" data-category="Low Light">Low Light</button>
+              <button type="button" class="filter-pill-btn" data-category="Event Statement">Event Statement</button>
+            </div>
+
+            <!-- Sort dropdown -->
+            <select id="sortSelect" class="form-control" style="width: auto; padding: 0.45rem 0.85rem; border-radius: var(--radius-pill); font-size: 0.775rem;">
+              <option value="featured">Sort: Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name-asc">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Empty State (hidden by default) -->
+        <div id="noResultsState" class="empty-state" style="display: none;">
+          <div class="empty-icon-wrap">
+            <i data-lucide="search-x" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h3 class="empty-title">No matching indoor plants found</h3>
+          <p class="empty-desc">Try adjusting your search keywords or switching category filters to view our available botanicals.</p>
+          <button type="button" id="resetFiltersBtn" class="btn btn-secondary btn-sm">Reset All Filters</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Plant Booking / Details Modal -->
+  <div id="bookingModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3 id="modalPlantTitle" class="modal-title">Configure Plant Rental</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: flex; gap: 1.25rem; margin-bottom: 1.5rem; align-items: flex-start;">
+          <img id="modalPlantImage" src="" alt="Plant preview" style="width: 120px; height: 120px; border-radius: var(--radius-md); object-fit: cover; flex-shrink: 0;">
+          <div>
+            <span id="modalPlantCategory" class="plant-category-tag">FLOOR SPECIMEN</span>
+            <h4 id="modalPlantName" style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text-primary);">Plant Name</h4>
+            <p id="modalPlantDesc" style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 0.5rem;">Description</p>
+            <div style="display: flex; gap: 0.75rem; font-size: 0.75rem; color: var(--brand-primary); font-weight: 600;">
+              <span id="modalPlantLight">Light: Bright Indirect</span>
+              <span>•</span>
+              <span id="modalPlantSize">Size: 4 - 5 ft</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="rentalBookingForm">
+          <input type="hidden" id="formPlantId">
+          <input type="hidden" id="formPlantPrice">
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Rental Duration / Commitment</label>
+              <select id="formRentalDuration" class="form-control" required>
+                <option value="12">12 Months (Corporate Annual - Best Rate)</option>
+                <option value="6">6 Months (Flexible Season)</option>
+                <option value="1">1 Month (Short-Term Event)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Quantity (Specimen Plants)</label>
+              <input type="number" id="formPlantQuantity" class="form-control" min="1" max="50" value="5" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Target Delivery & Setup Date</label>
+              <input type="date" id="formDeliveryDate" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Designer Planter Vessel</label>
+              <select id="formPlanterChoice" class="form-control">
+                <option value="Architectural Matte Charcoal Ceramic">Architectural Matte Charcoal Ceramic</option>
+                <option value="Minimalist Fiberstone Off-White Cylinders">Minimalist Fiberstone Off-White Cylinders</option>
+                <option value="Sub-irrigation Terracotta Vessels">Sub-irrigation Terracotta Vessels</option>
+                <option value="Brushed Brass Metallic Planters">Brushed Brass Metallic Planters</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Installation Zone & Special Instructions</label>
+            <textarea id="formInstallNotes" class="form-control" style="min-height: 60px;" placeholder="e.g. 3 units in executive boardroom, 2 units in reception area. Elevator access available."></textarea>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 1rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Estimated Monthly Rental</span>
+              <div id="modalCalculatedTotal" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--brand-primary);">₹4,250 / mo</div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); text-align: right;">
+              Includes White-Glove Installation<br>& Free Routine Replacement
+            </div>
+          </div>
+
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; padding-bottom: 0; margin-top: 1.25rem;">
+            <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+            <button type="submit" class="btn btn-primary">
+              <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+              <span>Confirm & Book Rental</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      const plants = dataStore.getCatalogPlants();
+      const catalogGrid = document.getElementById('catalogGrid');
+      const searchInput = document.getElementById('plantSearchInput');
+      const sortSelect = document.getElementById('sortSelect');
+      const categoryPills = document.querySelectorAll('#categoryFilterPills button');
+      const noResultsEl = document.getElementById('noResultsState');
+
+      let currentCategory = 'ALL';
+      let searchQuery = '';
+      let currentSort = 'featured';
+
+      // Set default delivery date to +5 days from today
+      const defaultDate = new Date();
+      defaultDate.setDate(defaultDate.getDate() + 5);
+      const deliveryInput = document.getElementById('formDeliveryDate');
+      if (deliveryInput) {
+        deliveryInput.value = defaultDate.toISOString().split('T')[0];
+        deliveryInput.min = new Date().toISOString().split('T')[0];
+      }
+
+      function renderCatalog() {
+        let filtered = plants.filter(plant => {
+          const matchCat = (currentCategory === 'ALL') || (plant.category === currentCategory);
+          const matchSearch = plant.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              plant.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              plant.environment.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchCat && matchSearch;
+        });
+
+        // Sorting
+        if (currentSort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+        else if (currentSort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+        else if (currentSort === 'name-asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+        if (filtered.length === 0) {
+          catalogGrid.style.display = 'none';
+          noResultsEl.style.display = 'flex';
+          return;
+        }
+
+        catalogGrid.style.display = 'grid';
+        noResultsEl.style.display = 'none';
+
+        catalogGrid.innerHTML = filtered.map(plant => `
+          <div class="plant-card">
+            <div class="plant-image-wrap">
+              <span class="status-pill status-healthy plant-badge-overlay">${plant.tag}</span>
+              <img src="${plant.image}" alt="${plant.name}" loading="lazy">
+            </div>
+
+            <div class="plant-card-body">
+              <span class="plant-category-tag">${plant.category}</span>
+              <h3 class="plant-title">${plant.name}</h3>
+              <p class="plant-desc">${plant.description}</p>
+
+              <div class="plant-specs-row">
+                <span class="plant-spec-item" title="Size">
+                  <i data-lucide="maximize-2" style="width: 13px; height: 13px;"></i>
+                  <span>${plant.size}</span>
+                </span>
+                <span class="plant-spec-item" title="Light Requirement">
+                  <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
+                  <span>${plant.light.split(' ')[0]} Light</span>
+                </span>
+              </div>
+
+              <div class="plant-card-footer">
+                <div class="plant-price-block">
+                  <span class="plant-price-amount">₹${plant.price}</span>
+                  <span class="plant-price-cycle">per plant / month</span>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm btn-open-booking" data-id="${plant.id}">
+                  <span>Rent Plant</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        // Bind booking modal triggers
+        document.querySelectorAll('.btn-open-booking').forEach(btn => {
+          btn.onclick = () => {
+            const plantId = btn.getAttribute('data-id');
+            const p = plants.find(item => item.id === plantId);
+            if (p) openBookingModal(p);
+          };
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function openBookingModal(p) {
+        document.getElementById('modalPlantTitle').textContent = `Book ${p.name}`;
+        document.getElementById('modalPlantImage').src = p.image;
+        document.getElementById('modalPlantCategory').textContent = p.category;
+        document.getElementById('modalPlantName').textContent = p.name;
+        document.getElementById('modalPlantDesc').textContent = p.description;
+        document.getElementById('modalPlantLight').textContent = `Light: ${p.light}`;
+        document.getElementById('modalPlantSize').textContent = `Size: ${p.size}`;
+        document.getElementById('formPlantId').value = p.id;
+        document.getElementById('formPlantPrice').value = p.price;
+
+        calculateModalTotal();
+        window.GreenSpaceUserDashboard.openModal('bookingModal');
+      }
+
+      function calculateModalTotal() {
+        const unitPrice = parseFloat(document.getElementById('formPlantPrice').value || 0);
+        const qty = parseInt(document.getElementById('formPlantQuantity').value || 1);
+        const total = unitPrice * qty;
+        document.getElementById('modalCalculatedTotal').textContent = `₹${total.toLocaleString('en-IN')} / mo`;
+      }
+
+      document.getElementById('formPlantQuantity').oninput = calculateModalTotal;
+      document.getElementById('formRentalDuration').onchange = calculateModalTotal;
+
+      // Handle booking form submission
+      document.getElementById('rentalBookingForm').onsubmit = (e) => {
+        e.preventDefault();
+        const plantId = document.getElementById('formPlantId').value;
+        const plant = plants.find(p => p.id === plantId);
+        const qty = parseInt(document.getElementById('formPlantQuantity').value);
+        const duration = document.getElementById('formRentalDuration').value;
+        const deliveryDate = document.getElementById('formDeliveryDate').value;
+        const planter = document.getElementById('formPlanterChoice').value;
+        const notes = document.getElementById('formInstallNotes').value;
+
+        const booking = dataStore.addBooking({
+          service: `${plant ? plant.name : 'Indoor Plant Rental'} (${qty} Units)`,
+          scheduledDeliveryDate: deliveryDate,
+          itemsCount: qty,
+          totalAmount: (plant ? plant.price : 850) * qty * (duration === '12' ? 12 : (duration === '6' ? 6 : 1)),
+          planterType: planter,
+          installNotes: notes,
+          duration: `${duration} Months`
+        });
+
+        window.GreenSpaceUserDashboard.closeModal('bookingModal');
+        window.GreenSpaceUserDashboard.showToast(`Rental booking ${booking.bookingId} created successfully!`);
+
+        setTimeout(() => {
+          window.location.href = 'bookings.html';
+        }, 1200);
+      };
+
+      // Search input listener
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        renderCatalog();
+      });
+
+      // Category filters
+      categoryPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryPills.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.getAttribute('data-category');
+          renderCatalog();
+        });
+      });
+
+      // Sort select
+      sortSelect.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        renderCatalog();
+      });
+
+      document.getElementById('resetFiltersBtn').onclick = () => {
+        searchQuery = '';
+        searchInput.value = '';
+        currentCategory = 'ALL';
+        categoryPills.forEach(b => b.classList.remove('active'));
+        categoryPills[0].classList.add('active');
+        currentSort = 'featured';
+        sortSelect.value = 'featured';
+        renderCatalog();
+      };
+
+      renderCatalog();
+    });
+  </script>
+</body>
+</html>

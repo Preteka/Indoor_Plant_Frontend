@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customers | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="customers" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark"><img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" /></div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item active" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <span class="bc-portal">GreenSpace</span>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">Customers</span>
+            </nav>
+          </div>
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                CLIENT DIRECTORY
+              </p>
+              <h2 class="heading-glow">Customers</h2>
+              <p>Manage corporate accounts, active plant rentals, contacts and service agreements.</p>
+            </div>
+            <div class="page-header-actions">
+              <label class="search-box compact">
+                <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="search" placeholder="Search customers..." />
+              </label>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="card panel reveal">
+            <div class="table-wrap">
+              <table class="admin-table" aria-label="Customers table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Key Contact</th>
+                    <th>Active Rentals</th>
+                    <th>Bookings</th>
+                    <th>Payment Status</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">GS</span>
+                        <div><strong>GreenTech Solutions</strong></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="line-height: 1.3;">
+                        <strong>Riya Shah</strong><br />
+                        <span style="color: var(--text-secondary); font-size: 0.8rem;">riya@greentech.solutions</span>
+                      </div>
+                    </td>
+                    <td><strong>4 Locations</strong></td>
+                    <td>6 Completed</td>
+                    <td><span class="status-pill success">On Time</span></td>
+                    <td><span class="status-pill success">Active</span></td>
+                    <td><a class="link-button" href="customer-details.html">View Profile →</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">BE</span>
+                        <div><strong>Bloom Events</strong></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="line-height: 1.3;">
+                        <strong>Neha Patel</strong><br />
+                        <span style="color: var(--text-secondary); font-size: 0.8rem;">neha@bloomevents.in</span>
+                      </div>
+                    </td>
+                    <td><strong>2 Locations</strong></td>
+                    <td>3 Completed</td>
+                    <td><span class="status-pill warning">Pending</span></td>
+                    <td><span class="status-pill info">Active</span></td>
+                    <td><a class="link-button" href="customer-details.html">View Profile →</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">NL</span>
+                        <div><strong>Northwind Labs</strong></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="line-height: 1.3;">
+                        <strong>Arun Nair</strong><br />
+                        <span style="color: var(--text-secondary); font-size: 0.8rem;">arun@northwindlabs.com</span>
+                      </div>
+                    </td>
+                    <td><strong>3 Locations</strong></td>
+                    <td>4 Completed</td>
+                    <td><span class="status-pill success">Paid</span></td>
+                    <td><span class="status-pill success">Active</span></td>
+                    <td><a class="link-button" href="customer-details.html">View Profile →</a></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <span class="customer-avatar-badge">UD</span>
+                        <div><strong>UrbanDesk Pvt Ltd</strong></div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="line-height: 1.3;">
+                        <strong>Meera Rao</strong><br />
+                        <span style="color: var(--text-secondary); font-size: 0.8rem;">meera@urbandesk.co</span>
+                      </div>
+                    </td>
+                    <td><strong>5 Locations</strong></td>
+                    <td>8 Completed</td>
+                    <td><span class="status-pill warning">Due</span></td>
+                    <td><span class="status-pill warning">Review</span></td>
+                    <td><a class="link-button" href="customer-details.html">View Profile →</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,638 @@
+/* ==========================================================================
+   GreenSpace Rentals - Enhanced Responsive System (320px - 1600px+)
+   ========================================================================== */
+
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER — Fixed Overlay System
+   The drawer MUST be a fixed overlay, never in the document flow.
+   Hidden by default on ALL screen sizes; shown only when .active / .is-open is added.
+   Completely suppressed on desktop (≥ 1024px) via display:none !important.
+   ========================================================================== */
+
+/* Backdrop / dimmed overlay behind the drawer */
+#mobileNavBackdrop,
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;                        /* top:0 right:0 bottom:0 left:0 */
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.32s ease, visibility 0.32s ease;
+}
+
+#mobileNavBackdrop.active,
+#mobileNavBackdrop.is-open,
+.mobile-nav-backdrop.active,
+.mobile-nav-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Slide-in drawer panel */
+#mobileNavDrawer,
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 999;
+  width: min(320px, 85vw);
+  background: var(--surface, #ffffff);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%);     /* Hidden off-screen to the right in LTR */
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#mobileNavDrawer.active,
+#mobileNavDrawer.is-open,
+.mobile-nav-drawer.active,
+.mobile-nav-drawer.is-open {
+  transform: translateX(0);        /* Slide into view */
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* RTL Support for Mobile Drawer */
+[dir="rtl"] #mobileNavDrawer,
+[dir="rtl"] .mobile-nav-drawer {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+  box-shadow: 8px 0 40px rgba(0, 0, 0, 0.18);
+}
+
+[dir="rtl"] #mobileNavDrawer.active,
+[dir="rtl"] #mobileNavDrawer.is-open,
+[dir="rtl"] .mobile-nav-drawer.active,
+[dir="rtl"] .mobile-nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Dark mode drawer background */
+.dark #mobileNavDrawer,
+.dark .mobile-nav-drawer {
+  background: #0f2318;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.45);
+}
+
+[dir="rtl"].dark #mobileNavDrawer,
+[dir="rtl"].dark .mobile-nav-drawer {
+  box-shadow: 8px 0 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   DESKTOP NAVBAR & NAVIGATION LINKS ALIGNMENT (≥ 1024px)
+   Balances the 3-column layout:
+   - Left: Logo aligned to left (flex: 1 1 0%)
+   - Center: Navigation links pill menu centered (flex: 0 0 auto, margin: 0 auto)
+   - Right: RTL, Dark mode, and Profile controls aligned to right (flex: 1 1 0%)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  #mobileNavDrawer,
+  .mobile-nav-drawer,
+  #mobileNavBackdrop,
+  .mobile-nav-backdrop,
+  #mobileMenuToggle,
+  header #mobileMenuToggle,
+  .site-nav-container #mobileMenuToggle,
+  .site-header-fixed #mobileMenuToggle {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .site-header-fixed .site-nav-container,
+  header .site-nav-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  /* Left flank: Logo */
+  .site-nav-container > a:first-child,
+  .site-header-fixed a[href="index.html"] {
+    flex: 1 1 0% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+  }
+
+  /* Center: Navigation Links Pill Menu */
+  .site-nav-container > div:nth-child(2) {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    z-index: 40;
+  }
+
+  /* Right flank: Controls (RTL, Theme, Profile) */
+  .site-nav-container > div:last-child,
+  .site-header-fixed .site-nav-container > div:last-child {
+    flex: 1 1 0% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Specific refinement for 1024px - 1279px (Tablet Landscape & Compact Desktops) */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .site-header-fixed .site-nav-container,
+  header .site-nav-container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Logo: neatly proportioned */
+  .site-nav-container > a:first-child {
+    gap: 0.6rem !important;
+  }
+
+  .site-nav-container > a:first-child > div:first-child {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+  }
+
+  .site-nav-container > a:first-child .font-heading {
+    font-size: 1.1rem !important;
+  }
+
+  /* Center Pill: compact padding and spacing so all 7 links fit comfortably */
+  .site-nav-container > div:nth-child(2) {
+    padding: 0.3rem 0.5rem !important;
+    gap: 0.2rem !important;
+  }
+
+  /* Navigation links: refined padding to prevent overflow or collisions */
+  .site-nav-container > div:nth-child(2) .hero-nav-link {
+    font-size: 0.8125rem !important;
+    padding: 0.35rem 0.65rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Right controls: proportional spacing */
+  .site-nav-container > div:last-child {
+    gap: 0.5rem !important;
+  }
+
+  .site-nav-container .rtl-toggle-btn:not(.drawer-btn),
+  header .rtl-toggle-btn:not(.drawer-btn) {
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 0.65rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .site-nav-container .theme-toggle-btn:not(.drawer-btn),
+  header .theme-toggle-btn:not(.drawer-btn),
+  .profile-icon-btn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE NAVBAR & HAMBURGER SYSTEM (320px - 1023px)
+   Guarantees the hamburger icon is fully visible, clickable, and properly
+   spaced alongside logo, RTL, theme, and profile buttons without horizontal overflow.
+   ========================================================================== */
+@media (max-width: 1023.98px) {
+  /* Ensure mobile hamburger button is strictly visible on all mobile viewports */
+  #mobileMenuToggle,
+  header #mobileMenuToggle,
+  .site-nav-container #mobileMenuToggle,
+  .site-header-fixed #mobileMenuToggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    flex-shrink: 0 !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 50;
+  }
+
+  .dark #mobileMenuToggle,
+  [data-theme="dark"] #mobileMenuToggle {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  #mobileMenuToggle:hover,
+  #mobileMenuToggle:active {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.04);
+  }
+
+  /* Right controls container on mobile - prevent shrinking or wrapping */
+  .site-header-fixed .site-nav-container > div:last-child,
+  header .site-nav-container > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    gap: 0.5rem;
+  }
+}
+
+/* Specific optimizations for Tablet/Small Mobile (below 768px) */
+@media (max-width: 767.98px) {
+  .site-header-fixed {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .site-header-fixed .site-nav-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Compact controls container */
+  .site-header-fixed .site-nav-container > div:last-child,
+  header .site-nav-container > div:last-child {
+    gap: 0.4rem;
+  }
+}
+
+/* Extra Small Devices (Phones, 320px - 480px, including 360px) */
+@media (max-width: 480px) {
+  .site-header-fixed {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .site-header-fixed .site-nav-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Logo branding responsive sizing */
+  .site-nav-container > a:first-child,
+  .site-nav-container a[href="index.html"],
+  .site-header-fixed a[href="index.html"] {
+    gap: 0.5rem !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Logo circular icon */
+  .site-nav-container > a:first-child > div:first-child,
+  .site-nav-container a[href="index.html"] > div:first-child,
+  .site-header-fixed a[href="index.html"] > div:first-child {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0.25rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Brand title text */
+  .site-nav-container > a:first-child .font-heading,
+  .site-nav-container a[href="index.html"] .font-heading,
+  .site-header-fixed a[href="index.html"] .font-heading {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hide the subtitle 'Offices & Events' on small mobile */
+  .site-nav-container > a:first-child .text-\[10px\],
+  .site-nav-container a[href="index.html"] .text-\[10px\],
+  .site-header-fixed a[href="index.html"] .text-\[10px\] {
+    display: none !important;
+  }
+
+  /* Hide the small badge 'Rentals' on very narrow screens (≤ 380px) to guarantee fit */
+  @media (max-width: 380px) {
+    .site-nav-container > a:first-child .font-heading > span,
+    .site-nav-container a[href="index.html"] .font-heading > span,
+    .site-header-fixed a[href="index.html"] .font-heading > span {
+      display: none !important;
+    }
+  }
+
+  /* Right controls responsive spacing */
+  .site-header-fixed .site-nav-container > div:last-child,
+  header .site-nav-container > div:last-child {
+    gap: 0.35rem !important;
+  }
+
+  .site-nav-container .rtl-toggle-btn:not(.drawer-btn),
+  header .rtl-toggle-btn:not(.drawer-btn) {
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 0.55rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .site-nav-container .theme-toggle-btn:not(.drawer-btn),
+  header .theme-toggle-btn:not(.drawer-btn),
+  .profile-icon-btn,
+  #mobileMenuToggle {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+}
+
+/* Ultra Small Devices (320px - 340px) */
+@media (max-width: 340px) {
+  .site-header-fixed .site-nav-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .site-header-fixed .site-nav-container > div:last-child,
+  header .site-nav-container > div:last-child {
+    gap: 0.25rem !important;
+  }
+
+  .site-nav-container .rtl-toggle-btn:not(.drawer-btn),
+  header .rtl-toggle-btn:not(.drawer-btn) {
+    padding: 0 0.4rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  .site-nav-container .theme-toggle-btn:not(.drawer-btn),
+  header .theme-toggle-btn:not(.drawer-btn),
+  .profile-icon-btn,
+  #mobileMenuToggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+}
+
+
+
+/* Base Container Helper */
+.site-container {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Extra Small Devices (Phones, 320px - 480px) */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 2.15rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em;
+  }
+  
+  .hero-subtext {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    padding: 0;
+  }
+  
+  .hero-bottom-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.25rem !important;
+  }
+  
+  .hero-cta-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  
+  .hero-cta-btns a,
+  .hero-cta-btns button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .about-floating-stats {
+    position: static !important;
+    margin-top: 1rem !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+  
+  .compare-wrapper,
+  .compare-interactive-box {
+    min-height: 260px !important;
+    max-height: 340px !important;
+    border-radius: 1.15rem !important;
+  }
+
+  .compare-drag-handle {
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 4px !important;
+  }
+
+  .compare-glass-badge {
+    font-size: 0.65rem !important;
+    padding: 0.25rem 0.65rem !important;
+    top: 0.65rem !important;
+  }
+  .badge-before { left: 0.65rem !important; }
+  .badge-after { right: 0.65rem !important; }
+  
+  .service-asymmetric-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Safe sizing for blooming plants on small screens so they frame nicely */
+  .botanical-plant {
+    transform: scale(0.65);
+    transform-origin: bottom center;
+  }
+  .botanical-plant-center {
+    display: none; /* Hide center plant on tiny mobile to keep CTA text crystal clear */
+  }
+}
+
+/* Small Devices (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hero-headline {
+    font-size: 2.85rem !important;
+    line-height: 1.15 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.05rem !important;
+  }
+  
+  .hero-bottom-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .about-floating-stats {
+    position: static !important;
+    margin-top: 1.5rem !important;
+    transform: none !important;
+  }
+  
+  .compare-wrapper,
+  .compare-interactive-box {
+    min-height: 320px !important;
+    max-height: 400px !important;
+  }
+
+  .botanical-plant {
+    transform: scale(0.8);
+    transform-origin: bottom center;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-headline {
+    font-size: 3.75rem !important;
+    line-height: 1.12 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.15rem !important;
+  }
+
+  .service-asymmetric-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) {
+  .hero-headline {
+    font-size: 4.6rem !important;
+    line-height: 1.08 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.2rem !important;
+  }
+
+  .service-asymmetric-grid {
+    grid-template-columns: repeat(12, 1fr) !important;
+  }
+}
+
+/* Large Screens (1440px+) */
+@media (min-width: 1440px) {
+  .hero-headline {
+    font-size: 5.4rem !important;
+    line-height: 1.05 !important;
+  }
+  
+  .hero-subtext {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Plant Growth Journey Specific Breakpoints */
+@media (max-width: 767px) {
+  .journey-horizontal-vine {
+    display: none !important;
+  }
+  .journey-step-wrapper {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .journey-step-wrapper:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 2rem;
+    background: linear-gradient(180deg, #10B981, rgba(79, 138, 98, 0.2));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .journey-grid-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2.5rem 1.5rem !important;
+  }
+  .journey-horizontal-vine {
+    display: none !important;
+  }
+}
+
+/* About Page Specific Responsive Helpers */
+@media (max-width: 640px) {
+  .about-hero-plant-container {
+    max-width: 340px !important;
+  }
+  .about-plant-img {
+    max-height: 360px !important;
+  }
+  .about-plant-hint-badge {
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-hero-plant-container {
+    max-width: 420px !important;
+  }
+  .about-plant-img {
+    max-height: 400px !important;
+  }
+}
+
+

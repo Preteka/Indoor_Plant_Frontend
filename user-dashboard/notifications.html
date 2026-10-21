@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications & Alerts | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">
+              GreenSpace
+              <span class="brand-portal-pill">User</span>
+            </span>
+            <span class="brand-tagline">Client Plant Hub</span>
+          </div>
+        </div>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Notifications Center</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>Notification Center</h1>
+            <p>Real-time delivery milestones, care appointment alerts, health audit notices, and subscription invoices.</p>
+          </div>
+          <div class="page-actions-group">
+            <button type="button" id="btnMarkAllRead" class="btn btn-secondary">
+              <i data-lucide="check-check" style="width: 16px; height: 16px;"></i>
+              <span>Mark All as Read</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-pills-group" id="notifStatusFilters">
+            <button type="button" class="filter-pill-btn active" data-filter="ALL">All Alerts</button>
+            <button type="button" class="filter-pill-btn" data-filter="UNREAD">Unread</button>
+            <button type="button" class="filter-pill-btn" data-filter="READ">Read</button>
+          </div>
+        </div>
+
+        <!-- Notifications Container -->
+        <div class="dashboard-card">
+          <div class="card-body" id="notificationsList" style="padding: 1rem;">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      let notifications = dataStore.getNotifications();
+      const listEl = document.getElementById('notificationsList');
+      const filterPills = document.querySelectorAll('#notifStatusFilters button');
+
+      let currentFilter = 'ALL';
+
+      function renderNotifications() {
+        const filtered = notifications.filter(n => {
+          if (currentFilter === 'UNREAD') return !n.read;
+          if (currentFilter === 'READ') return n.read;
+          return true;
+        });
+
+        if (filtered.length === 0) {
+          listEl.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon-wrap">
+                <i data-lucide="bell-off" style="width: 32px; height: 32px;"></i>
+              </div>
+              <h3 class="empty-title">No notifications</h3>
+              <p class="empty-desc">You are all caught up on your plant rental updates and alerts.</p>
+            </div>
+          `;
+          if (window.lucide) window.lucide.createIcons();
+          return;
+        }
+
+        const iconMap = {
+          maintenance: { icon: 'wrench', bg: 'var(--warning-soft)', color: 'var(--warning)' },
+          health: { icon: 'heart-pulse', bg: 'var(--info-soft)', color: 'var(--info)' },
+          booking: { icon: 'truck', bg: 'var(--success-soft)', color: 'var(--success)' },
+          payment: { icon: 'receipt', bg: 'var(--brand-soft)', color: 'var(--brand-primary)' }
+        };
+
+        listEl.innerHTML = filtered.map(n => {
+          const conf = iconMap[n.type] || { icon: 'bell', bg: 'var(--surface-muted)', color: 'var(--text-primary)' };
+          const unreadStyle = !n.read ? 'background: var(--surface-muted); border-left: 4px solid var(--brand-primary);' : 'background: var(--surface);';
+
+          return `
+            <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.15rem; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 0.75rem; ${unreadStyle}">
+              <div style="width: 42px; height: 42px; border-radius: 50%; background: ${conf.bg}; color: ${conf.color}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="${conf.icon}" style="width: 20px; height: 20px;"></i>
+              </div>
+
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; flex-wrap: wrap; gap: 0.5rem;">
+                  <h4 style="font-size: 0.925rem; font-weight: 700; color: var(--text-primary);">${n.title}</h4>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">${n.timestamp}</span>
+                    ${!n.read ? `<button type="button" class="btn-mark-single-read" data-id="${n.id}" style="font-size: 0.7rem; color: var(--brand-primary); font-weight: 600; cursor: pointer;">Mark Read</button>` : ''}
+                  </div>
+                </div>
+
+                <p style="font-size: 0.825rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 0.5rem;">
+                  ${n.message}
+                </p>
+
+                ${n.link ? `
+                  <a href="${n.link}" style="font-size: 0.775rem; color: var(--brand-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+                    <span>View Details</span>
+                    <i data-lucide="arrow-right" style="width: 13px; height: 13px;"></i>
+                  </a>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Bind single mark read
+        document.querySelectorAll('.btn-mark-single-read').forEach(btn => {
+          btn.onclick = () => {
+            const id = btn.getAttribute('data-id');
+            dataStore.markNotificationRead(id);
+            notifications = dataStore.getNotifications();
+            renderNotifications();
+            updateUnreadBadges();
+          };
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function updateUnreadBadges() {
+        const unreadCount = notifications.filter(n => !n.read).length;
+        document.querySelectorAll('.unread-notification-count').forEach(el => {
+          if (unreadCount > 0) {
+            el.textContent = unreadCount;
+            el.style.display = 'flex';
+          } else {
+            el.style.display = 'none';
+          }
+        });
+      }
+
+      document.getElementById('btnMarkAllRead').onclick = () => {
+        dataStore.markAllNotificationsRead();
+        notifications = dataStore.getNotifications();
+        window.GreenSpaceUserDashboard.showToast('All notifications marked as read.');
+        renderNotifications();
+        updateUnreadBadges();
+      };
+
+      filterPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterPills.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-filter');
+          renderNotifications();
+        });
+      });
+
+      renderNotifications();
+    });
+  </script>
+</body>
+</html>

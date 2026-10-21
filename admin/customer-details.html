@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Details | GreenSpace Rentals Admin</title>
+    <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body data-page="customer-details" data-protected="true">
+    <div class="admin-shell">
+      <aside class="admin-sidebar" id="adminSidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark"><img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" /></div>
+          <div class="brand-copy">
+            <div class="brand-title-wrap">
+              <span>GreenSpace</span>
+              <span class="admin-badge-pill">Admin</span>
+            </div>
+            <small>Botanical Business Portal</small>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin menu">
+          <a class="admin-nav-item" href="dashboard.html"><span>Dashboard</span></a>
+          <a class="admin-nav-item" href="requests.html"><span>Requests</span></a>
+          <a class="admin-nav-item" href="bookings.html"><span>Bookings</span></a>
+          <a class="admin-nav-item" href="maintenance.html"><span>Maintenance</span></a>
+          <a class="admin-nav-item active" href="customers.html"><span>Customers</span></a>
+          <a class="admin-nav-item" href="blog.html"><span>Blog</span></a>
+          <a class="admin-nav-item" href="payments.html"><span>Payments</span></a>
+          <a class="admin-nav-item" href="settings.html"><span>Settings</span></a>
+          <button class="admin-nav-item admin-logout" type="button"><span>Logout</span></button>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <div class="topbar-left">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+            <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+              <a href="customers.html" class="bc-portal">Customers</a>
+              <span class="bc-sep">/</span>
+              <span class="bc-current">GreenTech Solutions</span>
+            </nav>
+          </div>
+          <div class="topbar-actions">
+            <button class="theme-toggle toolbar-btn" type="button" aria-label="Toggle theme">Dark</button>
+            <button class="rtl-toggle toolbar-btn" type="button" aria-label="Toggle direction">RTL</button>
+            <div class="profile-pill" title="Admin Account">
+              <span class="avatar">A</span>
+              <span>Admin</span>
+              <svg class="profile-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </header>
+
+        <main class="admin-page">
+          <section class="page-header soft-panel reveal">
+            <div class="page-header-copy">
+              <p class="eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                CORPORATE ACCOUNT
+              </p>
+              <h2 class="heading-glow">GreenTech Solutions</h2>
+              <p>Riya Shah • riya@greentech.solutions • Indiranagar, Bengaluru, India</p>
+            </div>
+            <div class="page-header-actions inline-action-stack">
+              <button class="btn btn-ghost" type="button">Edit Profile</button>
+              <a class="btn btn-primary" href="requests.html">
+                <svg class="btn-icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>New Request</span>
+              </a>
+            </div>
+            <div class="botanical-graphic" aria-hidden="true">
+              <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                <path class="stem" d="M10 75 C 50 60, 80 30, 120 35 S 180 30, 210 10" />
+                <path class="leaf" d="M80 42 C 90 28, 105 26, 110 35 C 105 45, 90 48, 80 42 Z" />
+                <path class="leaf" d="M130 34 C 142 20, 158 18, 162 28 C 154 38, 138 40, 130 34 Z" />
+                <path class="leaf" d="M180 20 C 190 8, 205 6, 210 14 C 204 22, 190 24, 180 20 Z" />
+              </svg>
+            </div>
+          </section>
+
+          <section class="card panel reveal">
+            <div class="customer-profile-summary">
+              <div class="profile-meta"><span>Contact Person</span><strong>Riya Shah</strong></div>
+              <div class="profile-meta"><span>Email Address</span><strong>riya@greentech.solutions</strong></div>
+              <div class="profile-meta"><span>Phone Number</span><strong>+91 98765 43210</strong></div>
+              <div class="profile-meta"><span>Corporate Hub</span><strong>Bengaluru HQ</strong></div>
+              <div class="profile-meta"><span>Customer Since</span><strong>January 2024</strong></div>
+            </div>
+
+            <div class="tab-list" role="tablist" aria-label="Customer tabs">
+              <button class="tab active" type="button" data-tab="overview">Account Overview</button>
+              <button class="tab" type="button" data-tab="requests">Service Requests (2)</button>
+              <button class="tab" type="button" data-tab="bookings">Bookings (6)</button>
+              <button class="tab" type="button" data-tab="maintenance">Plant Health Log</button>
+              <button class="tab" type="button" data-tab="payments">Billing & Ledger</button>
+            </div>
+
+            <div class="tab-panels">
+              <div class="tab-panel active" data-panel="overview">
+                <div class="info-grid">
+                  <div><dt>Active Specimen Rentals</dt><dd>4 Dedicated Office Zones (28 plants)</dd></div>
+                  <div><dt>Open Service Requests</dt><dd>2 Pending Quote Review</dd></div>
+                  <div><dt>Scheduled Maintenance Visits</dt><dd>Fortnightly (Next: 22 Oct 2026)</dd></div>
+                  <div><dt>Account Health Status</dt><dd><span class="status-pill success">Active & In Good Standing</span></dd></div>
+                </div>
+              </div>
+              <div class="tab-panel" data-panel="requests">
+                <div class="list-rows">
+                  <div class="request-row">
+                    <span class="customer-avatar-badge">GS</span>
+                    <div class="request-meta"><strong>Request #GS-1024</strong><span>Office Plant Rental (Boardroom & Reception)</span></div>
+                    <div class="request-meta"><strong>08 Oct 2026</strong><span>₹18,500</span></div>
+                    <span class="status-pill info">Quote Sent</span>
+                    <a class="link-button" href="request-details.html">View →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-panel" data-panel="bookings">
+                <div class="booking-list">
+                  <div class="booking-item">
+                    <span class="customer-avatar-badge">GS</span>
+                    <div class="request-meta"><strong>Booking BK-2041</strong><span>Office Installation & Planter Placement</span></div>
+                    <div class="request-meta"><strong>08 Oct 2026</strong><span>10:30 AM</span></div>
+                    <span class="status-pill success">Confirmed</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-panel" data-panel="maintenance">
+                <div class="info-grid">
+                  <div><dt>Overall Plant Health</dt><dd><span class="status-pill success">Healthy (98% Vibrant)</span></dd></div>
+                  <div><dt>Horticulturist Assigned</dt><dd>Field Team 2 (Lead: Rajesh Verma)</dd></div>
+                  <div style="grid-column: span 2;"><dt>Last Visit Summary</dt><dd>All 28 plants inspected, soil moisture balanced, foliage sanitized, leaf polish applied.</dd></div>
+                </div>
+              </div>
+              <div class="tab-panel" data-panel="payments">
+                <div class="info-grid">
+                  <div><dt>Total Revenue Realized</dt><dd>₹2,10,000</dd></div>
+                  <div><dt>Pending Invoice</dt><dd>₹18,500 (Due on Installation)</dd></div>
+                  <div><dt>Preferred Payment Method</dt><dd>Corporate Bank Transfer / UPI</dd></div>
+                  <div><dt>Payment Status</dt><dd><span class="status-pill success">On Time</span></dd></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+    <script src="js/admin-data.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

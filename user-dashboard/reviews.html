@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Reviews & Feedback | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">
+              GreenSpace
+              <span class="brand-portal-pill">User</span>
+            </span>
+            <span class="brand-tagline">Client Plant Hub</span>
+          </div>
+        </div>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Service Reviews</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>My Reviews & Service Feedback</h1>
+            <p>Rate completed plant deliveries and routine care visits to help our horticultural team maintain quality standards.</p>
+          </div>
+          <div class="page-actions-group">
+            <button type="button" id="btnOpenWriteReview" class="btn btn-primary">
+              <i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i>
+              <span>Write a Review</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Eligible Service Banner -->
+        <div class="dashboard-card" style="background: linear-gradient(135deg, var(--surface) 0%, var(--surface-muted) 100%); border-left: 4px solid var(--accent); margin-bottom: 2rem;">
+          <div class="card-body" style="padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <div>
+              <span class="status-pill status-completed" style="font-size: 0.68rem; margin-bottom: 0.3rem;">Service Completed</span>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">
+                Quarterly Greenery Refresh & Soil Replacement (GS-B0984)
+              </h3>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">
+                Completed by Elena Vance on 15 September 2026. How was your experience with plant styling?
+              </p>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm trigger-review-completed" data-ref="GS-B0984" data-title="Quarterly Greenery Refresh">
+              <span>Review This Service</span>
+              <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Submitted Reviews List -->
+        <div class="dashboard-card">
+          <div class="card-header-bar">
+            <div class="card-title">
+              <i data-lucide="star" style="width: 18px; height: 18px; color: var(--accent);"></i>
+              <span>Your Previously Submitted Reviews</span>
+            </div>
+            <span class="status-pill status-healthy">Verified Client Reviews</span>
+          </div>
+
+          <div class="card-body" id="reviewsListContainer">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Write Review Modal -->
+  <div id="writeReviewModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 540px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Share Your Service Experience</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="submitReviewForm">
+          <div class="form-group">
+            <label class="form-label">Completed Service / Rental</label>
+            <select id="reviewServiceSelect" class="form-control" required>
+              <option value="GS-B0984|Quarterly Greenery Refresh">Quarterly Greenery Refresh & Soil Aeration (GS-B0984)</option>
+              <option value="MNT-2026-398|Routine Plant Care & Foliage Polish">Routine Plant Care & Foliage Polish (14 Oct 2026)</option>
+              <option value="GS-B1025|Office Plant Rental Initial Setup">Office Plant Rental Initial Consultation & Staging</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Overall Rating</label>
+            <div class="star-rating-wrap" id="starRatingSelector">
+              <span class="star-btn filled" data-val="1">★</span>
+              <span class="star-btn filled" data-val="2">★</span>
+              <span class="star-btn filled" data-val="3">★</span>
+              <span class="star-btn filled" data-val="4">★</span>
+              <span class="star-btn filled" data-val="5">★</span>
+            </div>
+            <input type="hidden" id="selectedStarValue" value="5">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Service Aspects Highlighted</label>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <label style="font-size: 0.775rem; display: flex; align-items: center; gap: 0.35rem; background: var(--surface-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-pill); cursor: pointer;">
+                <input type="checkbox" name="aspects" value="Punctuality" checked> Punctuality
+              </label>
+              <label style="font-size: 0.775rem; display: flex; align-items: center; gap: 0.35rem; background: var(--surface-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-pill); cursor: pointer;">
+                <input type="checkbox" name="aspects" value="Plant Health & Glow" checked> Plant Health & Glow
+              </label>
+              <label style="font-size: 0.775rem; display: flex; align-items: center; gap: 0.35rem; background: var(--surface-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-pill); cursor: pointer;">
+                <input type="checkbox" name="aspects" value="Professional Team" checked> Professional Team
+              </label>
+              <label style="font-size: 0.775rem; display: flex; align-items: center; gap: 0.35rem; background: var(--surface-muted); padding: 0.35rem 0.65rem; border-radius: var(--radius-pill); cursor: pointer;">
+                <input type="checkbox" name="aspects" value="Clean Workspace Installation"> Clean Workday Setup
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Written Feedback</label>
+            <textarea id="reviewFeedbackText" class="form-control" required placeholder="Describe your experience with our plants, delivery care, and horticultural specialist..." style="min-height: 90px;"></textarea>
+          </div>
+
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
+            <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+            <button type="submit" class="btn btn-primary">
+              <i data-lucide="send" style="width: 15px; height: 15px;"></i>
+              <span>Submit Review</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      let reviews = dataStore.getReviews();
+      const listContainer = document.getElementById('reviewsListContainer');
+
+      function renderReviews() {
+        if (!reviews || reviews.length === 0) {
+          listContainer.innerHTML = `
+            <div class="empty-state">
+              <h3 class="empty-title">No Reviews Submitted Yet</h3>
+              <p class="empty-desc">You have not submitted reviews for any completed rental services yet.</p>
+            </div>
+          `;
+          return;
+        }
+
+        listContainer.innerHTML = reviews.map(r => `
+          <div style="padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 1rem; background: var(--surface);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <span style="font-size: 1.25rem; color: var(--accent); letter-spacing: 2px;">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-top: 0.2rem;">${r.serviceTitle}</h3>
+                <span style="font-size: 0.72rem; color: var(--text-muted);">Ref: ${r.bookingRef} • Submitted on ${r.date}</span>
+              </div>
+              <span class="status-pill status-healthy" style="font-size: 0.68rem;">Verified Review</span>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem;">
+              "${r.feedback}"
+            </p>
+
+            ${r.aspects ? `
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                ${r.aspects.map(a => `<span style="font-size: 0.7rem; background: var(--surface-muted); color: var(--brand-primary); font-weight: 600; padding: 0.2rem 0.55rem; border-radius: var(--radius-pill); border: 1px solid var(--border);">${a}</span>`).join('')}
+              </div>
+            ` : ''}
+
+            ${r.companyReply ? `
+              <div style="background: var(--brand-soft); border-left: 3px solid var(--brand-primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.8rem; margin-top: 0.5rem;">
+                <strong style="color: var(--brand-primary);">GreenSpace Response:</strong>
+                <p style="color: var(--text-secondary); margin-top: 0.15rem;">${r.companyReply}</p>
+              </div>
+            ` : ''}
+          </div>
+        `).join('');
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      // Star rating hover & click interactions
+      const stars = document.querySelectorAll('#starRatingSelector .star-btn');
+      const starInput = document.getElementById('selectedStarValue');
+
+      stars.forEach(s => {
+        s.onmouseenter = () => {
+          const val = parseInt(s.getAttribute('data-val'));
+          stars.forEach(other => {
+            const oVal = parseInt(other.getAttribute('data-val'));
+            if (oVal <= val) other.classList.add('hover');
+            else other.classList.remove('hover');
+          });
+        };
+
+        s.onmouseleave = () => {
+          stars.forEach(other => other.classList.remove('hover'));
+        };
+
+        s.onclick = () => {
+          const val = parseInt(s.getAttribute('data-val'));
+          starInput.value = val;
+          stars.forEach(other => {
+            const oVal = parseInt(other.getAttribute('data-val'));
+            if (oVal <= val) other.classList.add('filled');
+            else other.classList.remove('filled');
+          });
+        };
+      });
+
+      // Write review modal trigger
+      document.getElementById('btnOpenWriteReview').onclick = () => {
+        window.GreenSpaceUserDashboard.openModal('writeReviewModal');
+      };
+
+      document.querySelectorAll('.trigger-review-completed').forEach(btn => {
+        btn.onclick = () => {
+          window.GreenSpaceUserDashboard.openModal('writeReviewModal');
+        };
+      });
+
+      // Form submission
+      document.getElementById('submitReviewForm').onsubmit = (e) => {
+        e.preventDefault();
+        const [ref, title] = document.getElementById('reviewServiceSelect').value.split('|');
+        const rating = parseInt(document.getElementById('selectedStarValue').value || 5);
+        const feedback = document.getElementById('reviewFeedbackText').value.trim();
+        const aspects = Array.from(document.querySelectorAll('input[name="aspects"]:checked')).map(el => el.value);
+
+        if (feedback.length < 10) {
+          alert('Please enter at least 10 characters of feedback.');
+          return;
+        }
+
+        dataStore.addReview({
+          serviceTitle: title,
+          bookingRef: ref,
+          rating: rating,
+          feedback: feedback,
+          aspects: aspects
+        });
+
+        reviews = dataStore.getReviews();
+        window.GreenSpaceUserDashboard.closeModal('writeReviewModal');
+        window.GreenSpaceUserDashboard.showToast('Thank you! Your verified review has been submitted.');
+        renderReviews();
+      };
+
+      renderReviews();
+    });
+  </script>
+</body>
+</html>
