@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings & Orders | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="https://preteka.github.io/Indoor_Plant_Frontend/index.html" class="sidebar-brand" aria-label="Go to GreenSpace public website" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <span class="brand-name">GreenSpace</span>
+        </a>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://preteka.github.io/Indoor_Plant_Frontend/index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">My Bookings</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>My Bookings & Rental Orders</h1>
+            <p>Track your scheduled white-glove plant installations, delivery dates, and order fulfillment status.</p>
+          </div>
+          <div class="page-actions-group">
+            <a href="browse-plants.html" class="btn btn-primary">
+              <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+              <span>Book New Rental</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-pills-group" id="bookingStatusFilters">
+            <button type="button" class="filter-pill-btn active" data-status="ALL">All Bookings</button>
+            <button type="button" class="filter-pill-btn" data-status="CONFIRMED">Confirmed</button>
+            <button type="button" class="filter-pill-btn" data-status="PENDING">Pending</button>
+            <button type="button" class="filter-pill-btn" data-status="COMPLETED">Completed</button>
+            <button type="button" class="filter-pill-btn" data-status="CANCELLED">Cancelled</button>
+          </div>
+
+          <div class="search-box-wrap" style="max-width: 320px;">
+            <i data-lucide="search" class="search-icon-inside"></i>
+            <input type="text" id="bookingSearchInput" class="search-input" placeholder="Search by ID, plant or address...">
+          </div>
+        </div>
+
+        <!-- Bookings Table Panel -->
+        <div class="dashboard-card">
+          <div class="table-responsive-wrapper">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Booking Ref</th>
+                  <th>Service / Rental Details</th>
+                  <th>Booking Date</th>
+                  <th>Delivery Date</th>
+                  <th>Order Status</th>
+                  <th>Payment</th>
+                  <th>Total Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTableBody">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="noBookingsState" class="empty-state" style="display: none;">
+          <div class="empty-icon-wrap">
+            <i data-lucide="calendar-x" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h3 class="empty-title">No bookings found</h3>
+          <p class="empty-desc">You do not currently have any bookings under this criteria.</p>
+          <a href="browse-plants.html" class="btn btn-primary btn-sm">Explore Plants & Book Rental</a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Booking View Details Modal -->
+  <div id="bookingDetailModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 id="modalBookingId" class="modal-title">Booking Details</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBookingContent">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close-trigger">Close</button>
+        <button type="button" id="btnRescheduleBooking" class="btn btn-secondary">Reschedule</button>
+        <button type="button" id="btnCancelBooking" class="btn btn-danger">Cancel Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div id="rescheduleModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Reschedule Delivery Date</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.825rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Select a new preferred installation date. Our dispatch team will confirm delivery slot within 2 business hours.
+        </p>
+        <form id="rescheduleForm">
+          <input type="hidden" id="rescheduleBookingId">
+          <div class="form-group">
+            <label class="form-label">New Target Delivery Date</label>
+            <input type="date" id="newDeliveryDateInput" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Reason for Rescheduling</label>
+            <textarea id="rescheduleReasonInput" class="form-control" placeholder="e.g. Office floor renovation ongoing" style="min-height: 70px;"></textarea>
+          </div>
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
+            <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+            <button type="submit" class="btn btn-primary">Confirm Reschedule</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      let bookings = dataStore.getBookings();
+      const tableBody = document.getElementById('bookingsTableBody');
+      const searchInput = document.getElementById('bookingSearchInput');
+      const filterPills = document.querySelectorAll('#bookingStatusFilters button');
+      const emptyState = document.getElementById('noBookingsState');
+
+      let currentStatus = 'ALL';
+      let searchQuery = '';
+
+      function renderBookings() {
+        const filtered = bookings.filter(b => {
+          const matchStatus = (currentStatus === 'ALL') || (b.status === currentStatus);
+          const matchSearch = b.bookingId.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              (b.service && b.service.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                              (b.deliveryAddress && b.deliveryAddress.toLowerCase().includes(searchQuery.toLowerCase()));
+          return matchStatus && matchSearch;
+        });
+
+        if (filtered.length === 0) {
+          tableBody.parentElement.parentElement.style.display = 'none';
+          emptyState.style.display = 'flex';
+          return;
+        }
+
+        tableBody.parentElement.parentElement.style.display = 'block';
+        emptyState.style.display = 'none';
+
+        tableBody.innerHTML = filtered.map(b => {
+          const statusClass = b.status.toLowerCase() === 'confirmed' ? 'status-confirmed' :
+                             (b.status.toLowerCase() === 'completed' ? 'status-completed' :
+                             (b.status.toLowerCase() === 'cancelled' ? 'status-cancelled' : 'status-pending'));
+
+          const paymentClass = b.paymentStatus === 'PAID' ? 'status-paid' : 'status-due';
+
+          return `
+            <tr>
+              <td>
+                <span style="font-weight: 700; color: var(--brand-primary); font-family: var(--font-heading);">${b.bookingId}</span>
+              </td>
+              <td>
+                <div style="font-weight: 600; color: var(--text-primary);">${b.service || 'Plant Rental'}</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">${b.team || 'Installation Team'}</div>
+              </td>
+              <td>${b.bookingDate || '02 Oct 2026'}</td>
+              <td>
+                <div style="font-weight: 600;">${b.scheduledDeliveryDate || 'TBD'}</div>
+              </td>
+              <td>
+                <span class="status-pill ${statusClass}">${b.status}</span>
+              </td>
+              <td>
+                <span class="status-pill ${paymentClass}">${b.paymentStatus || 'PAID'}</span>
+              </td>
+              <td>
+                <span style="font-weight: 700;">₹${(b.totalAmount || 33790).toLocaleString('en-IN')}</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-secondary btn-sm btn-view-booking" data-id="${b.bookingId}">
+                  <span>Details</span>
+                  <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.btn-view-booking').forEach(btn => {
+          btn.onclick = () => {
+            const b = bookings.find(item => item.bookingId === btn.getAttribute('data-id'));
+            if (b) openBookingDetails(b);
+          };
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function openBookingDetails(b) {
+        document.getElementById('modalBookingId').textContent = `Booking Reference: ${b.bookingId}`;
+        document.getElementById('modalBookingContent').innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <span class="status-pill status-${b.status.toLowerCase()}">${b.status}</span>
+              <span class="status-pill status-${b.paymentStatus === 'PAID' ? 'paid' : 'due'}" style="margin-left: 0.4rem;">${b.paymentStatus}</span>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Booked: ${b.bookingDate}</span>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 1rem;">
+            <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Service Specification</div>
+            <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">${b.service}</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Crew: ${b.team}</div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.825rem;">
+            <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm);">
+              <strong>Scheduled Delivery:</strong><br>${b.scheduledDeliveryDate}
+            </div>
+            <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm);">
+              <strong>Order Total:</strong><br>₹${(b.totalAmount || 33790).toLocaleString('en-IN')}
+            </div>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.825rem; margin-bottom: 1rem;">
+            <strong>Delivery & Setup Destination:</strong><br>
+            <span style="color: var(--text-secondary);">${b.deliveryAddress || '742 Evergreen Business Park, Tech Zone, Coimbatore'}</span>
+          </div>
+        `;
+
+        const canModify = (b.status === 'CONFIRMED' || b.status === 'PENDING');
+        const reschedBtn = document.getElementById('btnRescheduleBooking');
+        const cancelBtn = document.getElementById('btnCancelBooking');
+
+        reschedBtn.style.display = canModify ? 'inline-flex' : 'none';
+        cancelBtn.style.display = canModify ? 'inline-flex' : 'none';
+
+        reschedBtn.onclick = () => {
+          window.GreenSpaceUserDashboard.closeModal('bookingDetailModal');
+          document.getElementById('rescheduleBookingId').value = b.bookingId;
+          const minDate = new Date();
+          minDate.setDate(minDate.getDate() + 2);
+          document.getElementById('newDeliveryDateInput').min = minDate.toISOString().split('T')[0];
+          document.getElementById('newDeliveryDateInput').value = minDate.toISOString().split('T')[0];
+          window.GreenSpaceUserDashboard.openModal('rescheduleModal');
+        };
+
+        cancelBtn.onclick = () => {
+          if (confirm(`Are you sure you want to cancel booking ${b.bookingId}?`)) {
+            b.status = 'CANCELLED';
+            localStorage.setItem('gs_customer_bookings', JSON.stringify(bookings));
+            window.GreenSpaceUserDashboard.closeModal('bookingDetailModal');
+            window.GreenSpaceUserDashboard.showToast(`Booking ${b.bookingId} has been cancelled.`);
+            renderBookings();
+          }
+        };
+
+        window.GreenSpaceUserDashboard.openModal('bookingDetailModal');
+      }
+
+      // Handle Reschedule form submission
+      document.getElementById('rescheduleForm').onsubmit = (e) => {
+        e.preventDefault();
+        const bookingId = document.getElementById('rescheduleBookingId').value;
+        const newDate = document.getElementById('newDeliveryDateInput').value;
+        const b = bookings.find(item => item.bookingId === bookingId);
+        if (b) {
+          b.scheduledDeliveryDate = new Date(newDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+          localStorage.setItem('gs_customer_bookings', JSON.stringify(bookings));
+          window.GreenSpaceUserDashboard.closeModal('rescheduleModal');
+          window.GreenSpaceUserDashboard.showToast(`Booking ${b.bookingId} delivery rescheduled to ${b.scheduledDeliveryDate}!`);
+          renderBookings();
+        }
+      };
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        renderBookings();
+      });
+
+      filterPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterPills.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentStatus = btn.getAttribute('data-status');
+          renderBookings();
+        });
+      });
+
+      renderBookings();
+    });
+  </script>
+</body>
+</html>

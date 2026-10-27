@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments & Tax Invoices | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="https://preteka.github.io/Indoor_Plant_Frontend/index.html" class="sidebar-brand" aria-label="Go to GreenSpace public website" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <span class="brand-name">GreenSpace</span>
+        </a>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://preteka.github.io/Indoor_Plant_Frontend/index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Payments & Invoices</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>Billing History & Tax Invoices</h1>
+            <p>Download official GST invoices, track corporate plant subscriptions, and review itemized payment receipts.</p>
+          </div>
+        </div>
+
+        <!-- Filter Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-pills-group" id="paymentStatusFilters">
+            <button type="button" class="filter-pill-btn active" data-status="ALL">All Transactions</button>
+            <button type="button" class="filter-pill-btn" data-status="PAID">Paid</button>
+            <button type="button" class="filter-pill-btn" data-status="PENDING">Pending</button>
+            <button type="button" class="filter-pill-btn" data-status="REFUNDED">Refunded</button>
+          </div>
+
+          <div class="search-box-wrap" style="max-width: 320px;">
+            <i data-lucide="search" class="search-icon-inside"></i>
+            <input type="text" id="paymentSearchInput" class="search-input" placeholder="Search by invoice or ref...">
+          </div>
+        </div>
+
+        <!-- Payments Table -->
+        <div class="dashboard-card">
+          <div class="table-responsive-wrapper">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Invoice No</th>
+                  <th>Transaction Ref</th>
+                  <th>Related Service / Order</th>
+                  <th>Date</th>
+                  <th>Payment Method</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="paymentsTableBody">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Professional Tax Invoice Modal -->
+  <div id="invoiceModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 680px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="brand-logo-wrap" style="width: 34px; height: 34px;">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <div>
+            <h3 id="modalInvoiceTitle" class="modal-title" style="font-size: 1.1rem;">Tax Invoice INV-2026-081</h3>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">GreenSpace Botanical Rentals Pvt Ltd</span>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" id="invoiceModalBody">
+        <!-- Injected -->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close-trigger">Close</button>
+        <button type="button" id="btnPrintInvoice" class="btn btn-primary">
+          <i data-lucide="printer" style="width: 15px; height: 15px;"></i>
+          <span>Print / Save PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      const payments = dataStore.getPayments();
+      const user = dataStore.getCurrentUser();
+      const tableBody = document.getElementById('paymentsTableBody');
+      const searchInput = document.getElementById('paymentSearchInput');
+      const filterPills = document.querySelectorAll('#paymentStatusFilters button');
+
+      let currentStatus = 'ALL';
+      let searchQuery = '';
+
+      function renderPayments() {
+        const filtered = payments.filter(p => {
+          const matchStatus = (currentStatus === 'ALL') || (p.status === currentStatus);
+          const matchSearch = p.invoiceNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              p.transactionId.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              p.relatedRef.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchStatus && matchSearch;
+        });
+
+        tableBody.innerHTML = filtered.map(p => {
+          const statusClass = p.status === 'PAID' ? 'status-paid' :
+                             (p.status === 'PENDING' ? 'status-due' : 'status-neutral');
+
+          return `
+            <tr>
+              <td>
+                <span style="font-weight: 700; color: var(--brand-primary); font-family: var(--font-heading);">${p.invoiceNumber}</span>
+              </td>
+              <td>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">${p.transactionId}</span>
+              </td>
+              <td>
+                <div style="font-weight: 600; color: var(--text-primary);">${p.relatedRef}</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">${p.notes || 'Plant rental subscription'}</div>
+              </td>
+              <td>${p.date}</td>
+              <td>
+                <span style="font-size: 0.785rem; color: var(--text-secondary);">${p.paymentMethod}</span>
+              </td>
+              <td>
+                <strong style="color: var(--text-primary);">₹${p.amount.toLocaleString('en-IN')}</strong>
+              </td>
+              <td>
+                <span class="status-pill ${statusClass}">${p.status}</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-secondary btn-sm btn-open-invoice" data-id="${p.invoiceNumber}">
+                  <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+                  <span>Invoice</span>
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.btn-open-invoice').forEach(btn => {
+          btn.onclick = () => {
+            const p = payments.find(item => item.invoiceNumber === btn.getAttribute('data-id'));
+            if (p) openInvoiceModal(p);
+          };
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function openInvoiceModal(p) {
+        document.getElementById('modalInvoiceTitle').textContent = `Tax Invoice ${p.invoiceNumber}`;
+        document.getElementById('invoiceModalBody').innerHTML = `
+          <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); font-size: 0.8rem;">
+            <div>
+              <strong style="color: var(--text-primary);">Billed To:</strong><br>
+              ${user.name}<br>
+              ${user.company}<br>
+              ${user.address || '742 Evergreen Business Park, Tech Zone, Coimbatore'}
+            </div>
+            <div style="text-align: right;">
+              <strong>Invoice Date:</strong> ${p.date}<br>
+              <strong>Payment Status:</strong> <span class="status-pill status-${p.status.toLowerCase()}">${p.status}</span><br>
+              <strong>Transaction Ref:</strong> ${p.transactionId}
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <table style="width: 100%; font-size: 0.825rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border); background: var(--surface-muted);">
+                  <th style="padding: 0.5rem; text-align: left;">Item Description</th>
+                  <th style="padding: 0.5rem; text-align: center;">Qty</th>
+                  <th style="padding: 0.5rem; text-align: right;">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 0.5rem;">
+                    <strong>${p.relatedRef}</strong><br>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">${p.notes}</span>
+                  </td>
+                  <td style="padding: 0.75rem 0.5rem; text-align: center;">1</td>
+                  <td style="padding: 0.75rem 0.5rem; text-align: right;">₹${(p.amount - (p.tax || 0)).toLocaleString('en-IN')}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem; font-size: 0.825rem;">
+            <div style="width: 240px; line-height: 1.8;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">Subtotal:</span>
+                <span>₹${(p.amount - (p.tax || 0)).toLocaleString('en-IN')}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">GST (18%):</span>
+                <span>₹${(p.tax || 2790).toLocaleString('en-IN')}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 0.35rem; font-weight: 700; font-size: 1rem; color: var(--brand-primary);">
+                <span>Total Paid:</span>
+                <span>₹${p.amount.toLocaleString('en-IN')}</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+            This is a computer-generated tax receipt issued by GreenSpace Rentals. No signature required.
+          </div>
+        `;
+
+        document.getElementById('btnPrintInvoice').onclick = () => {
+          window.print();
+        };
+
+        window.GreenSpaceUserDashboard.openModal('invoiceModal');
+      }
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        renderPayments();
+      });
+
+      filterPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterPills.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentStatus = btn.getAttribute('data-status');
+          renderPayments();
+        });
+      });
+
+      renderPayments();
+    });
+  </script>
+</body>
+</html>

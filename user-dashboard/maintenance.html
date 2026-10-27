@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Maintenance & Care | GreenSpace Rentals User Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/greenspace-logo-transparent.png">
+  <link rel="stylesheet" href="css/user-dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="dashboard-shell">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="dashboardSidebar" class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="https://preteka.github.io/Indoor_Plant_Frontend/index.html" class="sidebar-brand" aria-label="Go to GreenSpace public website" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+          <div class="brand-logo-wrap">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo">
+          </div>
+          <span class="brand-name">GreenSpace</span>
+        </a>
+        <button id="sidebarCloseBtn" class="sidebar-close-btn" aria-label="Close sidebar">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="nav-section-label">Main Menu</span>
+        <a href="index.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+            <span>Overview</span>
+          </span>
+        </a>
+        <a href="browse-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="store" class="nav-icon"></i>
+            <span>Browse Plants</span>
+          </span>
+          <span class="nav-badge">Catalog</span>
+        </a>
+        <a href="my-plants.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="sprout" class="nav-icon"></i>
+            <span>My Plants</span>
+          </span>
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="bookings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="calendar-check" class="nav-icon"></i>
+            <span>My Bookings</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Care & Operations</span>
+        <a href="maintenance.html" class="sidebar-nav-link active">
+          <span class="nav-link-content">
+            <i data-lucide="wrench" class="nav-icon"></i>
+            <span>Maintenance</span>
+          </span>
+          <span class="nav-badge badge-dot"></span>
+        </a>
+        <a href="health-reports.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="heart-pulse" class="nav-icon"></i>
+            <span>Health Reports</span>
+          </span>
+        </a>
+        <a href="subscriptions.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="repeat" class="nav-icon"></i>
+            <span>Subscriptions</span>
+          </span>
+        </a>
+        <a href="payments.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="receipt" class="nav-icon"></i>
+            <span>Payments & Invoices</span>
+          </span>
+        </a>
+        <a href="reviews.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="star" class="nav-icon"></i>
+            <span>My Reviews</span>
+          </span>
+        </a>
+
+        <span class="nav-section-label">Account</span>
+        <a href="notifications.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="bell" class="nav-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="nav-badge unread-notification-count" style="display: none;">0</span>
+        </a>
+        <a href="profile.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="user" class="nav-icon"></i>
+            <span>My Profile</span>
+          </span>
+        </a>
+        <a href="settings.html" class="sidebar-nav-link">
+          <span class="nav-link-content">
+            <i data-lucide="settings" class="nav-icon"></i>
+            <span>Settings</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://preteka.github.io/Indoor_Plant_Frontend/index.html" class="sidebar-nav-link" style="color: var(--brand-primary); font-weight: 600;">
+          <span class="nav-link-content">
+            <i data-lucide="arrow-left" class="nav-icon" style="color: var(--brand-primary);"></i>
+            <span>Back to Website</span>
+          </span>
+        </a>
+        <button type="button" class="sidebar-nav-link dashboard-logout-btn" style="color: var(--danger);">
+          <span class="nav-link-content">
+            <i data-lucide="log-out" class="nav-icon" style="color: var(--danger);"></i>
+            <span>Logout</span>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open sidebar menu">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <nav class="topbar-breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">GreenSpace</span>
+            <span class="breadcrumb-sep">/</span>
+            <span class="breadcrumb-active">Maintenance Schedule</span>
+          </nav>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="topbar-btn rtl-toggle-btn" title="Toggle RTL/LTR">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span class="rtl-toggle-text">RTL</span>
+          </button>
+          <button type="button" class="topbar-btn theme-toggle-btn" title="Toggle Dark/Light Mode">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+            <span class="theme-toggle-text">Dark</span>
+          </button>
+          <a href="notifications.html" class="topbar-icon-btn" title="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+            <span class="notification-count-badge unread-notification-count" style="display: none;">0</span>
+          </a>
+
+          <div id="profileDropdownContainer" class="profile-dropdown-container">
+            <div id="topbarProfilePill" class="topbar-profile-pill">
+              <div class="topbar-avatar current-user-avatar">P</div>
+              <span class="topbar-user-name current-user-name">Preteka</span>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+            <div class="profile-dropdown-menu">
+              <div class="dropdown-user-header">
+                <div class="dropdown-user-name current-user-name">Preteka</div>
+                <div class="dropdown-user-email current-user-email">customer@email.com</div>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i data-lucide="user" style="width: 15px; height: 15px;"></i>
+                <span>My Profile</span>
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i data-lucide="settings" style="width: 15px; height: 15px;"></i>
+                <span>Settings</span>
+              </a>
+              <hr style="border: none; border-top: 1px solid var(--border); margin: 0.3rem 0;">
+              <button type="button" class="dropdown-item text-danger dashboard-logout-btn">
+                <i data-lucide="log-out" style="width: 15px; height: 15px;"></i>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="page-header-row">
+          <div class="page-title-group">
+            <h1>Plant Maintenance & Care Visits</h1>
+            <p>Schedule horticultural visits, inspect technician task logs, and ensure uninterrupted plant vitality.</p>
+          </div>
+          <div class="page-actions-group">
+            <button type="button" id="btnOpenScheduleModal" class="btn btn-primary">
+              <i data-lucide="calendar-plus" style="width: 16px; height: 16px;"></i>
+              <span>Schedule Maintenance Visit</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Next Scheduled Visit Highlight Banner -->
+        <div id="nextVisitHighlight" class="dashboard-card" style="background: linear-gradient(135deg, var(--surface) 0%, var(--surface-muted) 100%); border-left: 4px solid var(--brand-primary); margin-bottom: 2rem;">
+          <div class="card-body" style="padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="display: flex; gap: 1.25rem; align-items: center;">
+              <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: var(--brand-soft); color: var(--brand-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="calendar" style="width: 26px; height: 26px;"></i>
+              </div>
+              <div>
+                <span class="status-pill status-scheduled" style="font-size: 0.7rem;">Upcoming Confirmed Visit</span>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin: 0.35rem 0 0.15rem 0; color: var(--text-primary);">
+                  Wednesday, 28 October 2026 • 10:30 AM – 12:30 PM
+                </h3>
+                <p style="font-size: 0.825rem; color: var(--text-secondary);">
+                  Assigned Specialist: <strong>Elena Vance (Senior Horticulturalist)</strong> • Location: <strong>ABC Technologies HQ</strong>
+                </p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button type="button" id="btnRescheduleNext" class="btn btn-secondary btn-sm">Reschedule Slot</button>
+              <button type="button" id="btnViewChecklist" class="btn btn-primary btn-sm">Care Checklist</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maintenance Appointments Table -->
+        <div class="dashboard-card">
+          <div class="card-header-bar">
+            <div class="card-title">
+              <i data-lucide="history" style="width: 18px; height: 18px; color: var(--brand-primary);"></i>
+              <span>All Maintenance Appointments & Service Logs</span>
+            </div>
+            <div class="filter-pills-group" id="mntStatusFilters">
+              <button type="button" class="filter-pill-btn active" data-status="ALL">All</button>
+              <button type="button" class="filter-pill-btn" data-status="SCHEDULED">Scheduled</button>
+              <button type="button" class="filter-pill-btn" data-status="REQUESTED">Requested</button>
+              <button type="button" class="filter-pill-btn" data-status="COMPLETED">Completed</button>
+            </div>
+          </div>
+
+          <div class="table-responsive-wrapper">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Visit Ref</th>
+                  <th>Service Focus</th>
+                  <th>Related Rental</th>
+                  <th>Visit Date & Time</th>
+                  <th>Horticulturist</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="maintenanceTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Schedule Maintenance Modal -->
+  <div id="scheduleVisitModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 560px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Schedule Horticultural Care Visit</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="scheduleMaintenanceForm">
+          <div class="form-group">
+            <label class="form-label">Select Rented Botanical Batch</label>
+            <select id="formMntRentalId" class="form-control" required>
+              <option value="GS-RENT-101">Monstera Deliciosa (15 Units - Boardrooms)</option>
+              <option value="GS-RENT-102">Snake Plant (10 Units - Workstation Dividers)</option>
+              <option value="GS-RENT-103">Fiddle Leaf Fig (2 Units - Manager Cabin)</option>
+              <option value="ALL_CAMPUS">Full Campus Greenery Audit (All 27 Plants)</option>
+            </select>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Preferred Date</label>
+              <input type="date" id="formMntDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time Window</label>
+              <select id="formMntTime" class="form-control" required>
+                <option value="09:00 AM – 11:00 AM">Morning (09:00 AM – 11:00 AM)</option>
+                <option value="11:30 AM – 01:30 PM">Midday (11:30 AM – 01:30 PM)</option>
+                <option value="02:30 PM – 04:30 PM">Afternoon (02:30 PM – 04:30 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Service Type Required</label>
+            <select id="formMntServiceType" class="form-control">
+              <option value="Bi-Weekly Comprehensive Plant Care">Bi-Weekly Routine Care (Watering, Shine & Trim)</option>
+              <option value="Urgent Plant Health Diagnostic Audit">Urgent Foliage Health Check (Leaves Drooping/Yellowing)</option>
+              <option value="Foliage Replacement Under Guarantee">Plant Replacement Request (Zero Fee)</option>
+              <option value="Planter Repositioning & Soil Aeration">Repositioning Closer to Natural Light</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Notes or Observed Foliage Issues</label>
+            <textarea id="formMntNotes" class="form-control" placeholder="Describe any leaf browning, dry soil, or specific office access instructions..." style="min-height: 75px;"></textarea>
+          </div>
+
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
+            <button type="button" class="btn btn-secondary modal-close-trigger">Cancel</button>
+            <button type="submit" class="btn btn-primary">
+              <i data-lucide="calendar-check" style="width: 16px; height: 16px;"></i>
+              <span>Confirm Appointment</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Appointment Details Modal -->
+  <div id="mntDetailModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 540px;">
+      <div class="modal-header">
+        <h3 id="modalMntTitle" class="modal-title">Care Visit Details</h3>
+        <button type="button" class="modal-close-btn modal-close-trigger">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalMntBody">
+        <!-- Injected -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close-trigger">Close</button>
+        <button type="button" id="btnCancelMnt" class="btn btn-danger btn-sm">Cancel Visit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/user-dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataStore = window.GreenSpaceUserDashboard.Data;
+      let maintenanceRecords = dataStore.getMaintenance();
+      const tableBody = document.getElementById('maintenanceTableBody');
+      const filterPills = document.querySelectorAll('#mntStatusFilters button');
+
+      let currentStatus = 'ALL';
+
+      // Set default date to +3 days
+      const minDate = new Date();
+      minDate.setDate(minDate.getDate() + 2);
+      const dateInput = document.getElementById('formMntDate');
+      if (dateInput) {
+        dateInput.min = minDate.toISOString().split('T')[0];
+        dateInput.value = minDate.toISOString().split('T')[0];
+      }
+
+      function renderMaintenance() {
+        const filtered = maintenanceRecords.filter(m => {
+          return (currentStatus === 'ALL') || (m.status === currentStatus);
+        });
+
+        tableBody.innerHTML = filtered.map(m => {
+          const statusClass = m.status === 'SCHEDULED' ? 'status-scheduled' :
+                             (m.status === 'COMPLETED' ? 'status-completed' :
+                             (m.status === 'CANCELLED' ? 'status-cancelled' : 'status-pending'));
+
+          return `
+            <tr>
+              <td>
+                <span style="font-weight: 700; color: var(--brand-primary); font-family: var(--font-heading);">${m.maintenanceId}</span>
+              </td>
+              <td>
+                <div style="font-weight: 600; color: var(--text-primary);">${m.serviceType}</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">${(m.tasks || []).slice(0, 2).join(' • ')}</div>
+              </td>
+              <td>
+                <span class="status-pill status-neutral" style="font-size: 0.7rem;">${m.rentalId}</span>
+              </td>
+              <td>
+                <div style="font-weight: 600;">${m.date}</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">${m.timeWindow}</div>
+              </td>
+              <td>${m.technician || 'Elena Vance'}</td>
+              <td>
+                <span class="status-pill ${statusClass}">${m.status}</span>
+              </td>
+              <td>
+                <button type="button" class="btn btn-secondary btn-sm btn-view-mnt" data-id="${m.maintenanceId}">
+                  <span>View Log</span>
+                  <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.btn-view-mnt').forEach(btn => {
+          btn.onclick = () => {
+            const m = maintenanceRecords.find(item => item.maintenanceId === btn.getAttribute('data-id'));
+            if (m) openMntDetail(m);
+          };
+        });
+
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function openMntDetail(m) {
+        document.getElementById('modalMntTitle').textContent = `Maintenance Log ${m.maintenanceId}`;
+        document.getElementById('modalMntBody').innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span class="status-pill status-${m.status.toLowerCase()}">${m.status}</span>
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);">${m.date}</span>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 1rem;">
+            <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Service Focus</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0.2rem 0;">${m.serviceType}</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Batch Reference: <strong>${m.rentalId}</strong></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.825rem;">
+            <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm);">
+              <strong>Time Slot:</strong><br>${m.timeWindow}
+            </div>
+            <div style="background: var(--surface-muted); padding: 0.75rem; border-radius: var(--radius-sm);">
+              <strong>Assigned Horticulturist:</strong><br>${m.technician}
+            </div>
+          </div>
+
+          <div style="background: var(--surface-muted); padding: 0.85rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem;">Checklist & Action Tasks</div>
+            <ul style="padding-left: 1.25rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">
+              ${(m.tasks || []).map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div style="background: var(--brand-soft); padding: 0.85rem; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--brand-primary); border: 1px solid var(--border-strong);">
+            <strong>Specialist Notes:</strong> ${m.notes || 'Routine botanical care protocol.'}
+          </div>
+        `;
+
+        const cancelBtn = document.getElementById('btnCancelMnt');
+        cancelBtn.style.display = (m.status === 'SCHEDULED' || m.status === 'REQUESTED') ? 'inline-flex' : 'none';
+        cancelBtn.onclick = () => {
+          if (confirm(`Cancel maintenance appointment ${m.maintenanceId}?`)) {
+            m.status = 'CANCELLED';
+            localStorage.setItem('gs_user_maintenance', JSON.stringify(maintenanceRecords));
+            window.GreenSpaceUserDashboard.closeModal('mntDetailModal');
+            window.GreenSpaceUserDashboard.showToast(`Appointment ${m.maintenanceId} cancelled.`);
+            renderMaintenance();
+          }
+        };
+
+        window.GreenSpaceUserDashboard.openModal('mntDetailModal');
+      }
+
+      // Schedule Modal Button
+      document.getElementById('btnOpenScheduleModal').onclick = () => {
+        window.GreenSpaceUserDashboard.openModal('scheduleVisitModal');
+      };
+
+      document.getElementById('btnRescheduleNext').onclick = () => {
+        window.GreenSpaceUserDashboard.openModal('scheduleVisitModal');
+      };
+
+      document.getElementById('btnViewChecklist').onclick = () => {
+        const next = maintenanceRecords[0];
+        if (next) openMntDetail(next);
+      };
+
+      // Form submission
+      document.getElementById('scheduleMaintenanceForm').onsubmit = (e) => {
+        e.preventDefault();
+        const rentalId = document.getElementById('formMntRentalId').value;
+        const date = document.getElementById('formMntDate').value;
+        const time = document.getElementById('formMntTime').value;
+        const service = document.getElementById('formMntServiceType').value;
+        const notes = document.getElementById('formMntNotes').value;
+
+        const formattedDate = new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
+        const newRec = dataStore.scheduleMaintenance({
+          rentalId: rentalId,
+          date: formattedDate,
+          timeWindow: time,
+          serviceType: service,
+          notes: notes
+        });
+
+        maintenanceRecords = dataStore.getMaintenance();
+        window.GreenSpaceUserDashboard.closeModal('scheduleVisitModal');
+        window.GreenSpaceUserDashboard.showToast(`Maintenance visit ${newRec.maintenanceId} scheduled for ${formattedDate}!`);
+        renderMaintenance();
+      };
+
+      filterPills.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterPills.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentStatus = btn.getAttribute('data-status');
+          renderMaintenance();
+        });
+      });
+
+      renderMaintenance();
+    });
+  </script>
+</body>
+</html>
