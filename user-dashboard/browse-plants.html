@@ -242,6 +242,17 @@
           <button type="button" id="resetFiltersBtn" class="btn btn-secondary btn-sm">Reset All Filters</button>
         </div>
       </main>
+
+      <!-- Footer -->
+      <footer class="dashboard-footer" style="padding: 1.5rem; text-align: center; border-top: 1px solid var(--border); margin-top: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;">
+        <a href="../index.html" class="footer-brand" aria-label="GreenSpace Home" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 0.95rem;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--surface-muted); border: 1px solid var(--border);">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <span>GreenSpace</span>
+        </a>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">&copy; 2026 GreenSpace Rentals. All rights reserved.</p>
+      </footer>
     </div>
   </div>
 
@@ -264,7 +275,7 @@
             <p id="modalPlantDesc" style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 0.5rem;">Description</p>
             <div style="display: flex; gap: 0.75rem; font-size: 0.75rem; color: var(--brand-primary); font-weight: 600;">
               <span id="modalPlantLight">Light: Bright Indirect</span>
-              <span>•</span>
+              <span>â€¢</span>
               <span id="modalPlantSize">Size: 4 - 5 ft</span>
             </div>
           </div>
@@ -315,7 +326,7 @@
           <div style="background: var(--surface-muted); padding: 1rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;">
             <div>
               <span style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Estimated Monthly Rental</span>
-              <div id="modalCalculatedTotal" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--brand-primary);">₹4,250 / mo</div>
+              <div id="modalCalculatedTotal" style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--brand-primary);">â‚¹4,250 / mo</div>
             </div>
             <div style="font-size: 0.75rem; color: var(--text-secondary); text-align: right;">
               Includes White-Glove Installation<br>& Free Routine Replacement
@@ -406,7 +417,7 @@
 
               <div class="plant-card-footer">
                 <div class="plant-price-block">
-                  <span class="plant-price-amount">₹${plant.price}</span>
+                  <span class="plant-price-amount">â‚¹${plant.price}</span>
                   <span class="plant-price-cycle">per plant / month</span>
                 </div>
                 <button type="button" class="btn btn-primary btn-sm btn-open-booking" data-id="${plant.id}">
@@ -449,7 +460,7 @@
         const unitPrice = parseFloat(document.getElementById('formPlantPrice').value || 0);
         const qty = parseInt(document.getElementById('formPlantQuantity').value || 1);
         const total = unitPrice * qty;
-        document.getElementById('modalCalculatedTotal').textContent = `₹${total.toLocaleString('en-IN')} / mo`;
+        document.getElementById('modalCalculatedTotal').textContent = `â‚¹${total.toLocaleString('en-IN')} / mo`;
       }
 
       document.getElementById('formPlantQuantity').oninput = calculateModalTotal;

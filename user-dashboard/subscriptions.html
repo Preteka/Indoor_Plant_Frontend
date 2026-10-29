@@ -220,7 +220,7 @@
               <div style="border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; background: var(--surface); display: flex; flex-direction: column;">
                 <span class="status-pill status-neutral" style="align-self: flex-start; margin-bottom: 0.75rem;">Starter Office</span>
                 <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Green Essentials</h3>
-                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">₹4,500 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ month</span></div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">â‚¹4,500 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ month</span></div>
                 <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Ideal for small agencies, boutique studios, and dental/medical reception spaces.</p>
                 <ul style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.25rem;">
                   <li>Up to 8 curated indoor plants</li>
@@ -236,7 +236,7 @@
                 <span class="status-pill status-active" style="position: absolute; top: 1rem; right: 1rem;">YOUR CURRENT PLAN</span>
                 <span class="status-pill status-healthy" style="align-self: flex-start; margin-bottom: 0.75rem;">Enterprise Preferred</span>
                 <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Executive Workplace</h3>
-                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">₹33,790 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ year (billed annually)</span></div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">â‚¹33,790 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ year (billed annually)</span></div>
                 <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Complete corporate botanical package for tech companies and multi-room offices.</p>
                 <ul style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.25rem;">
                   <li>27 Large specimen & mid-tier plants</li>
@@ -252,7 +252,7 @@
               <div style="border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; background: var(--surface); display: flex; flex-direction: column;">
                 <span class="status-pill status-neutral" style="align-self: flex-start; margin-bottom: 0.75rem;">Campus & Multi-Floor</span>
                 <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">Botanical Campus</h3>
-                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">₹65,000 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ year</span></div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--brand-primary); margin: 0.5rem 0;">â‚¹65,000 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ year</span></div>
                 <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Large-scale installations including living green walls and statement atrium palms.</p>
                 <ul style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.25rem;">
                   <li>50+ Specimen indoor trees & plants</li>
@@ -267,6 +267,17 @@
           </div>
         </div>
       </main>
+
+      <!-- Footer -->
+      <footer class="dashboard-footer" style="padding: 1.5rem; text-align: center; border-top: 1px solid var(--border); margin-top: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;">
+        <a href="../index.html" class="footer-brand" aria-label="GreenSpace Home" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-primary); font-weight: 700; font-size: 0.95rem;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--surface-muted); border: 1px solid var(--border);">
+            <img src="../images/greenspace-logo-transparent.png" alt="GreenSpace Logo" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <span>GreenSpace</span>
+        </a>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">&copy; 2026 GreenSpace Rentals. All rights reserved.</p>
+      </footer>
     </div>
   </div>
 
@@ -287,9 +298,9 @@
           <div class="form-group">
             <label class="form-label">Subscription Tier</label>
             <select id="selectedPlanTier" class="form-control">
-              <option value="Green Essentials">Green Essentials (₹4,500/mo)</option>
-              <option value="Executive Workplace" selected>Executive Workplace Annual (₹33,790/yr)</option>
-              <option value="Botanical Campus">Botanical Campus (₹65,000/yr)</option>
+              <option value="Green Essentials">Green Essentials (â‚¹4,500/mo)</option>
+              <option value="Executive Workplace" selected>Executive Workplace Annual (â‚¹33,790/yr)</option>
+              <option value="Botanical Campus">Botanical Campus (â‚¹65,000/yr)</option>
             </select>
           </div>
           <div class="form-group">
@@ -354,8 +365,8 @@
 
               <div style="background: var(--surface-muted); padding: 1.25rem 1.5rem; border-radius: var(--radius-lg); text-align: right; border: 1px solid var(--border);">
                 <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Subscription Fee</div>
-                <div style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; color: var(--brand-primary);">₹${s.amount.toLocaleString('en-IN')}</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">${s.billingFrequency} Billing • Status: <strong>${s.paymentStatus}</strong></div>
+                <div style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; color: var(--brand-primary);">â‚¹${s.amount.toLocaleString('en-IN')}</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">${s.billingFrequency} Billing â€¢ Status: <strong>${s.paymentStatus}</strong></div>
               </div>
             </div>
 
